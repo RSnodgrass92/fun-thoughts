@@ -1,25 +1,25 @@
-import logo from './logo.svg';
+import React, { Component } from 'react';
+import { Navbar, NavbarBrand } from 'reactstrap';
 import './App.css';
+import Footer from "./footer.js";
+import Header from "./header.js";
+import Shelf from "./shelf.js"; 
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+    render() {
+        return (
+            <div className="App">
+              <Header/>
+                <h1 className="col-1 d-flex offset-1 mt-2"><span>Fun</span>Thoughts</h1>
+                <Shelf shelftag="Best Sellers"/>
+                <Shelf shelftag="Mens"/>
+                <Shelf shelftag="Womens"/>
+                <Shelf shelftag="For Everyone"/>
+                <Footer/>
+                
+            </div>
+        );
+    }
 }
 
 export default App;

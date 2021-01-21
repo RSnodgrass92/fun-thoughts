@@ -1,38 +1,67 @@
-.App {
-  text-align: center;
+*{
+  margin:0; 
+  padding:0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+span{
+  color: #EF476F;
+}
+.teeshirt{
+  background: gray;
+  height: 300px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.container{
+  margin-top:10px;
+  margin-bottom:10px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+
+.col{
+  margin-top: 10px;
+  margin-bottom:10px;
+}
+
+.underline{
+  height: 3px; 
+}
+.BestSellers{
+  background:#EF476F; 
   color: white;
+  border:none;
+}
+.BestSellerst{
+  border: solid #EF476F 2px;
+}
+.Mens{
+  background:#FFD166;
+  color: white;
+  border:none;
+}
+.Menst{
+  border: solid #FFD166 2px;
+}
+.Womens{
+  background: #06D6A0;
+  color: white;
+  border:none;
 }
 
-.App-link {
-  color: #61dafb;
+.Womenst{
+  border: solid #06D6A0 2px;
+}
+.ForEveryone{
+  background: #118AB2;
+  color: white;
+  border:none;
+}
+.ForEveryonet{
+  border: solid #118AB2 2px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.outer{
+  color: white; 
+  background: #073B4C;
+  margin:0; 
+  padding:0; 
 }
