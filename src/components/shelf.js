@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {FaArrowRight, FaArrowLeft} from "react-icons/fa"; 
 import Teecard  from "./teecard.js"
 
+
 class Shelf extends Component
 {
   constructor(props)
@@ -30,36 +31,144 @@ class Shelf extends Component
     }
   }; 
 
-
 rightArrow()
 {
-  console.log(this.state.shirt1desc)
-  this.setState({
-    shirt1img: this.props.shirtArr[4].image, 
-    shirt1desc: this.props.shirtArr[4].description,
-    shirt1price: this.props.shirtArr[4].price, 
+  if (this.state.shirt1img===this.props.shirtArr[0].image)
+  {
+    this.setState({
+      shirt1img: this.props.shirtArr[4].image, 
+      shirt1desc: this.props.shirtArr[4].description,
+      shirt1price: this.props.shirtArr[4].price, 
+  
+      shirt2img: this.props.shirtArr[5].image, 
+      shirt2desc: this.props.shirtArr[5].description,
+      shirt2price: this.props.shirtArr[5].price, 
+      
+      shirt3img: this.props.shirtArr[6].image,
+      shirt3desc: this.props.shirtArr[6].description,
+      shirt3price: this.props.shirtArr[6].price, 
+  
+      shirt4img: this.props.shirtArr[7].image, 
+      shirt4desc: this.props.shirtArr[7].description,
+      shirt4price: this.props.shirtArr[7].price, 
+    });
+  }
+  else if (this.state.shirt1img===this.props.shirtArr[4].image)
+  {
+    this.setState({
+      shirt1img: this.props.shirtArr[8].image, 
+      shirt1desc: this.props.shirtArr[8].description,
+      shirt1price: this.props.shirtArr[8].price, 
+      
+      shirt2img: this.props.shirtArr[9].image,
+      shirt2desc: this.props.shirtArr[9].description,
+      shirt2price: this.props.shirtArr[9].price, 
 
-    shirt2img: this.props.shirtArr[5].image, 
-    shirt2desc: this.props.shirtArr[5].description,
-    shirt2price: this.props.shirtArr[5].price, 
-    
-    shirt3img: this.props.shirtArr[6].image,
-    shirt3desc: this.props.shirtArr[6].description,
-    shirt3price: this.props.shirtArr[6].price, 
+      shirt3img: this.props.shirtArr[10].image, 
+      shirt3desc: this.props.shirtArr[10].description,
+      shirt3price: this.props.shirtArr[10].price, 
 
-    shirt4img: this.props.shirtArr[7].image, 
-    shirt4desc: this.props.shirtArr[7].description,
-    shirt4price: this.props.shirtArr[7].price, 
-  })
+      shirt4img: this.props.shirtArr[11].image,
+      shirt4desc: this.props.shirtArr[11].description,
+      shirt4price: this.props.shirtArr[11].price, 
+    });
+  }
+
+  else if (this.state.shirt1img===this.props.shirtArr[8].image)
+  {
+    this.setState({
+      shirt1img: this.props.shirtArr[0].image, 
+      shirt1desc: this.props.shirtArr[0].description,
+      shirt1price: this.props.shirtArr[0].price, 
+      
+      shirt2img: this.props.shirtArr[1].image,
+      shirt2desc: this.props.shirtArr[1].description,
+      shirt2price: this.props.shirtArr[1].price, 
+
+      shirt3img: this.props.shirtArr[2].image, 
+      shirt3desc: this.props.shirtArr[2].description,
+      shirt3price: this.props.shirtArr[2].price, 
+
+      shirt4img: this.props.shirtArr[3].image,
+      shirt4desc: this.props.shirtArr[3].description,
+      shirt4price: this.props.shirtArr[3].price, 
+    });
+  }
+
 }
 
+leftArrow()
+{
+  if (this.state.shirt1img===this.props.shirtArr[0].image)
+  {
+    this.setState({
+      shirt1img: this.props.shirtArr[8].image, 
+      shirt1desc: this.props.shirtArr[8].description,
+      shirt1price: this.props.shirtArr[8].price, 
+      
+      shirt2img: this.props.shirtArr[9].image,
+      shirt2desc: this.props.shirtArr[9].description,
+      shirt2price: this.props.shirtArr[9].price, 
+
+      shirt3img: this.props.shirtArr[10].image, 
+      shirt3desc: this.props.shirtArr[10].description,
+      shirt3price: this.props.shirtArr[10].price, 
+
+      shirt4img: this.props.shirtArr[11].image,
+      shirt4desc: this.props.shirtArr[11].description,
+      shirt4price: this.props.shirtArr[11].price, 
+    });
+  }
+
+  else if (this.state.shirt1img===this.props.shirtArr[8].image)
+  {
+    this.setState({
+      shirt1img: this.props.shirtArr[4].image, 
+      shirt1desc: this.props.shirtArr[4].description,
+      shirt1price: this.props.shirtArr[4].price, 
+  
+      shirt2img: this.props.shirtArr[5].image, 
+      shirt2desc: this.props.shirtArr[5].description,
+      shirt2price: this.props.shirtArr[5].price, 
+      
+      shirt3img: this.props.shirtArr[6].image,
+      shirt3desc: this.props.shirtArr[6].description,
+      shirt3price: this.props.shirtArr[6].price, 
+  
+      shirt4img: this.props.shirtArr[7].image, 
+      shirt4desc: this.props.shirtArr[7].description,
+      shirt4price: this.props.shirtArr[7].price, 
+    });
+  }
+
+  else if (this.state.shirt1img===this.props.shirtArr[4].image)
+  {
+    this.setState({
+      shirt1img: this.props.shirtArr[0].image, 
+      shirt1desc: this.props.shirtArr[0].description,
+      shirt1price: this.props.shirtArr[0].price, 
+      
+      shirt2img: this.props.shirtArr[1].image,
+      shirt2desc: this.props.shirtArr[1].description,
+      shirt2price: this.props.shirtArr[1].price, 
+
+      shirt3img: this.props.shirtArr[2].image, 
+      shirt3desc: this.props.shirtArr[2].description,
+      shirt3price: this.props.shirtArr[2].price, 
+
+      shirt4img: this.props.shirtArr[3].image,
+      shirt4desc: this.props.shirtArr[3].description,
+      shirt4price: this.props.shirtArr[3].price, 
+    });
+  }
+}
 render(){
   return(
     <div className="container">
     <div className="row align-items-center"></div>
     <button className={`col-3 shelftag  ${this.state.cssclass}`}>{this.props.shelftag}</button>
       <span className="col-2 offset-7">
-        <button className="arrowbtn mr-1"><FaArrowLeft className={`${this.state.cssclassa}`}/>   </button><button className="arrowbtn ml-1" onClick={this.rightArrow.bind(this)}><FaArrowRight className={`${this.state.cssclassa}`} /></button></span> 
+        <button className="arrowbtn mr-1" onClick={this.leftArrow.bind(this)}><FaArrowLeft className={`${this.state.cssclassa}`}/>   </button><button className="arrowbtn ml-1" onClick={this.rightArrow.bind(this)}><FaArrowRight className={`${this.state.cssclassa}`} /></button></span> 
     <div className="row">            
     <div className={`underline col-12 my-0  ${this.state.cssclass}`}></div>
     </div>
