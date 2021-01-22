@@ -1,14 +1,21 @@
+
+
 *{
   margin:0; 
   padding:0;
 }
 
+
+input{
+  border-radius: 10px;
+}
 span{
   color: #EF476F;
 }
-.teeshirt{
-  background: gray;
-  height: 300px;
+
+.card-body{
+  background: #464646;
+  color: white;
 }
 
 .container{
@@ -21,18 +28,22 @@ span{
   margin-top: 10px;
   margin-bottom:10px;
 }
+.arrowbtn{
+  border: none;
+  background: white;
 
-.underline{
-  height: 3px; 
 }
+
 .BestSellers{
   background:#EF476F; 
   color: white;
   border:none;
+  font-size: 1.25em;
+
 }
 .BestSellersa{
   color: #EF476F;
-  font-size: 1.5em;
+  font-size: 1.37em;
 }
 .BestSellerst{
   border: solid #EF476F 2px;
@@ -41,10 +52,12 @@ span{
   background:#FFD166;
   color: white;
   border:none;
+  font-size: 1.25em;
+  
 }
 .Mensa{
   color:#FFD166;
-  font-size: 1.5em;
+  font-size: 1.37em;
 }
 .Menst{
   border: solid #FFD166 2px;
@@ -54,10 +67,11 @@ span{
   background: #06D6A0;
   color: white;
   border:none;
+  font-size: 1.25em;
 }
 .Womensa{
   color: #06D6A0;
-  font-size: 1.5em;
+  font-size: 1.37em;
 }
 .Womenst{
   border: solid #06D6A0 2px;
@@ -66,18 +80,23 @@ span{
   background: #118AB2;
   color: white;
   border:none;
+  font-size: 1.25em;
 }
 .ForEveryonea{
   color:#118AB2;
-  font-size: 1.5em;
+  font-size: 1.37em;
 }
 .ForEveryonet{
   border: solid #118AB2 2px;
 }
-
+.underline{
+  height: 3px; 
+  padding: 0px;
+}
 .outer{
   color: white; 
   background: #073B4C;
   margin:0; 
   padding:0; 
 }
+
