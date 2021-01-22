@@ -23,11 +23,14 @@ import  shirt14 from "../teedesigns/shirt14.jpg";
 import  shirt15 from "../teedesigns/shirt15.jpg";
 import  shirt16 from "../teedesigns/shirt16.jpg";
 
-const bestsellersArr= [shirt,shirt2,shirt3,shirt4]; 
-const mensArr= [shirt5, shirt6, shirt7, shirt8]; 
-const womensArr=[shirt9, shirt10, shirt11, shirt12]
-const everyoneArr=[shirt13, shirt14, shirt15, shirt16]
+const bestsellersArr= [{image: shirt, description: "Bestseller one", price: 7}, {image: shirt2, description: "Bestseller two", price: 10}, {image: shirt3, description: "Bestseller three", price: 12}, {image: shirt4, description: "Bestseller4", price: 12}]; 
 
+const mensArr= [{image: shirt5, description: "Mens one", price: 9}, {image: shirt6, description: "Mens two", price: 6}, {image: shirt7, description: "Mens three", price: 11}, {image: shirt8, description: "Mens four", price: 8}]; 
 
+const womensArr=[{image: shirt9, description: "Womens one", price: 7}, {image: shirt10, description: "Womens two", price: 10}, {image: shirt11, description: "Womens three", price: 12}, {image: shirt12, description: "Womens four", price: 7}]; 
+
+const everyoneArr=[{image: shirt13, description: "Everyone one", price: 7}, {image: shirt14, description: "Everyone two", price: 10}, {image: shirt15, description: "Everyone three", price: 12}, {image: shirt16, description: "Everyone four", price: 6}]; 
+
+/*shirt{image: shirt, description: lorem ipsum, price: price}*/
 export {bestsellersArr,mensArr,womensArr,everyoneArr};
 export default bestsellersArr; 
