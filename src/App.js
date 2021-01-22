@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import { Navbar, NavbarBrand } from 'reactstrap';
+import {FaArrowRight, FaArrowLeft} from "react-icons/fa"
 import './App.css';
-import Footer from "./footer.js";
-import Header from "./header.js";
-import Shelf from "./shelf.js"; 
+
+import Header from "./components/header.js";
+import Footer from "./components/footer.js";
+import Shelf from "./components/shelf.js"; 
 
 class App extends Component {
     render() {
@@ -16,10 +18,11 @@ class App extends Component {
                 <Shelf shelftag="Womens"/>
                 <Shelf shelftag="For Everyone"/>
                 <Footer/>
-                
             </div>
         );
     }
 }
+
+
 
 export default App;

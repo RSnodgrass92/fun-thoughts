@@ -30,6 +30,10 @@ span{
   color: white;
   border:none;
 }
+.BestSellersa{
+  color: #EF476F;
+  font-size: 1.5em;
+}
 .BestSellerst{
   border: solid #EF476F 2px;
 }
@@ -38,15 +42,23 @@ span{
   color: white;
   border:none;
 }
+.Mensa{
+  color:#FFD166;
+  font-size: 1.5em;
+}
 .Menst{
   border: solid #FFD166 2px;
 }
+
 .Womens{
   background: #06D6A0;
   color: white;
   border:none;
 }
-
+.Womensa{
+  color: #06D6A0;
+  font-size: 1.5em;
+}
 .Womenst{
   border: solid #06D6A0 2px;
 }
@@ -54,6 +66,10 @@ span{
   background: #118AB2;
   color: white;
   border:none;
+}
+.ForEveryonea{
+  color:#118AB2;
+  font-size: 1.5em;
 }
 .ForEveryonet{
   border: solid #118AB2 2px;
