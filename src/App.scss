@@ -1,0 +1,113 @@
+$main-text-color: #FFFFFF;
+$best-sellers-color: #EF476F; 
+$mens-color: #FFD166;
+$womens-color: #06D6A0; 
+$everyone-color: #118AB2; 
+$card-base-color: #464646;
+$outer-color: #073B4C; 
+
+$shelf-tag-font-size: 1.25em;
+$shelf-arrow-font-size: 1.37em;
+$tcard-border-width: 2px;
+
+*{
+  margin:0; 
+  padding:0;
+}
+
+
+input{
+  border-radius: 10px;
+}
+span{
+  color: $best-sellers-color;
+}
+
+.card-body{
+  background: #464646;
+  color: $main-text-color;
+}
+
+.container{
+  margin-top:10px;
+  margin-bottom:10px;
+}
+
+
+.col{
+  margin-top: 10px;
+  margin-bottom:10px;
+}
+.arrowbtn{
+  border: none;
+  background: $main-text-color;
+
+}
+
+.BestSellers{
+  background:$best-sellers-color; 
+  color: $main-text-color;
+  border:none;
+  font-size: $shelf-tag-font-size;
+
+}
+.BestSellersa{
+  color: $best-sellers-color;
+  font-size: $shelf-arrow-font-size;
+}
+
+.BestSellerst{
+  border: solid $best-sellers-color $tcard-border-width;
+}
+.Mens{
+  background:$mens-color;
+  color: $main-text-color;
+  border:none;
+  font-size: $shelf-tag-font-size;
+  
+}
+.Mensa{
+  color:$mens-color;
+  font-size: $shelf-arrow-font-size;
+}
+.Menst{
+  border: solid $mens-color $tcard-border-width;
+}
+
+.Womens{
+  background: $womens-color;
+  color: $main-text-color;
+  border:none;
+  font-size: $shelf-tag-font-size;
+}
+.Womensa{
+  color: $womens-color;
+  font-size: $shelf-arrow-font-size;
+}
+.Womenst{
+  border: solid $womens-color $tcard-border-width;
+}
+.ForEveryone{
+  background: $everyone-color;
+  color: $main-text-color;
+  border:none;
+  font-size: $shelf-tag-font-size;
+}
+.ForEveryonea{
+  color:$everyone-color;
+  font-size: $shelf-arrow-font-size;
+}
+.ForEveryonet{
+  border: solid $everyone-color $tcard-border-width;
+}
+.underline{
+  height: 3px; 
+  padding: 0px;
+}
+.outer{
+  color: $main-text-color; 
+  background: $outer-color;
+  margin:0; 
+  padding:0; 
+}
+

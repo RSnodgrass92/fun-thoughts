@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import '../App.css';
 import {FaEnvelope,FaShoppingCart, FaUserAlt, FaSearch} from "react-icons/fa"; 
 
 class Header extends Component

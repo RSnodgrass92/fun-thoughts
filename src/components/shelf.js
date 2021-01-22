@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import '../App.css';
 import {FaArrowRight, FaArrowLeft} from "react-icons/fa"; 
 import Teecard  from "./teecard.js"
 
@@ -34,11 +33,23 @@ class Shelf extends Component
 
 rightArrow()
 {
+  console.log(this.state.shirt1desc)
   this.setState({
-    shirt1: this.props.shirtArr[4], 
-    shirt2: this.props.shirtArr[5],
-    shirt3: this.props.shirtArr[6], 
-    shirt4: this.props.shirtArr[7]
+    shirt1img: this.props.shirtArr[4].image, 
+    shirt1desc: this.props.shirtArr[4].description,
+    shirt1price: this.props.shirtArr[4].price, 
+
+    shirt2img: this.props.shirtArr[5].image, 
+    shirt2desc: this.props.shirtArr[5].description,
+    shirt2price: this.props.shirtArr[5].price, 
+    
+    shirt3img: this.props.shirtArr[6].image,
+    shirt3desc: this.props.shirtArr[6].description,
+    shirt3price: this.props.shirtArr[6].price, 
+
+    shirt4img: this.props.shirtArr[7].image, 
+    shirt4desc: this.props.shirtArr[7].description,
+    shirt4price: this.props.shirtArr[7].price, 
   })
 }
 

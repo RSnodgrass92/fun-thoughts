@@ -23,7 +23,7 @@ import  shirt14 from "../teedesigns/shirt14.jpg";
 import  shirt15 from "../teedesigns/shirt15.jpg";
 import  shirt16 from "../teedesigns/shirt16.jpg";
 
-const bestsellersArr= [{image: shirt, description: "Bestseller one", price: 7}, {image: shirt2, description: "Bestseller two", price: 10}, {image: shirt3, description: "Bestseller three", price: 12}, {image: shirt4, description: "Bestseller4", price: 12}]; 
+const bestsellersArr= [{image: shirt, description: "Bestseller one", price: 7}, {image: shirt2, description: "Bestseller two", price: 10}, {image: shirt3, description: "Bestseller three", price: 12}, {image: shirt4, description: "Bestseller4", price: 12},{image: shirt5, description: "Mens one", price: 9}, {image: shirt6, description: "Mens two", price: 6}, {image: shirt7, description: "Mens three", price: 11}, {image: shirt8, description: "Mens four", price: 8}]; 
 
 const mensArr= [{image: shirt5, description: "Mens one", price: 9}, {image: shirt6, description: "Mens two", price: 6}, {image: shirt7, description: "Mens three", price: 11}, {image: shirt8, description: "Mens four", price: 8}]; 
 
