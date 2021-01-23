@@ -6,7 +6,10 @@ import Footer from "./components/footer.js";
 import Shelf from "./components/shelf.js"; 
 import {everyShirt} from "./components/shirtarray.js"
 
-
+console.log(everyShirt)
+//how to sort low high ect
+// const everyLowHigh= everyShirt.sort((a,b)=>a.price-b.price)
+// console.log(everyLowHigh);
 const bestsellersArr= everyShirt.filter(item=>(item.tags.includes("bs") && item.tags.includes("h")))
 const mensArr= everyShirt;
 const womensArr = everyShirt; 

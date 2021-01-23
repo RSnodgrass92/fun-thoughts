@@ -47,7 +47,7 @@ new Shirt (shirt9, "Frog giving peace sign on a blue tee", 14, ["fe","bs","h"]).
 new Shirt (shirt10, "Shark looking for lunch on a blue tee", 13, ["fe","bs","h"]).add(); 
 new Shirt (shirt11, "Pug on a tan tee", 12, ["fe"]).add();
 new Shirt (shirt12, "Lizard giving peace sign on a red tee", 8, ["fe","bs"]).add(); 
-new Shirt (shirt13, "Kitten wraped up in an american flag on a blue tee", 9, ["fe","bs","h"]).add();
+new Shirt (shirt13, "Kitten wrapped up in an american flag on a blue tee", 9, ["fe","bs","h"]).add();
 new Shirt (shirt14, "Golden retriever face on a golden tee", 8, ["fe","bs"]).add();
 new Shirt (shirt15, "Angry cat on a gray tee", 8, ["fe","h"]).add();
 new Shirt (shirt16, "Brown dog on a yellow tee", 10, ["fe","bs"]).add();
