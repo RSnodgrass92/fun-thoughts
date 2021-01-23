@@ -4,7 +4,14 @@ import './App.scss';
 import Header from "./components/header.js";
 import Footer from "./components/footer.js";
 import Shelf from "./components/shelf.js"; 
-import {bestsellersArr, mensArr, womensArr, everyoneArr} from "./components/shirtarray.js"
+import {everyShirt} from "./components/shirtarray.js"
+
+
+const bestsellersArr= everyShirt.filter(item=>(item.tags.includes("bs") && item.tags.includes("h")))
+const mensArr= everyShirt;
+const womensArr = everyShirt; 
+const everyoneArr = everyShirt;
+
 
 class App extends Component {
     render() {

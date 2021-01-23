@@ -9,7 +9,7 @@ class Header extends Component
     }
     render(){
       return(
-        <div className="container-fluid">
+        <div className="container-fluid p-0">
             <div className="row  align-items-center outer">
                 <div className="col-2 "><FaUserAlt />  My Account</div>
                 <div className="col"><FaEnvelope />  Example email address</div>
