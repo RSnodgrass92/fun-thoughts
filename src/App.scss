@@ -15,9 +15,8 @@ $tcard-border-width: 2px;
   padding:0;
 }
 
-
 input{
-  border-radius: 10px;
+  display: inline;
 }
 span{
   color: $best-sellers-color;
@@ -36,8 +35,15 @@ span{
   margin-bottom:10px;
 }
 
+.color-nav{
+  background-color: $outer-color;
+  color: $main-text-color;
+  &:hover{
+    color:#FFD166;
+  }
+}
 
-.col{
+.col-sm{
   margin-top: 10px;
   margin-bottom:10px;
 }
@@ -114,3 +120,7 @@ span{
   padding:0; 
 }
 
+#search-btn
+{
+  margin-left: 20px;
+}

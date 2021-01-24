@@ -7,19 +7,19 @@ class Footer extends Component
     return(
       <div className="container-fluid outer align-items-center">
         <div className="row">
-          <div className="col my-1"><FaPhone /> Phone: (303) 570-6285</div>
+          <div className="col my-1 color-nav"><FaPhone /> Phone: (303) 570-6285</div>
         </div>
         <div className="row">
-          <div className="col my-1"><FaEnvelope />  Email: example@emailhost.com</div>
+          <div className="col my-1 color-nav"><FaEnvelope />  Email: example@emailhost.com</div>
         </div>
         <div className="row">
-          <div className="col my-1"><FaQuestion />  FAQ</div>
+          <div className="col my-1 color-nav"><FaQuestion />  FAQ</div>
         </div>
         <div className="row">
-          <div className="col my-1"><FaInfo />  About Us</div>
+          <div className="col my-1 color-nav "><FaInfo />  About Us</div>
         </div>
         <div className="row">
-          <div className="col my-1"><FaCreditCard /> Payment Methods</div>
+          <div className="col my-1 color-nav"><FaCreditCard /> Payment Methods</div>
         </div>
       </div>
     )

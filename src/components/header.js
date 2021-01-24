@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {FaEnvelope,FaShoppingCart, FaUserAlt, FaSearch} from "react-icons/fa"; 
+import { Navbar, NavbarBrand,Form} from 'reactstrap';
 
 class Header extends Component
 {
@@ -10,15 +11,19 @@ class Header extends Component
     render(){
       return(
         <div className="container-fluid p-0">
-            <div className="row  align-items-center outer">
-                <div className="col-2 "><FaUserAlt />  My Account</div>
-                <div className="col"><FaEnvelope />  Example email address</div>
-                <div className="col"><FaShoppingCart /> Shopping Cart(#)</div>
-                <div className="col-5"> Search <FaSearch />  <input type="text"></input></div>
-            </div>  
+            <Navbar  expand="lg" className="color-nav" >
+            
+            <div className="container-fluid">
+                    <NavbarBrand className="color-nav" href="/"><FaUserAlt /> My Account</NavbarBrand>
+                    <NavbarBrand className="color-nav" href="/"><FaEnvelope /> Example email address</NavbarBrand>
+                    <NavbarBrand className="color-nav" href="/"><FaShoppingCart /> Shopping Cart(#)</NavbarBrand>
+                    <NavbarBrand className="color-nav" href="/"><input className="col-7"></input><button className="color-nav btn btn-outline-light" id="search-btn"><FaSearch/> Search</button></NavbarBrand>
+                </div>
+            </Navbar>  
+
         </div>
       )
     }
   }
 
-  export default Header;
+  export default Header; 

@@ -20,12 +20,14 @@ class App extends Component {
     render() {
         return (
             <div className="App">
-              <Header/>
-                <h1 className="col-1 d-flex offset-1 mt-2"><span>Fun</span>Thoughts</h1>
+                <Header/>
+                <div className="container">
+                <h1 className="col mt-2 text-center "><span>Fun</span>Thoughts</h1>
                 <Shelf shelftag="Best Sellers" shirtArr={bestsellersArr}/>
                 <Shelf shelftag="Mens" shirtArr={mensArr}/>
                 <Shelf shelftag="Womens" shirtArr={womensArr}/>
                 <Shelf shelftag="For Everyone" shirtArr={everyoneArr}/>
+                </div>
                 <Footer/>
             </div>
         );
