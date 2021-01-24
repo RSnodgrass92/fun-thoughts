@@ -6,6 +6,7 @@ import Footer from "./components/footer.js";
 import Shelf from "./components/shelf.js"; 
 import {everyShirt} from "./components/shirtarray.js"
 
+
 console.log(everyShirt)
 //how to sort low high ect
 // const everyLowHigh= everyShirt.sort((a,b)=>a.price-b.price)
@@ -20,7 +21,7 @@ class App extends Component {
     render() {
         return (
             <div className="App">
-                <Header/>
+                <Header />
                 <div className="container">
                 <h1 className="col mt-2 text-center "><span>Fun</span>Thoughts</h1>
                 <Shelf shelftag="Best Sellers" shirtArr={bestsellersArr}/>

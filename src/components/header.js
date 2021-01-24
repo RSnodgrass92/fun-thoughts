@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {FaEnvelope,FaShoppingCart, FaUserAlt, FaSearch} from "react-icons/fa"; 
-import { Navbar, NavbarBrand,Form} from 'reactstrap';
+import {Navbar,Nav,Form,FormControl,Button} from "react-bootstrap";
 
 class Header extends Component
 {
@@ -11,16 +11,23 @@ class Header extends Component
     render(){
       return(
         <div className="container-fluid p-0">
-            <Navbar  expand="lg" className="color-nav" >
-            
-            <div className="container-fluid">
-                    <NavbarBrand className="color-nav" href="/"><FaUserAlt /> My Account</NavbarBrand>
-                    <NavbarBrand className="color-nav" href="/"><FaEnvelope /> Example email address</NavbarBrand>
-                    <NavbarBrand className="color-nav" href="/"><FaShoppingCart /> Shopping Cart(#)</NavbarBrand>
-                    <NavbarBrand className="color-nav" href="/"><input className="col-7"></input><button className="color-nav btn btn-outline-light" id="search-btn"><FaSearch/> Search</button></NavbarBrand>
-                </div>
-            </Navbar>  
-
+              <Navbar collapseOnSelect expand="lg" className="color-nav" variant="dark">
+                <Navbar.Brand href="#home">Fun Thoughts</Navbar.Brand>
+                <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+                <Navbar.Collapse id="responsive-navbar-nav">
+                  <Nav className="mr-auto">
+                    <Nav.Link href="#features"><FaUserAlt/> My Account</Nav.Link>
+                    <Nav.Link href="#pricing"><FaEnvelope/> Example email address</Nav.Link>
+                    <Nav.Link href="#shopping"><FaShoppingCart/> (#)</Nav.Link>
+                  </Nav>
+                  <Nav>
+                  <Form inline>
+                   <FormControl type="text" placeholder="Search" className="mr-sm-2" />
+                   <Button variant="outline-light">Search <FaSearch/></Button>
+                  </Form>
+                  </Nav>
+                </Navbar.Collapse>
+              </Navbar>
         </div>
       )
     }

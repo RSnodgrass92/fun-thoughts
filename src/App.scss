@@ -26,7 +26,7 @@ span{
 }
 
 .card-body{
-  background: #464646;
+  background: $card-base-color;
   color: $main-text-color;
 }
 
@@ -39,7 +39,7 @@ span{
   background-color: $outer-color;
   color: $main-text-color;
   &:hover{
-    color:#FFD166;
+    color:$mens-color;
   }
 }
 
@@ -123,4 +123,7 @@ span{
 #search-btn
 {
   margin-left: 20px;
+  &:hover{
+    color: $outer-color;
+  }
 }
