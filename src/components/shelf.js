@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
 import {FaArrowRight, FaArrowLeft} from "react-icons/fa"; 
 import Teecard  from "./teecard.js"
 

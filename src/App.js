@@ -1,36 +1,38 @@
-import React, { Component } from 'react';
+import { Component } from 'react';
 import './App.scss';
-
-import Header from "./components/header.js";
-import Footer from "./components/footer.js";
-import Shelf from "./components/shelf.js"; 
-import {everyShirt} from "./components/shirtarray.js"
+import {Route, BrowserRouter as Router, Switch, Link} from 'react-router-dom'
 
 
-console.log(everyShirt)
-//how to sort low high ect
-// const everyLowHigh= everyShirt.sort((a,b)=>a.price-b.price)
-// console.log(everyLowHigh);
-const bestsellersArr= everyShirt.filter(item=>(item.tags.includes("bs") && item.tags.includes("h")))
-const mensArr= everyShirt;
-const womensArr = everyShirt; 
-const everyoneArr = everyShirt;
+//Pages 
+import Home from "./pages/home.js"
+import Contact from "./pages/contact.js"
+import About from "./pages/about.js"
+import FAQ from "./pages/faq.js"
+import MyAccount from "./pages/myaccount.js"
+import PaymentMethods from "./pages/paymentmethods.js"
+import ShoppingCart from "./pages/shoppingcart.js"
+//Components
+import Header from "./components/nav.js"
+import Footer from "./components/footer.js"
+
 
 
 class App extends Component {
     render() {
         return (
-            <div className="App">
+            <Router>
                 <Header />
-                <div className="container">
-                <h1 className="col mt-2 text-center "><span>Fun</span>Thoughts</h1>
-                <Shelf shelftag="Best Sellers" shirtArr={bestsellersArr}/>
-                <Shelf shelftag="Mens" shirtArr={mensArr}/>
-                <Shelf shelftag="Womens" shirtArr={womensArr}/>
-                <Shelf shelftag="For Everyone" shirtArr={everyoneArr}/>
-                </div>
-                <Footer/>
-            </div>
+                <Switch>
+                <Route path="/" exact component={Home}/>
+                <Route path="/contact" component={Contact}/>
+                <Route path="/faq" component={FAQ}/>
+                <Route path="/about" component={About}/>
+                <Route path="/myaccount" component={MyAccount}/>
+                <Route path="/paymentmethods" component={PaymentMethods}/>
+                <Route path="/shoppingcart" component={ShoppingCart}/>
+                </Switch>
+                <Footer />
+            </Router>
         );
     }
 }
