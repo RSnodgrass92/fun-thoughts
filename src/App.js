@@ -11,9 +11,14 @@ import FAQ from "./pages/faq.js"
 import MyAccount from "./pages/myaccount.js"
 import PaymentMethods from "./pages/paymentmethods.js"
 import ShoppingCart from "./pages/shoppingcart.js"
+import BestSellers from "./pages/bestsellers.js"
+import Mens from "./pages/mens.js"
+import Womens from "./pages/womens.js"
+import ForEveryone from "./pages/foreveryone.js"
 //Components
 import Header from "./components/nav.js"
 import Footer from "./components/footer.js"
+
 
 
 
@@ -30,6 +35,10 @@ class App extends Component {
                 <Route path="/myaccount" component={MyAccount}/>
                 <Route path="/paymentmethods" component={PaymentMethods}/>
                 <Route path="/shoppingcart" component={ShoppingCart}/>
+                <Route path="/bestsellers" component={BestSellers}/>
+                <Route path="/mens" component={Mens}/>
+                <Route path="/womens" component={Womens}/>
+                <Route path="/foreveryone" component={ForEveryone}/>
                 </Switch>
                 <Footer />
             </Router>

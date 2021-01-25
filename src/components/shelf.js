@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import {FaArrowRight, FaArrowLeft} from "react-icons/fa"; 
 import Teecard  from "./teecard.js"
-
+import {Link} from "react-router-dom"
 
 class Shelf extends Component
 {
@@ -166,9 +166,9 @@ render(){
   return(
     <div className="container">
     <div className="row align-items-center"></div>
-    <button className={`col-7 col-sm-4 col-md-3 shelftag  ${this.state.cssclass}`}>{this.props.shelftag}</button>
+    <Link to={this.props.path}><button className={`col-7 col-sm-4 col-md-3 shelftag  ${this.state.cssclass}`}>{this.props.shelftag}</button></Link>
       <span className="col-3   offset-sm-5 offset-md-7">
-        <button className="arrowbtn mr-1" onClick={this.leftArrow.bind(this)}><FaArrowLeft className={`${this.state.cssclassa}`}/>   </button><button className="arrowbtn ml-1" onClick={this.rightArrow.bind(this)}><FaArrowRight className={`${this.state.cssclassa}`} /></button></span> 
+        <button className="arrowbtn mr-1" onClick={this.leftArrow.bind(this)}><FaArrowLeft className={`${this.state.cssclassa}`}/></button><button className="arrowbtn ml-1" onClick={this.rightArrow.bind(this)}><FaArrowRight className={`${this.state.cssclassa}`} /></button></span> 
     <div className="row">            
     <div className={`underline col-12 my-0  ${this.state.cssclass}`}></div>
     </div>
