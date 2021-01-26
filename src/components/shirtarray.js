@@ -24,6 +24,9 @@ import  shirt23 from "../teedesigns/shirt23.jpg";
 import  shirt24 from "../teedesigns/shirt24.jpg";
 
 //!add alt text for images update tags add additional shirts, model num??
+
+import TeeCard  from "./teecard.js"
+
 class Shirt
 {
     constructor(image, description, price, tags=[])
@@ -49,7 +52,7 @@ new Shirt (shirt3, "Gecko with its tongue out", 10, ["fe","bs","h","m"]).add();
 new Shirt (shirt4, "White cat with its mouth open", 10, ["fe","h","m"]).add(); 
 new Shirt (shirt5, "White dog looking surprised", 6, ["fe","bs","h","m"]).add(); 
 new Shirt (shirt6, "German Shepard on a brown tee", 12, ["fe","bs","h","m"]).add(); 
-new Shirt (shirt7, "Black lab on a black tee", 11, ["fe","h","m","bs"]).add();
+new Shirt (shirt7, "Black lab on a black tee", 11, ["fe","h","m"]).add();
 new Shirt (shirt8, "Yorkie on a brown tee", 8, ["fe","bs","h","m"]).add();
 new Shirt (shirt9, "Frog giving peace sign on a blue tee", 14, ["fe","bs","h","m"]).add(); 
 new Shirt (shirt10, "Shark looking for lunch on a blue tee", 13, ["fe","bs","h","m"]).add(); 
@@ -71,5 +74,49 @@ new Shirt (shirt24, "Rhino tee", 9, ["fe","bs","h","w"]).add();
 
 //const searchtestBS= everyShirt.filter(item => item.tags.includes("bs"))
 //give each one a tag to impliment search functionality, really what we want to do is pass in variables as a prop to our funcntion search tags using regex like above: take in data from the input field and change it to the search field. we need a function to create shirts based on data taken in we can use a factory function for this.
-export {everyShirt};
+
+function filterByTags(array,tagsArr=[],cssclass="")
+{
+    let filteredArr= array;
+    for (let x=0; x<tagsArr.length; x++)
+    {
+        filteredArr = filteredArr.filter(item => item.tags.includes(tagsArr[x]))
+    }
+    
+    const remainder=filteredArr.length%4;
+    const addon=filteredArr.slice(filteredArr.length-remainder, filteredArr.length); 
+    const firstPart= filteredArr.slice(0,filteredArr.length-addon.length)
+    const show=[];
+    const showEnd=[];
+
+    for(let x=0; x<firstPart.length-1; x+=4)
+{
+    show.push(<div className="row">
+        <div className={`col-xs-12 col-sm-6 col-md mx-0 mx-md-1 p-0 mt-1 ${cssclass}`}>
+        <TeeCard shirt={firstPart[x].image}  description={firstPart[x].description} price={firstPart[x].price}></TeeCard>
+        </div>
+        <div className={`col-xs-12 col-sm-6 col-md mx-0 mx-md-1 p-0 mt-1 ${cssclass}`}>
+        <TeeCard shirt={firstPart[x+1].image}  description={firstPart[x+1].description} price={firstPart[x+1].price}></TeeCard>
+        </div>
+        <div className={`col-xs-12 col-sm-6 col-md mx-0 mx-md-1 p-0 mt-1 ${cssclass}`}>
+        <TeeCard shirt={firstPart[x+2].image}  description={firstPart[x+2].description} price={firstPart[x+2].price}></TeeCard>
+        </div>
+        <div className={`col-xs-12 col-sm-6 col-md mx-0 mx-md-1 p-0 mt-1 ${cssclass}`}>
+        <TeeCard shirt={firstPart[x+3].image}  description={firstPart[x+3].description} price={firstPart[x+3].price}></TeeCard>
+        </div>
+        </div> ); 
+}
+
+for(let x=0; x<addon.length;x++)
+{
+  showEnd.push(<div className={`col-xs-12 col-sm-6 col-md-3 mx-0 mx-md-1 p-0 mt-1 ${cssclass}`}>
+  <TeeCard shirt={addon[x].image}  description={addon[x].description} price={addon[x].price}></TeeCard>
+  </div>)
+}
+const output= [show,showEnd]; 
+return output;
+}
+
+
+export {everyShirt, filterByTags};
 export default everyShirt; 
