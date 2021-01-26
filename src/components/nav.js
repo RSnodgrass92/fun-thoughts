@@ -1,13 +1,31 @@
-import { Component } from 'react';
+import React,{ Component } from 'react';
 import {FaEnvelope,FaShoppingCart, FaUserAlt, FaSearch} from "react-icons/fa"; 
 import {Navbar,Nav,Form,FormControl,Button} from "react-bootstrap";
 import {Link} from "react-router-dom"; 
+
+let searchTerms="";
 class Header extends Component
 {
     constructor(props)
     {
       super(props)
+      this.state={
+        value: "" 
+      } 
+      this.handleInputChange=this.handleInputChange.bind(this)
     }
+    
+    findItems = () =>
+    {
+      searchTerms=this.state.value;
+    }
+
+    handleInputChange(event)
+    {
+        this.setState({value: event.target.value});
+    }
+    
+    
     render(){
       return(
         <div className="container-fluid p-0">
@@ -22,8 +40,8 @@ class Header extends Component
                   <Nav>
                   <Nav.Link href="mailto:scott@scott@r-p-services.com" ><FaEnvelope/>Email us at:<br></br>scott@scott@r-p-services.com </Nav.Link>
                   <Form inline>
-                   <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-                   <Button variant="outline-light">Search <FaSearch/></Button>
+                   <FormControl onChange={this.handleInputChange} type="text" placeholder="Search" className="mr-sm-2" />
+                   <Link to="/search"><Button onClick={this.findItems} variant="outline-light">Search <FaSearch/></Button></Link>
                   </Form>
                   </Nav>
                 </Navbar.Collapse>
@@ -33,4 +51,5 @@ class Header extends Component
     }
   }
 
+   export {searchTerms};
   export default Header; 

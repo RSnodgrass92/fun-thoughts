@@ -1,6 +1,6 @@
 import { Component } from 'react'; 
 
-class DisplayByTag extends Component
+class DisplayTees extends Component
 
 {
     constructor(props)
@@ -21,4 +21,4 @@ class DisplayByTag extends Component
       }
 };
 
-export default DisplayByTag; 
+export default DisplayTees; 

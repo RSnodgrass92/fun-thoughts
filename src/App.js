@@ -1,6 +1,6 @@
 import { Component } from 'react';
 import './App.scss';
-import {Route, BrowserRouter as Router, Switch, Link} from 'react-router-dom'
+import {Route, BrowserRouter as Router, Switch} from 'react-router-dom'
 
 
 //Pages 
@@ -15,6 +15,7 @@ import BestSellers from "./pages/bestsellers.js"
 import Mens from "./pages/mens.js"
 import Womens from "./pages/womens.js"
 import ForEveryone from "./pages/foreveryone.js"
+import Search from "./pages/search.js"
 //Components
 import Header from "./components/nav.js"
 import Footer from "./components/footer.js"
@@ -39,6 +40,7 @@ class App extends Component {
                 <Route path="/mens" component={Mens}/>
                 <Route path="/womens" component={Womens}/>
                 <Route path="/foreveryone" component={ForEveryone}/>
+                <Route path="/search" component={Search}/>
                 </Switch>
                 <Footer />
             </Router>

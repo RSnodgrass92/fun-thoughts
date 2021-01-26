@@ -75,14 +75,28 @@ new Shirt (shirt24, "Rhino tee", 9, ["fe","bs","h","w"]).add();
 //const searchtestBS= everyShirt.filter(item => item.tags.includes("bs"))
 //give each one a tag to impliment search functionality, really what we want to do is pass in variables as a prop to our funcntion search tags using regex like above: take in data from the input field and change it to the search field. we need a function to create shirts based on data taken in we can use a factory function for this.
 
-function filterByTags(array,tagsArr=[],cssclass="")
+function filterByTags(array,tagsArr=[])
 {
     let filteredArr= array;
     for (let x=0; x<tagsArr.length; x++)
     {
         filteredArr = filteredArr.filter(item => item.tags.includes(tagsArr[x]))
     }
-    
+ return filteredArr;
+}
+
+
+function filterBySearch(array,searchterm="")
+{
+
+const searchRegex = new RegExp (searchterm,"i")
+const filteredArr= array.filter(index=> searchRegex.test(index.description));
+console.log(filteredArr.length) 
+return filteredArr; 
+}
+
+function display(filteredArr=[],cssclass=""){
+
     const remainder=filteredArr.length%4;
     const addon=filteredArr.slice(filteredArr.length-remainder, filteredArr.length); 
     const firstPart= filteredArr.slice(0,filteredArr.length-addon.length)
@@ -117,6 +131,5 @@ const output= [show,showEnd];
 return output;
 }
 
-
-export {everyShirt, filterByTags};
+export {everyShirt, filterByTags,filterBySearch,display};
 export default everyShirt; 
