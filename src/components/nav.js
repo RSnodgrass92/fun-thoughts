@@ -9,12 +9,15 @@ class Header extends Component
     constructor(props)
     {
       super(props)
+      this.searchBtnRef=React.createRef()
       this.state={
         value: "" 
+        
       } 
-      this.handleInputChange=this.handleInputChange.bind(this)
+      this.handleInputChange=this.handleInputChange.bind(this); 
+      this.handleKeyPress=this.handleKeyPress.bind(this);
     }
-    //? remove this and put on handleInputchange??
+    
     findItems = () =>
     {
       searchTerms=this.state.value;
@@ -22,9 +25,17 @@ class Header extends Component
 
     handleInputChange(event)
     {
+      
         this.setState({value: event.target.value});
     }
     
+    handleKeyPress(event)
+    {
+      if(event.key==="Enter"){
+        event.preventDefault();
+        this.searchBtnRef.current.click();
+      }
+    }
     
     render(){
       return(
@@ -40,8 +51,8 @@ class Header extends Component
                   <Nav>
                   <Nav.Link href="mailto:scott@scott@r-p-services.com" ><FaEnvelope/>Email us at:<br></br>scott@scott@r-p-services.com </Nav.Link>
                   <Form inline>
-                   <FormControl onChange={this.handleInputChange} type="text" placeholder="Search" className="mr-sm-2" />
-                   <Link to="/search"><Button onClick={this.findItems} variant="outline-light">Search <FaSearch/></Button></Link>
+                   <FormControl onKeyPress={this.handleKeyPress} onChange={this.handleInputChange} type="text" placeholder="Search" className="mr-sm-2" />
+                   <Link to="/search"><Button ref={this.searchBtnRef} onClick={this.findItems} variant="outline-light">Search <FaSearch/></Button></Link>
                   </Form>
                   </Nav>
                 </Navbar.Collapse>
