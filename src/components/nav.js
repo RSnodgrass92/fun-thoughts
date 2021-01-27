@@ -14,7 +14,7 @@ class Header extends Component
       } 
       this.handleInputChange=this.handleInputChange.bind(this)
     }
-    
+    //? remove this and put on handleInputchange??
     findItems = () =>
     {
       searchTerms=this.state.value;

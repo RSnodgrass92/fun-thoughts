@@ -3,7 +3,7 @@ import Shelf from "../components/shelf.js";
 import {everyShirt} from "../components/shirtarray.js"
 
 
-
+//! replace with filter methods found in filterbytags
 //how to sort low high ect
 // const everyLowHigh= everyShirt.sort((a,b)=>a.price-b.price)
 // console.log(everyLowHigh);

@@ -10,7 +10,7 @@ class Teecard extends Component
     {
         return(
             <div className="card">
-                <img src={this.props.shirt} className="img img-fluid"/>
+                <img src={this.props.shirt} alt={this.props.altTxt} className="img img-fluid"/>
                 <div className="card-body">
                 <p>{this.props.description}</p>
                 <p>{`Price: $${this.props.price.toFixed(2)}`}</p>
