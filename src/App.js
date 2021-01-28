@@ -21,8 +21,6 @@ import Header from "./components/nav.js"
 import Footer from "./components/footer.js"
 
 
-
-
 class App extends Component {
     render() {
         return (

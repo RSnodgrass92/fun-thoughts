@@ -3,7 +3,7 @@ import DisplayTees from '../components/displaytees.js';
 import {everyShirt,filterByTags,display} from "../components/shirtarray.js";
 
 let filteredArray= filterByTags(everyShirt,["bs"])
-const vals= display(filteredArray)
+const vals= display(filteredArray,"bestSellersTDiv")
 
 class BestSellers extends Component
 

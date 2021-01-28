@@ -2,17 +2,14 @@ import { Component } from 'react';
 import {FaArrowRight, FaArrowLeft} from "react-icons/fa"; 
 import Teecard  from "./teecard.js"
 import {Link} from "react-router-dom"
-//!CHANGE HOW CSS CLASSES ARE APPLIED!!
+
 class Shelf extends Component
 {
   constructor(props)
   {
     super(props);
     this.state={
-      cssclass: this.props.shelftag.split(" ").join(""), 
-      cssclasst: this.props.shelftag.split(" ").join("")+"t",
-      cssclassa: this.props.shelftag.split(" ").join("")+"a", 
-      
+
       shirt1img: this.props.shirtArr[0].image,
       shirt1alt: this.props.shirtArr[0].altTxt,  
       shirt1desc: this.props.shirtArr[0].description,
@@ -194,20 +191,20 @@ render(){
   return(
     <div className="container">
     <div className="row align-items-center"></div>
-    <Link to={this.props.path}><button className={`col-7 col-sm-4 col-md-3 shelftag  ${this.state.cssclass}`}>{this.props.shelftag}</button></Link>
+    <Link to={this.props.path}><button className={`col-7 col-sm-4 col-md-3 ${this.props.shelfTagCSS}`}>{this.props.shelftag}</button></Link>
       <span className="col-3   offset-sm-5 offset-md-7">
-        <button className="arrowbtn mr-1" onClick={this.leftArrow.bind(this)}><FaArrowLeft className={`${this.state.cssclassa}`}/></button><button className="arrowbtn ml-1" onClick={this.rightArrow.bind(this)}><FaArrowRight className={`${this.state.cssclassa}`} /></button></span> 
+        <button className="arrowbtn mr-1" onClick={this.leftArrow.bind(this)}><FaArrowLeft className={`${this.props.arrowCSS}`}/></button><button className="arrowbtn ml-1" onClick={this.rightArrow.bind(this)}><FaArrowRight className={`${this.props.arrowCSS}`} /></button></span> 
     <div className="row">            
-    <div className={`underline col-12 my-0  ${this.state.cssclass}`}></div>
+    <div className={`underline col-12 my-0  ${this.props.shelfTagCSS}`}></div>
     </div>
     <div className="row">
-        <div className={`col-xs-12 col-sm-6 col-md teeshirt mx-0 mx-md-1 p-0 mt-1 ${this.state.cssclasst}`}><Teecard shirt={this.state.shirt1img} altTxt={this.state.shirt1alt} description={this.state.shirt1desc} price={this.state.shirt1price}/></div>
+        <div className={`col-xs-12 col-sm-6 col-md mx-0 mx-md-1 p-0 mt-1 ${this.props.tDivCSS}`}><Teecard shirt={this.state.shirt1img} altTxt={this.state.shirt1alt} description={this.state.shirt1desc} price={this.state.shirt1price}/></div>
         
-        <div className={`col-xs-12 col-sm-6 col-md teeshirt mx-0 mx-md-1 p-0 mt-1 ${this.state.cssclasst}`}><Teecard shirt={this.state.shirt2img} altTxt={this.state.shirt2alt} description={this.state.shirt2desc} price={this.state.shirt2price}/></div>
+        <div className={`col-xs-12 col-sm-6 col-md mx-0 mx-md-1 p-0 mt-1 ${this.props.tDivCSS}`}><Teecard shirt={this.state.shirt2img} altTxt={this.state.shirt2alt} description={this.state.shirt2desc} price={this.state.shirt2price}/></div>
 
-        <div className={`col-xs-12 col-sm-6 col-md teeshirt mx-0 mx-md-1 p-0 mt-1 ${this.state.cssclasst}`}><Teecard shirt={this.state.shirt3img} altTxt={this.state.shirt3alt} description={this.state.shirt3desc} price={this.state.shirt3price}/></div>
+        <div className={`col-xs-12 col-sm-6 col-md mx-0 mx-md-1 p-0 mt-1 ${this.props.tDivCSS}`}><Teecard shirt={this.state.shirt3img} altTxt={this.state.shirt3alt} description={this.state.shirt3desc} price={this.state.shirt3price}/></div>
 
-        <div className={`col-xs-12 col-sm-6 col-md teeshirt mx-0 mx-md-1 p-0 mt-1 ${this.state.cssclasst}`}><Teecard shirt={this.state.shirt4img}  altTxt={this.state.shirt4alt} description={this.state.shirt4desc} price={this.state.shirt4price}/></div>
+        <div className={`col-xs-12 col-sm-6 col-md mx-0 mx-md-1 p-0 mt-1 ${this.props.tDivCSS}`}><Teecard shirt={this.state.shirt4img}  altTxt={this.state.shirt4alt} description={this.state.shirt4desc} price={this.state.shirt4price}/></div>
       </div>
     </div>
   )

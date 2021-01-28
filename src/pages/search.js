@@ -11,7 +11,7 @@ class Search extends Component
 {
     render() {
         let filteredArray= filterBySearch(everyShirt,searchTerms)
-        const vals= display(filteredArray)
+        const vals= display(filteredArray,undefined, undefined, undefined)
         if (vals==="empty")
         {
             return(

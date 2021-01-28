@@ -21,10 +21,10 @@ class Home extends Component
         <div>
         <div className="container">
         <h1 className="col mt-2 text-center "><span>Fun</span>Thoughts</h1>
-        <Shelf shelftag="Best Sellers" shirtArr={bestsellersArr} path="/bestsellers"/>
-        <Shelf shelftag="Mens" shirtArr={mensArr} path="/mens"/>
-        <Shelf shelftag="Womens" shirtArr={womensArr} path="/womens"/>
-        <Shelf shelftag="For Everyone" shirtArr={everyoneArr} path="/foreveryone"/>
+        <Shelf shelftag="Best Sellers" shirtArr={bestsellersArr} path="/bestsellers" shelfTagCSS="bestSellersTag" arrowCSS="bestSellersArrow" tDivCSS="bestSellersTDiv"/>
+        <Shelf shelftag="Mens" shirtArr={mensArr} path="/mens"  shelfTagCSS="mensTag" arrowCSS="mensArrow" tDivCSS="mensTDiv"/>
+        <Shelf shelftag="Womens" shirtArr={womensArr} path="/womens" shelfTagCSS="womensTag" arrowCSS="womensArrow" tDivCSS="womensTDiv"/>
+        <Shelf shelftag="For Everyone" shirtArr={everyoneArr} path="/foreveryone" shelfTagCSS="forEveryoneTag" arrowCSS="forEveryoneArrow" tDivCSS="forEveryoneTDiv"/>
         </div>
         </div>
        )

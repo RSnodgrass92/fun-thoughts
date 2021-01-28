@@ -136,7 +136,7 @@ return filteredArr;
 
 
 //!CHANGE HOW CSS CLASSES ARE APPLIED!! more consistent 
-function display(filteredArr=[],cssclass=""){
+function display(filteredArr=[],tDivCSSclass="",cardDivCSSclass, cardBodyCSSclass){
 
     //if an empty arr is received return the str "empty" --> in the search component if display()===empty display nothing found
     if (filteredArr.length===0)
@@ -153,24 +153,24 @@ function display(filteredArr=[],cssclass=""){
     for(let x=0; x<firstPart.length-1; x+=4)
 {
     show.push(<div className="row">
-        <div className={`col-xs-12 col-sm-6 col-md mx-0 mx-md-1 p-0 mt-1 ${cssclass}`}>
-        <TeeCard shirt={firstPart[x].image} altTxt={firstPart[x].altTxt} description={firstPart[x].description} price={firstPart[x].price}></TeeCard>
+        <div className={`col-xs-12 col-sm-6 col-md mx-0 mx-md-1 p-0 mt-1 ${tDivCSSclass}`}>
+        <TeeCard shirt={firstPart[x].image} altTxt={firstPart[x].altTxt} description={firstPart[x].description} price={firstPart[x].price} css={cardDivCSSclass} cardBody={cardBodyCSSclass}></TeeCard>
         </div>
-        <div className={`col-xs-12 col-sm-6 col-md mx-0 mx-md-1 p-0 mt-1 ${cssclass}`}>
-        <TeeCard shirt={firstPart[x+1].image} altTxt={firstPart[x+1].altTxt}  description={firstPart[x+1].description} price={firstPart[x+1].price}></TeeCard>
+        <div className={`col-xs-12 col-sm-6 col-md mx-0 mx-md-1 p-0 mt-1 ${tDivCSSclass}`}>
+        <TeeCard shirt={firstPart[x+1].image} altTxt={firstPart[x+1].altTxt}  description={firstPart[x+1].description} price={firstPart[x+1].price} css={cardDivCSSclass} cardBody={cardBodyCSSclass} ></TeeCard>
         </div>
-        <div className={`col-xs-12 col-sm-6 col-md mx-0 mx-md-1 p-0 mt-1 ${cssclass}`}>
-        <TeeCard shirt={firstPart[x+2].image} altTxt={firstPart[x+2].altTxt}  description={firstPart[x+2].description} price={firstPart[x+2].price}></TeeCard>
+        <div className={`col-xs-12 col-sm-6 col-md mx-0 mx-md-1 p-0 mt-1 ${tDivCSSclass}`}>
+        <TeeCard shirt={firstPart[x+2].image} altTxt={firstPart[x+2].altTxt}  description={firstPart[x+2].description} price={firstPart[x+2].price} css={cardDivCSSclass} cardBody={cardBodyCSSclass}></TeeCard>
         </div>
-        <div className={`col-xs-12 col-sm-6 col-md mx-0 mx-md-1 p-0 mt-1 ${cssclass}`}>
-        <TeeCard shirt={firstPart[x+3].image} altTxt={firstPart[x+3].altTxt}   description={firstPart[x+3].description} price={firstPart[x+3].price}></TeeCard>
+        <div className={`col-xs-12 col-sm-6 col-md mx-0 mx-md-1 p-0 mt-1 ${tDivCSSclass}`}>
+        <TeeCard shirt={firstPart[x+3].image} altTxt={firstPart[x+3].altTxt}   description={firstPart[x+3].description} price={firstPart[x+3].price} css={cardDivCSSclass} cardBody={cardBodyCSSclass}></TeeCard>
         </div>
         </div> ); 
 }
 
 for(let x=0; x<addon.length;x++)
 {
-  showEnd.push(<div className={`col-xs-12 col-sm-6 col-md-3 mx-0 mx-md-1 p-0 mt-1 ${cssclass}`}>
+  showEnd.push(<div className={`col-xs-12 col-sm-6 col-md-3 mx-0 mx-md-1 p-0 mt-1 ${tDivCSSclass}`}>
   <TeeCard shirt={addon[x].image} altTxt={addon[x].altTxt}  description={addon[x].description} price={addon[x].price}></TeeCard>
   </div>)
 }

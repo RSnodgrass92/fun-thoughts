@@ -53,60 +53,63 @@ span{
 
 }
 
-.BestSellers{
+.bestSellersTag{
   background:$best-sellers-color; 
   color: $main-text-color;
   border:none;
   font-size: $shelf-tag-font-size;
 
 }
-.BestSellersa{
+.bestSellersArrow{
+
   color: $best-sellers-color;
   font-size: $shelf-arrow-font-size;
 }
 
-.BestSellerst{
+.bestSellersTDiv{
   border: solid $best-sellers-color $tcard-border-width;
 }
-.Mens{
+
+.mensTag{
   background:$mens-color;
   color: $main-text-color;
   border:none;
   font-size: $shelf-tag-font-size;
   
 }
-.Mensa{
+.mensArrow{
   color:$mens-color;
   font-size: $shelf-arrow-font-size;
 }
-.Menst{
+.mensTDiv{
   border: solid $mens-color $tcard-border-width;
 }
 
-.Womens{
+.womensTag{
   background: $womens-color;
   color: $main-text-color;
   border:none;
   font-size: $shelf-tag-font-size;
 }
-.Womensa{
+
+.womensArrow{
   color: $womens-color;
   font-size: $shelf-arrow-font-size;
 }
-.Womenst{
+.womensTDiv{
   border: solid $womens-color $tcard-border-width;
 }
-.ForEveryone{
+.forEveryoneTag{
   background: $everyone-color;
   color: $main-text-color;
   border:none;
   font-size: $shelf-tag-font-size;
 }
-.ForEveryonea{
+.forEveryoneArrow{
   color:$everyone-color;
   font-size: $shelf-arrow-font-size;
 }
-.ForEveryonet{
+.forEveryoneTDiv{
   border: solid $everyone-color $tcard-border-width;
 }
 .underline{

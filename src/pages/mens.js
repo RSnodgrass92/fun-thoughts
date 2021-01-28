@@ -3,7 +3,7 @@ import DisplayTees from '../components/displaytees.js';
 import {everyShirt,filterByTags,display} from "../components/shirtarray.js";
 
 const filteredArray = filterByTags(everyShirt,["m"]);
-const vals= display(filteredArray)
+const vals= display(filteredArray,"mensTDiv")
 
 
 class Mens extends Component
