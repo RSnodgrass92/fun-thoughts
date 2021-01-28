@@ -1,5 +1,5 @@
 import { Component } from 'react';
-
+//!CHANGE HOW CSS CLASSES ARE APPLIED!! through props??
 class Teecard extends Component
 {
     constructor(props)

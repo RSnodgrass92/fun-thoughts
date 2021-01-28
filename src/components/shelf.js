@@ -2,7 +2,7 @@ import { Component } from 'react';
 import {FaArrowRight, FaArrowLeft} from "react-icons/fa"; 
 import Teecard  from "./teecard.js"
 import {Link} from "react-router-dom"
-
+//!CHANGE HOW CSS CLASSES ARE APPLIED!!
 class Shelf extends Component
 {
   constructor(props)

@@ -12,9 +12,18 @@ class Search extends Component
     render() {
         let filteredArray= filterBySearch(everyShirt,searchTerms)
         const vals= display(filteredArray)
-        return (
-        <DisplayTees start={vals[0]} end={vals[1]}/>
+        if (vals==="empty")
+        {
+            return(
+                <div>Oops Nothing Found Search Again!</div>
             )
+        }
+        else{
+            return (
+                <DisplayTees start={vals[0]} end={vals[1]}/>
+                    )
+        }
+            
       }
 };
 
