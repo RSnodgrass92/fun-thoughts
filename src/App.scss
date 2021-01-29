@@ -75,8 +75,8 @@ span{
   color: $main-text-color;
   border:none;
   font-size: $shelf-tag-font-size;
-  
 }
+
 .mensArrow{
   color:$mens-color;
   font-size: $shelf-arrow-font-size;
@@ -121,4 +121,25 @@ span{
   background: $outer-color;
   margin:0; 
   padding:0; 
+}
+
+.searchDiv{
+  height: 80vh;
+  overflow: auto;
+}
+
+.oopsDiv{
+  font-size: 2em;
+  color: $outer-color; 
+}
+
+.searchTag{
+  background: $card-base-color;
+  color: $main-text-color;
+  border:none;
+  font-size: $shelf-tag-font-size;
+}
+
+.searchTDiv{
+  border: solid $card-base-color $tcard-border-width;
 }

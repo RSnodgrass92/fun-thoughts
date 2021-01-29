@@ -12,7 +12,12 @@ class ForEveryone extends Component
     render() {
         
         return (
+        <div className="container">
+            <div className="row">
+            <p className="col forEveryoneTag text-center">For Everyone</p>
+            </div>
         <DisplayTees start={vals[0]} end={vals[1]}/>
+        </div>
             )
       }
 };

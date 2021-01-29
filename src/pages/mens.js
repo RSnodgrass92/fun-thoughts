@@ -12,7 +12,14 @@ class Mens extends Component
     render() {
         
         return (
+        <div className="container">
+            <div className="row">
+            <p className="col mensTag text-center mb-0">Mens</p>
+            </div>
+        <div className="searchDiv">
         <DisplayTees start={vals[0]} end={vals[1]}/>
+        </div>
+        </div>
             )
       }
 };
