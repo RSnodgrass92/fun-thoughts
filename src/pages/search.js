@@ -1,16 +1,20 @@
 import { Component } from 'react'; 
 import DisplayTees from '../components/displaytees.js';
 import {everyShirt,filterBySearch,display} from "../components/shirtarray.js";
-import{searchTerms} from "../components/nav.js"
-
-
+import {connect} from "react-redux";
 
 
 class Search extends Component
 
 {
+  constructor(props)
+{
+    super(props)
+}
+
     render() {
-        let filteredArray= filterBySearch(everyShirt,searchTerms)
+        const lookFor = this.props.searchTerms
+        let filteredArray= filterBySearch(everyShirt,lookFor)
         const vals= display(filteredArray,undefined, undefined, undefined)
 
         if (vals==="empty")
@@ -28,4 +32,10 @@ class Search extends Component
       }
 };
 
-export default Search;
+
+const mapStateToProps= (state) => {
+    return {
+     searchTerms: state.searchTerms
+    }
+}
+export default connect(mapStateToProps)(Search)

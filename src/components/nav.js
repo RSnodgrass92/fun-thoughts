@@ -3,30 +3,27 @@ import {FaEnvelope,FaShoppingCart, FaUserAlt, FaSearch} from "react-icons/fa";
 import {Navbar,Nav,Form,FormControl,Button} from "react-bootstrap";
 import {Link} from "react-router-dom"; 
 import {connect} from "react-redux";
+import {setSearchTerms} from "../actions/index.js"
 
-let searchTerms="";
+
 class Header extends Component
 {
     constructor(props)
     {
       super(props)
       this.searchBtnRef=React.createRef()
-      this.state={
-        value: "",  
+      this.state={  
         itemsInCart: this.props.numItems
       } 
       this.handleInputChange=this.handleInputChange.bind(this); 
       this.handleKeyPress=this.handleKeyPress.bind(this);
     }
     
-    findItems = () =>
-    {
-      searchTerms=this.state.value;
-    }
+    
 
     handleInputChange(event)
     {
-      
+        this.props.setSearchTerms(event.target.value);
         this.setState({value: event.target.value});
     }
     
@@ -70,10 +67,16 @@ class Header extends Component
 
   const mapStateToProps= (state) => {
     return {
-     itemsInCart: state.counter
+     itemsInCart: state.counter,
+     searchTerms: state.searchTerms
     }
 }
 
+const mapDispatchToProps= ()=> {
+  return {
+     setSearchTerms: setSearchTerms
+  }
+ }
 
-  export {searchTerms};
-  export default connect(mapStateToProps)(Header); 
+
+  export default connect(mapStateToProps, mapDispatchToProps())(Header); 

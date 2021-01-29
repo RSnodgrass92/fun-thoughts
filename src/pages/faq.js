@@ -1,6 +1,6 @@
 import { Component } from 'react'; 
 import {connect} from "react-redux"
-import {incrementCount, decrementCount} from "../actions/index.js"
+import {incrementCount, decrementCount, setSearchTerms} from "../actions/index.js"
 
 class FAQ extends Component
 {
@@ -14,9 +14,10 @@ class FAQ extends Component
         console.log(this.props)
         return(
             <div>
-            <p>FAQ Page {this.props.count}</p>
-            <button onClick={()=> this.props.incrementCount()}>Click Me</button>
+            <p>FAQ Page {this.props.count} {console.log(this.props.isLogged)}</p>
+            <button onClick={()=> this.props.incrementCount("heyaalskdjf")}>Click Me</button>
             <button onClick={()=> this.props.decrementCount()}>Click Me to minus</button>
+            <button onClick={()=> this.props.setSearchTerms("what")}>Click Me to set terms</button>
             </div>
         )
     }
@@ -25,14 +26,16 @@ class FAQ extends Component
 const mapStateToProps= (state) => {
     return {
      count: state.counter,
-     isLogged: state.isLogged
+     isLogged: state.isLogged,
+     searchTerms: state.searchTerms
     }
 }
 
 const mapDispatchToProps= ()=> {
  return {
     incrementCount: incrementCount,
-    decrementCount: decrementCount
+    decrementCount: decrementCount, 
+    setSearchTerms: setSearchTerms
  }
 }
 
