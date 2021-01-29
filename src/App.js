@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import './App.scss';
 import {Route, BrowserRouter as Router, Switch} from 'react-router-dom'
-
+import {everyShirt,itemsInCart} from "./components/shirtarray.js"
 
 //Pages 
 import Home from "./pages/home.js"
@@ -21,11 +21,24 @@ import Header from "./components/nav.js"
 import Footer from "./components/footer.js"
 
 
+
+
 class App extends Component {
+    constructor (props)
+    {
+        super(props)
+        this.state={
+            itemsInCart: itemsInCart(everyShirt).length
+        }
+     
+    }
+    
+
     render() {
+        
         return (
             <Router>
-                <Header />
+                <Header itemsInCart={this.state.itemsInCart} />
                 <Switch>
                 <Route path="/" exact component={Home}/>
                 <Route path="/contact" component={Contact}/>

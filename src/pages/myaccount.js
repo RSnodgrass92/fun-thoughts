@@ -2,6 +2,7 @@ import { Component } from 'react';
 
 class MyAccount extends Component
 {
+        
     render()
     {
         return(

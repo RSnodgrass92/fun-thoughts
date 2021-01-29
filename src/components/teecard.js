@@ -14,7 +14,8 @@ class Teecard extends Component
                 <img src={this.props.shirt} alt={this.props.altTxt} className="img img-fluid"/>
                 <div className={this.props.cardBody}>
                 <p>{this.props.description}</p>
-                <p>{`Price: $${this.props.price.toFixed(2)}`}</p>
+                <p>{`Price: $${this.props.price.toFixed(2)}`} </p>
+                
                 </div>
             </div>
             )

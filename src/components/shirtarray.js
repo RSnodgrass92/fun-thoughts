@@ -29,13 +29,14 @@ import TeeCard  from "./teecard.js"
 
 class Shirt
 {
-    constructor(image, altTxt="alt text goes here", description, price, tags=[])
+    constructor(image, altTxt="alt text goes here", description, price, tags=[], numInCart=0)
     {
         this.image = image; 
         this.description = description; 
         this.price = price;
         this.tags= tags; 
         this.altTxt= altTxt; 
+        this.numInCart= numInCart;
     }
     
     add()
@@ -135,7 +136,6 @@ return filteredArr;
 }
 
 
-//!CHANGE HOW CSS CLASSES ARE APPLIED!! more consistent 
 function display(filteredArr=[],tDivCSSclass="",cardDivCSSclass, cardBodyCSSclass){
 
     //if an empty arr is received return the str "empty" --> in the search component if display()===empty display nothing found
@@ -178,5 +178,12 @@ const output= [show,showEnd];
 return output;
 }
 
-export {everyShirt, filterByTags,filterBySearch,display};
+function itemsInCart(array)
+{
+ const itemsInBasket= array.filter(item => item.numInCart>0)
+ return itemsInBasket
+}
+
+console.log(itemsInCart(everyShirt))
+export {everyShirt, filterByTags,filterBySearch,display,itemsInCart};
 export default everyShirt; 
