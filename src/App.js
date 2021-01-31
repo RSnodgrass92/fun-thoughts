@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import './App.scss';
 import {Route, BrowserRouter as Router, Switch} from 'react-router-dom'
-import {everyShirt,itemsInCart} from "./components/shirtarray.js"
+
 
 //Pages 
 import Home from "./pages/home.js"
@@ -16,6 +16,8 @@ import Mens from "./pages/mens.js"
 import Womens from "./pages/womens.js"
 import ForEveryone from "./pages/foreveryone.js"
 import Search from "./pages/search.js"
+import ItemInfo from "./pages/iteminfo.js"
+
 //Components
 import Header from "./components/nav.js"
 import Footer from "./components/footer.js"
@@ -24,25 +26,16 @@ import Footer from "./components/footer.js"
 
 
 class App extends Component {
-    constructor (props)
-    {
-        super(props)
-        this.state={
-            itemsInCart: itemsInCart(everyShirt).length
-        }
-     
-    }
-    
 
     render() {
         
         return (
             <Router>
-                <Header itemsInCart={this.state.itemsInCart} />
+                <Header />
                 <Switch>
                 <Route path="/" exact component={Home}/>
                 <Route path="/contact" component={Contact}/>
-                <Route path="/faq" component={FAQ}/>
+                <Route path="/faq" componenet={FAQ}/>
                 <Route path="/about" component={About}/>
                 <Route path="/myaccount" component={MyAccount}/>
                 <Route path="/paymentmethods" component={PaymentMethods}/>
@@ -52,6 +45,7 @@ class App extends Component {
                 <Route path="/womens" component={Womens}/>
                 <Route path="/foreveryone" component={ForEveryone}/>
                 <Route path="/search" component={Search}/>
+                <Route path="/iteminfo/:id" component={ItemInfo}/>
                 </Switch>
                 <Footer />
             </Router>

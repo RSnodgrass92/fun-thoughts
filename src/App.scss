@@ -123,7 +123,7 @@ span{
   padding:0; 
 }
 
-.searchDiv{
+.searchDiv, .itemInfoDiv{
   height: 80vh;
   overflow: auto;
 }
@@ -132,6 +132,8 @@ span{
   font-size: 2em;
   color: $outer-color; 
 }
+
+
 
 .searchTag{
   background: $card-base-color;
@@ -142,4 +144,8 @@ span{
 
 .searchTDiv{
   border: solid $card-base-color $tcard-border-width;
+}
+
+.teecard-text-height-control{
+  min-height: 150px;
 }

@@ -1,22 +1,23 @@
 import { Component } from 'react'; 
 import Shelf from "../components/shelf.js"; 
-import {everyShirt, filterByTags} from "../components/shirtarray.js"
-
+import {filterByTags} from "../shared/functions.js";
+import allItems from "../shared/itemArray.js"
 
 
 //how to sort low high ect
 // const everyLowHigh= everyShirt.sort((a,b)=>a.price-b.price)
 // console.log(everyLowHigh);
 
-const bestsellersArr= filterByTags(everyShirt,["bs","h"]);
-const mensArr= filterByTags(everyShirt,["m","h"]);
-const womensArr = filterByTags(everyShirt,["w","h"]);
-const everyoneArr = filterByTags(everyShirt,["fe","h"]);
+
 
 class Home extends Component
 {
    render()
    {
+    const bestsellersArr= filterByTags(allItems,["bs","h"]);
+    const mensArr= filterByTags(allItems,["m","h"]);
+    const womensArr = filterByTags(allItems,["w","h"]);
+    const everyoneArr = filterByTags(allItems,["fe","h"]);
        return (
         <div>
         <div className="container">

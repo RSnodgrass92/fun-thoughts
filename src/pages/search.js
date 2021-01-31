@@ -1,8 +1,8 @@
 import { Component } from 'react'; 
 import DisplayTees from '../components/displaytees.js';
-import {everyShirt,filterBySearch,display} from "../components/shirtarray.js";
 import {connect} from "react-redux";
-
+import allItems from "../shared/itemArray.js"
+import {filterBySearch,display} from "../shared/functions.js";
 
 class Search extends Component
 
@@ -14,7 +14,7 @@ class Search extends Component
 
     render() {
         const lookFor = this.props.searchTerms
-        let filteredArray= filterBySearch(everyShirt,lookFor)
+        const filteredArray= filterBySearch(allItems,lookFor)
         const vals= display(filteredArray,"searchTDiv", undefined, undefined)
 
         if (vals==="empty")

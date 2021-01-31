@@ -21,3 +21,19 @@ export const setSearchTerms = (searchterms="") =>
         string: searchterms
     };
 }
+
+export const lookUpItem = (item) =>
+{
+    return {
+        type: "SET_ITEM_INFO",
+        item: item
+    }
+}
+
+export const addItemToBasket= (item) =>
+{
+    return{
+        type: "ADD_ITEM_TO_BASKET",
+        item: item
+    }
+}

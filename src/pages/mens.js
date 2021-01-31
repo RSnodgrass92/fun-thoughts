@@ -1,9 +1,9 @@
 import { Component } from 'react'; 
 import DisplayTees from '../components/displaytees.js';
-import {everyShirt,filterByTags,display} from "../components/shirtarray.js";
+import {filterByTags,display} from "../shared/functions.js";
+import allItems from "../shared/itemArray.js"
 
-const filteredArray = filterByTags(everyShirt,["m"]);
-const vals= display(filteredArray,"mensTDiv")
+
 
 
 class Mens extends Component
@@ -11,6 +11,9 @@ class Mens extends Component
 {
     render() {
         
+        const filteredArray= filterByTags(allItems,["bs"])
+        const vals= display(filteredArray,"mensTDiv")
+
         return (
         <div className="container">
             <div className="row">
