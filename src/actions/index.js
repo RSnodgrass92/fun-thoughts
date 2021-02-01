@@ -1,6 +1,5 @@
-//Actions (types)
-export const INCREMENT="INCREMENT"
-export const DECREMENT= "DECREMENT"
+
+
 //Action Creators
 export const incrementCount = () => {
     return{
@@ -37,3 +36,4 @@ export const addItemToBasket= (item) =>
         item: item
     }
 }
+

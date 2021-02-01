@@ -4,7 +4,11 @@ import {Form} from "react-bootstrap";
 import {FaShoppingCart} from "react-icons/fa"; 
 import {addItemToBasket} from "../actions/index.js";
 import SizingTable from "../components/sizingTable.js";
-import {ItemAddSuccessModal,ItemAddFailModal} from "../components/itemAddedModals.js"
+
+
+import Modal from 'react-bootstrap/Modal';
+import {Button} from 'react-bootstrap';
+import {Link} from 'react-router-dom';
 
 class ItemInfo extends Component
 {
@@ -14,14 +18,14 @@ class ItemInfo extends Component
        this.state= {
            selectedSize: "",
            item: this.props.item,
-           successModalOpen: false, 
-           failModalOpen: false
+           successModalOpen: false,
+           failModalOpen: false,
+           
        }
        this.cartClick= this.cartClick.bind(this)
        
    }
 
-   
    
    renderSizes(sizes)
      {
@@ -61,7 +65,8 @@ class ItemInfo extends Component
 
    render()
     {
-        console.log(this.state)
+        console.log(this.props)
+
         return(
             <div className="container itemInfoDiv">
                 <div className="row text-center mt-5">
@@ -70,9 +75,51 @@ class ItemInfo extends Component
                     <p>{this.props.item.description}</p>
                     {this.renderSizes(this.props.item.sizes)}
                     <button onClick={this.cartClick} className="btn btn-primary">Add to Cart <FaShoppingCart/></button>
-                    {/* <ItemAddSuccessModal open={true} item={this.props.item}/> */}
-                    {/* <ItemAddFailModal show={this.state.failModalOpen}/> */}
-                    <p>{`Price: ${this.props.item.price}`}</p>
+                    
+                    
+                    <div>
+                    <Modal show={this.state.failModalOpen} centered>
+                        <Modal.Header>
+                        <Modal.Title>Oops Something Went Wrong!</Modal.Title>
+                        <button className="btn btn-secondary" onClick={()=>this.setState({failModalOpen: false})} >x</button>
+                        </Modal.Header>
+                        <Modal.Body>Please select a size before adding an item to the cart</Modal.Body>
+                        <Modal.Footer>
+                        <Button variant="primary" onClick={()=>this.setState({failModalOpen: false})}>
+                        OK
+                        </Button>
+                        </Modal.Footer>
+                    </Modal>
+                    </div> 
+
+                    <div>
+                    <Modal show={this.state.successModalOpen} centered>
+                        <Modal.Header>
+                        <Modal.Title>Success!</Modal.Title>
+                        <button className="btn btn-secondary" onClick={()=>this.setState({successModalOpen: false})} >x</button>
+                        </Modal.Header>
+                        <Modal.Body>
+                            <div className="container">
+                                <div className="row text-center">
+                                    <div className="col-12">
+                                    <img className="img img-fluid" src={this.props.item.image} alt={this.props.item.altTxt} />
+                                    </div>
+                                </div>
+                            </div>
+                            {this.props.item.description}, was added to your cart</Modal.Body>
+                        <Modal.Footer>
+                        <Link to="/shoppingcart"><Button variant="secondary">
+                            Cart
+                        </Button></Link>
+                        <Button variant="primary" onClick={()=>this.setState({successModalOpen: false})}>
+                       Keep Shopping
+                        </Button>
+                        </Modal.Footer>
+                    </Modal>
+                    </div> 
+
+
+                    <p>{`Price: ${this.props.item.price.toFixed(2)}`}</p>
                     </div>
                     <div className="col-12 col-lg-5">
                         
@@ -91,7 +138,7 @@ class ItemInfo extends Component
 const mapStateToProps= (state) => {
     return {
      item: state.currentItem,
-     itemsInCart: state.itemsInCart
+     itemsInCart: state.itemsInCart, 
     }
 }
 

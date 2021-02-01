@@ -41,8 +41,8 @@ class ShoppingCart extends Component
 
     render()
     {
-        let subtotal=this.props.itemsInCart.map((item)=>item.price)
-        subtotal= subtotal.reduce((total, val)=>total+val)
+        // let subtotal=this.props.itemsInCart.map((item)=>item.price)
+        // subtotal= subtotal.reduce((total, val)=>total+val)
         
         console.log(this.props.itemsInCart)
         return(
@@ -60,7 +60,7 @@ class ShoppingCart extends Component
                             </div>
                             <div className="row">
                                 <div className="col">
-                                    {`Subtotal $${subtotal}`}
+                                    {`Subtotal `}
                                 </div>
                             </div>
                             <div className="row">
