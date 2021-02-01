@@ -123,7 +123,7 @@ span{
   padding:0; 
 }
 
-.searchDiv, .itemInfoDiv{
+.searchDiv, .itemInfoDiv, .shopCartDiv{
   height: 80vh;
   overflow: auto;
 }
@@ -147,5 +147,9 @@ span{
 }
 
 .teecard-text-height-control{
-  min-height: 150px;
+  min-height: 100px;
+}
+
+#sizingTable{
+
 }

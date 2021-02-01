@@ -10,22 +10,27 @@ class SizingTable extends Component{
   }
   mapSizeArr(sizeArr)
   {
-    const output=sizeArr.map((size)=>
-    {
-      return(
-      <tr>
-      <td>{size[0]}</td>
-      <td>{size[1] + " inches"}</td>
-      <td>{size[2] + " inches"}</td>
-      </tr>
-      )})
-    return output
+    if(sizeArr){
+      const output=sizeArr.map((size)=>
+      {
+        return(
+        <tr>
+        <td>{size[0]}</td>
+        <td>{size[1] + " inches"}</td>
+        <td>{size[2] + " inches"}</td>
+        </tr>
+        )})
+      return output
+    }
+    else{
+      return (<div></div>)
+    }
   }
   render()
   { 
-    console.log(this.props)
+    
     return (
-    <Table striped bordered hover variant="dark">
+    <Table striped bordered hover variant="dark" id="sizingTable">
       <thead>
         <tr>
           <th>Size</th>

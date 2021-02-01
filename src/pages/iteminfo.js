@@ -3,7 +3,9 @@ import {connect} from "react-redux";
 import {Form} from "react-bootstrap";
 import {FaShoppingCart} from "react-icons/fa"; 
 import {addItemToBasket} from "../actions/index.js";
-import SizingTable from "../components/teesizingTable.js"
+import SizingTable from "../components/sizingTable.js";
+import {ItemAddSuccessModal,ItemAddFailModal} from "../components/itemAddedModals.js"
+
 class ItemInfo extends Component
 {
    constructor(props)
@@ -11,8 +13,9 @@ class ItemInfo extends Component
        super(props)
        this.state= {
            selectedSize: "",
-           item: this.props.item, 
-           sizeTest: ""
+           item: this.props.item,
+           successModalOpen: false, 
+           failModalOpen: false
        }
        this.cartClick= this.cartClick.bind(this)
        
@@ -38,12 +41,19 @@ class ItemInfo extends Component
 
    cartClick()
    {
-     
-    this.setState({sizeTest: this.state.selectedSize})
-
-    const complete= this.state.item;
-    complete.size=this.state.sizeTest;
-    this.props.addItemToBasket(complete);   
+    
+    
+    if(this.state.selectedSize)
+    {
+        this.setState({successModalOpen: true})
+        const complete= this.state.item;
+        complete.size=this.state.sizeTest;
+        this.props.addItemToBasket(complete);   
+    }
+    else
+    {
+        this.setState({failModalOpen: true})
+    }
        
    }
 
@@ -54,29 +64,29 @@ class ItemInfo extends Component
         console.log(this.state)
         return(
             <div className="container itemInfoDiv">
-                <div className="row">
-                    <div className="col-7">
-                    <img src={this.props.item.image} className="img-fluid"/>
+                <div className="row text-center mt-5">
+                    <div className="col-12 col-lg-7">
+                    <img src={this.props.item.image} alt={this.props.item.altTxt} className="img-fluid"/>
+                    <p>{this.props.item.description}</p>
+                    {this.renderSizes(this.props.item.sizes)}
+                    <button onClick={this.cartClick} className="btn btn-primary">Add to Cart <FaShoppingCart/></button>
+                    {/* <ItemAddSuccessModal open={true} item={this.props.item}/> */}
+                    {/* <ItemAddFailModal show={this.state.failModalOpen}/> */}
+                    <p>{`Price: ${this.props.item.price}`}</p>
                     </div>
-                    <div className="col-5">
-                        <div className="container">
-                            <div className="row">
-                                <div className="col text-center">
-                                <p>{this.props.item.description}</p>
-                                <Form>
-                                {this.renderSizes(this.props.item.sizes)}
-                                </Form>
+                    <div className="col-12 col-lg-5">
+                        
                                 <SizingTable sizes={this.props.item.sizes}/>
-                                <button onClick={this.cartClick} className="btn btn-primary">Add to Cart <FaShoppingCart/></button>
-                                </div>
-                            </div>
                         </div>
-                    </div>
                 </div>
-            </div>
+             </div>
+               
+            
         )
     }
 }
+
+
 
 const mapStateToProps= (state) => {
     return {
