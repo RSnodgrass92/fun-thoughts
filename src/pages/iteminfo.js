@@ -2,7 +2,7 @@ import { Component } from 'react';
 import {connect} from "react-redux";
 import {Form} from "react-bootstrap";
 import {FaShoppingCart} from "react-icons/fa"; 
-import {addItemToBasket,updateBasket} from "../actions/index.js";
+import {updateBasket} from "../actions/index.js";
 import SizingTable from "../components/sizingTable.js";
 
 
@@ -18,13 +18,16 @@ class ItemInfo extends Component
    {
        super(props)
        this.state= {
-           selectedSize: "",
+           selectedSize:"",
+           selectedQty:"",
            successModalOpen: false,
            failModalOpen: false,
+           failModalMsg: ""
            
        }
        this.cartClick= this.cartClick.bind(this)
-       
+       this.renderQtySelect= this.renderQtySelect.bind(this)
+       this.selectChange= this.selectChange.bind(this)
    }
 
    
@@ -43,11 +46,42 @@ class ItemInfo extends Component
             return(<div></div>)
         }
      }
+    
+   renderQtySelect()
+     {
+         return(
+        <Form.Group controlId="exampleForm.SelectCustom" className="col-4">
+        <Form.Label>Select Quantity</Form.Label>
+        <Form.Control onChange={this.selectChange} as="select"  custom>
+          <option>Select...</option>
+          <option>1</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+          <option>6</option>
+          <option>7</option>
+          <option>8</option>
+          <option>9</option>
+          <option>10</option>
+         </Form.Control>
+        </Form.Group>)
+     }
 
+   selectChange(event)
+   {
+    if (event.target.value==="Select...")
+    {
+        this.setState({selectedQty:""})
+    }
+    else{
+        this.setState({selectedQty: event.target.value})
+    }
+   }
+     
    cartClick()
    {
     
-    if(this.state.selectedSize)
+    if(this.state.selectedSize && this.state.selectedQty)
     {
         this.setState({successModalOpen: true})
         const newArr=[...this.props.itemsInCart]
@@ -67,9 +101,21 @@ class ItemInfo extends Component
         this.props.updateBasket(newArr)
       
     }
+
+    else if(this.state.selectedQty)
+    {
+    
+        this.setState({failModalMsg:"Please Select a size before adding an item to the cart", failModalOpen: true})
+    }
+
+    else if(this.state.selectedSize) {
+
+        this.setState({failModalMsg:"Please Select a quantity before adding an item to the cart", failModalOpen: true})
+    }
+
     else
     {
-        this.setState({failModalOpen: true})
+        this.setState({failModalMsg:"Please Select a quantity & size before adding an item to the cart", failModalOpen: true})
     }
        
    }
@@ -78,7 +124,7 @@ class ItemInfo extends Component
 
    render()
     {
-        
+        console.log(this.state)
 
         return(
             <div className="container itemInfoDiv">
@@ -87,6 +133,7 @@ class ItemInfo extends Component
                     <img src={this.props.item.image} alt={this.props.item.altTxt} className="img-fluid"/>
                     <p>{this.props.item.description}</p>
                     {this.renderSizes(this.props.item.sizes)}
+                    {this.renderQtySelect()}
                     <button onClick={this.cartClick} className="btn btn-primary">Add to Cart <FaShoppingCart/></button>
                     
                     
@@ -96,7 +143,7 @@ class ItemInfo extends Component
                         <Modal.Title>Oops Something Went Wrong!</Modal.Title>
                         <button className="btn btn-secondary" onClick={()=>this.setState({failModalOpen: false})} >x</button>
                         </Modal.Header>
-                        <Modal.Body>Please select a size before adding an item to the cart</Modal.Body>
+                        <Modal.Body>{this.state.failModalMsg}</Modal.Body>
                         <Modal.Footer>
                         <Button variant="primary" onClick={()=>this.setState({failModalOpen: false})}>
                         OK
@@ -119,7 +166,7 @@ class ItemInfo extends Component
                                     </div>
                                 </div>
                             </div>
-                            {this.props.item.description}, was added to your cart</Modal.Body>
+                          {this.state.selectedQty} {this.state.selectedSize} {this.props.item.description}, was added to your cart</Modal.Body>
                         <Modal.Footer>
                         <Link to="/shoppingcart"><Button variant="secondary">
                             Cart
