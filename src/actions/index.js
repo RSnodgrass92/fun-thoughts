@@ -37,3 +37,10 @@ export const addItemToBasket= (item) =>
     }
 }
 
+export const updateBasket = (array) =>
+{
+    return{
+        type: "UPDATE_BASKET",
+        array: array
+    }
+}

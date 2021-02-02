@@ -12,8 +12,7 @@ const allReducers= combineReducers({
     isLogged: loggedReducer, 
     searchTerms: searchReducer,
     currentItem: lookUpReducer,
-    itemsInCart: shoppingBasketReducer,
-    
+    itemsInCart: shoppingBasketReducer
 })
 
 export default allReducers;
