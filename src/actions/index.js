@@ -29,14 +29,6 @@ export const lookUpItem = (item) =>
     }
 }
 
-export const addItemToBasket= (item) =>
-{
-    return{
-        type: "ADD_ITEM_TO_BASKET",
-        item: item
-    }
-}
-
 export const updateBasket = (array) =>
 {
     return{

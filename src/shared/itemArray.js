@@ -27,7 +27,7 @@ import  shirt24 from "../teedesigns/shirt24.jpg";
 
 class Shirt
 {
-    constructor(image, altTxt="alt text goes here", description, price, tags=[], sizes=[
+    constructor(image, altTxt="alt text goes here", description, price,tags=[], sizes=[
         ["Small","27.8","18.3"],
         ["Medium","28.7","20.3"],
         ["Large","29.7","22"],
@@ -35,7 +35,7 @@ class Shirt
         ["XXL","31.5","26"],
         ["3XL","32.3","28.1"],
         ["4XL","33.5","30.1"],
-        ["5XL","34.4","32.1"]], numInCart=0)
+        ["5XL","34.4","32.1"]], qty=0, selectedSize="")
     {
         this.image = image; 
         this.description = description; 
@@ -43,7 +43,8 @@ class Shirt
         this.tags= tags; 
         this.altTxt= altTxt; 
         this.sizes= sizes;
-        this.numInCart= numInCart;
+        this.qty= qty;
+        this.selectedSize= selectedSize;
         
     }
     

@@ -2,13 +2,15 @@ import { Component } from 'react';
 import {connect} from "react-redux";
 import {Form} from "react-bootstrap";
 import {FaShoppingCart} from "react-icons/fa"; 
-import {addItemToBasket} from "../actions/index.js";
+import {addItemToBasket,updateBasket} from "../actions/index.js";
 import SizingTable from "../components/sizingTable.js";
 
 
 import Modal from 'react-bootstrap/Modal';
 import {Button} from 'react-bootstrap';
 import {Link} from 'react-router-dom';
+
+
 
 class ItemInfo extends Component
 {
@@ -17,7 +19,6 @@ class ItemInfo extends Component
        super(props)
        this.state= {
            selectedSize: "",
-           item: this.props.item,
            successModalOpen: false,
            failModalOpen: false,
            
@@ -46,13 +47,25 @@ class ItemInfo extends Component
    cartClick()
    {
     
-    
     if(this.state.selectedSize)
     {
         this.setState({successModalOpen: true})
-        const complete= this.state.item;
-        complete.size=this.state.sizeTest;
-        this.props.addItemToBasket(complete);   
+        const newArr=[...this.props.itemsInCart]
+       
+       const objToAdd= {
+                        image: this.props.item.image,        
+                        description: this.props.item.description,
+                        price: this.props.item.price,
+                        tags: this.props.item.tags, 
+                        altTxt: this.props.item.altTxt, 
+                        sizes: this.props.item.sizes,
+                        qty: this.props.item.qty,
+                        selectedSize: this.state.selectedSize
+                    }
+
+        newArr.push(objToAdd)
+        this.props.updateBasket(newArr)
+      
     }
     else
     {
@@ -65,7 +78,7 @@ class ItemInfo extends Component
 
    render()
     {
-        console.log(this.props)
+        
 
         return(
             <div className="container itemInfoDiv">
@@ -144,7 +157,7 @@ const mapStateToProps= (state) => {
 
 const mapDispatchToProps= ()=> {
     return {
-       addItemToBasket: addItemToBasket
+       updateBasket: updateBasket
     }
    }
 

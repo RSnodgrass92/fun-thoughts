@@ -40,7 +40,7 @@ class ShoppingCart extends Component
                             </div>
                             <div className="row">
                                 <div className="col">
-                                 Qty: Price: {index.price.toFixed(2)}
+                                 Size: {index.selectedSize} Qty: Price: ${index.price.toFixed(2)}
                                 </div>
                             </div>
                             <div className="row">
