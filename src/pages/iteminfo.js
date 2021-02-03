@@ -1,13 +1,12 @@
 import { Component } from 'react'; 
 import {connect} from "react-redux";
-import {Form} from "react-bootstrap";
+import {Form, Button} from "react-bootstrap";
 import {FaShoppingCart} from "react-icons/fa"; 
 import {updateBasket} from "../actions/index.js";
-import SizingTable from "../components/sizingTable.js";
-
+import PriceAndSizingTable from "../components/priceandsizingtable.js";
+import RenderQtySelect from "../components/qtyselect.js"
 
 import Modal from 'react-bootstrap/Modal';
-import {Button} from 'react-bootstrap';
 import {Link} from 'react-router-dom';
 
 
@@ -30,7 +29,6 @@ class ItemInfo extends Component
            
        }
        this.cartClick= this.cartClick.bind(this)
-       this.renderQtySelect= this.renderQtySelect.bind(this)
        this.selectChange= this.selectChange.bind(this)
    }
 
@@ -49,27 +47,6 @@ class ItemInfo extends Component
         else{
             return(<div></div>)
         }
-     }
-    
-   renderQtySelect()
-     {
-         return(
-        <Form.Group controlId="exampleForm.SelectCustom" className="col-4">
-        <Form.Label>Select Quantity</Form.Label>
-        <Form.Control onChange={this.selectChange} as="select"  custom>
-          <option>Select...</option>
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
-          <option>6</option>
-          <option>7</option>
-          <option>8</option>
-          <option>9</option>
-          <option>10</option>
-         </Form.Control>
-        </Form.Group>)
      }
 
    selectChange(event)
@@ -90,12 +67,18 @@ class ItemInfo extends Component
     {
         this.setState({modalHeader:"Success!", modalMsg:`${this.state.selectedQty} ${this.state.selectedSize} ${this.props.item.description}, was added to your cart`, modalDismissBtnTxt: "Keep Shopping", modalHideBtnID: "", modalOpen: true})
 
-        const newArr=[...this.props.itemsInCart]
-       
+       const newArr=[...this.props.itemsInCart]
+
+       function getPrice(priceSizeArr,size)
+        {
+        const rightSizeArr= priceSizeArr.filter((index)=> index[0]===size)
+        return (rightSizeArr[0][3]);
+        }
+        
        const objToAdd= {
                         image: this.props.item.image,        
                         description: this.props.item.description,
-                        price: this.props.item.price,
+                        price: getPrice(this.props.item.sizesAndPrice,this.state.selectedSize),
                         tags: this.props.item.tags, 
                         altTxt: this.props.item.altTxt, 
                         sizes: this.props.item.sizes,
@@ -135,11 +118,13 @@ class ItemInfo extends Component
         return(
             <div className="container itemInfoDiv">
                 <div className="row text-center mt-5">
-                    <div className="col-12 col-lg-7">
+                    <div className="col-12 col-lg-5">
                     <img src={this.props.item.image} alt={this.props.item.altTxt} className="img-fluid"/>
                     <p>{this.props.item.description}</p>
-                    {this.renderSizes(this.props.item.sizes)}
-                    {this.renderQtySelect()}
+                    {this.renderSizes(this.props.item.sizesAndPrice)}
+                    <div className="col-6">
+                    <RenderQtySelect changeFunctionName={this.selectChange}/>
+                    </div>
                     <button onClick={this.cartClick} className="btn btn-primary">Add to Cart <FaShoppingCart/></button>
                     
                     
@@ -161,11 +146,11 @@ class ItemInfo extends Component
                     </Modal>
                     </div> 
             
-                    <p>{`Price: ${this.props.item.price.toFixed(2)}`}</p>
+                    
                     </div>
-                    <div className="col-12 col-lg-5">
+                    <div className="col-12 col-lg-7">
                         
-                                <SizingTable sizes={this.props.item.sizes}/>
+                                <PriceAndSizingTable sizesAndPrice={this.props.item.sizesAndPrice}/>                  
                         </div>
                 </div>
              </div>

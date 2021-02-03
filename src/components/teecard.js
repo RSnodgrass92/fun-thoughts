@@ -29,9 +29,6 @@ class Teecard extends Component
                         <p className="col-12">{this.props.item.description}</p>
                     </div>
                     <div className="row">
-                        <p className="col-12">{`Price: $${this.props.item.price.toFixed(2)}`} </p>
-                    </div>
-                    <div className="row">
                         <div className="col-12">
                         <Link to={`/iteminfo/${this.props.item.description}`}><button onClick={this.handleClick} className="btn btn-primary">More Info <FaInfo size=".7em"/></button></Link>
                         </div>
@@ -45,10 +42,6 @@ class Teecard extends Component
 Teecard.defaultProps ={
     css: "card",
     cardBody: "card-body", 
-    item:{
-
-        price:0
-    }
 }
 
 

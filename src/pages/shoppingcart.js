@@ -2,7 +2,9 @@ import { Component } from 'react';
 import {connect} from 'react-redux';
 import {FaTrashAlt} from "react-icons/fa";
 import {updateBasket} from '../actions';
-import {calcNumItemsInCart,calcSubtotal} from "../shared/functions.js"
+import {calcNumItemsInCart,calcSubtotal} from "../shared/functions.js";
+import {Form} from "react-bootstrap";
+
 class ShoppingCart extends Component
 {
     constructor(props)
@@ -11,9 +13,18 @@ class ShoppingCart extends Component
         this.state={
             items: this.props.itemsInCart,
             
+            
         }
         this.renderItems= this.renderItems.bind(this); 
         this.removeItems= this.removeItem.bind(this);
+        this.selectChange= this.selectChange.bind(this);
+        
+    }
+
+    selectChange(event)
+
+    {
+        console.log(event.target.value)
     }
 
     removeItem(index)
@@ -50,8 +61,26 @@ class ShoppingCart extends Component
                                         {
                                             this.removeItem(index)
                                         }
-                                        }>Delete <FaTrashAlt /></button>
+                                        }>Delete <FaTrashAlt /></button>     
                                 </div>
+                            </div>
+                            <div className="row">
+                                <Form.Group className="col">
+                                <Form.Label>Select Quantity</Form.Label>
+                                <Form.Control as="select" onChange={this.selectChange} custom>
+                                <option>Select...</option>
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                                <option>6</option>
+                                <option>7</option>
+                                <option>8</option>
+                                <option>9</option>
+                                <option>10</option>
+                                </Form.Control>
+                                </Form.Group>
                             </div>
                         </div>
                     </div>
@@ -66,7 +95,7 @@ class ShoppingCart extends Component
         // let subtotal=this.props.itemsInCart.map((item)=>item.price)
         // subtotal= subtotal.reduce((total, val)=>total+val)
         
-        
+        console.log(this.state)
         return(
             <div className="container shopCartDiv">
                 <div className="row">

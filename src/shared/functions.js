@@ -124,4 +124,6 @@ function calcSubtotal(array)
     else return 0;
 }
 
+
+
 export {filterByTags,filterBySearch,display,calcNumItemsInCart,calcSubtotal};
