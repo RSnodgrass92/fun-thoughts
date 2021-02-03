@@ -101,4 +101,27 @@ const output= [show,showEnd];
 return output;
 }
 
-export {filterByTags,filterBySearch,display};
+
+function calcNumItemsInCart(array)
+{
+    if (array.length>0)
+    {
+    const onlyQtyArr= array.map((index)=>Number(index.qty))
+    const sum= onlyQtyArr.reduce((total,val)=> total+val)
+    return sum;
+    }
+    else return 0;
+}
+
+function calcSubtotal(array)
+{
+    if (array.length>0)
+    {
+    const qtyTimesPriceArr = array.map((index)=>Number(index.qty)*index.price)
+    const sum= qtyTimesPriceArr.reduce((total,val)=> total+val).toFixed(2)
+    return sum;
+    }
+    else return 0;
+}
+
+export {filterByTags,filterBySearch,display,calcNumItemsInCart,calcSubtotal};

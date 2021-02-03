@@ -2,6 +2,7 @@ import { Component } from 'react';
 import {connect} from 'react-redux';
 import {FaTrashAlt} from "react-icons/fa";
 import {updateBasket} from '../actions';
+import {calcNumItemsInCart,calcSubtotal} from "../shared/functions.js"
 class ShoppingCart extends Component
 {
     constructor(props)
@@ -40,7 +41,7 @@ class ShoppingCart extends Component
                             </div>
                             <div className="row">
                                 <div className="col">
-                                 Size: {index.selectedSize} Qty: Price: ${index.price.toFixed(2)}
+                                 Size: {index.selectedSize} Qty:{index.qty} Price: ${index.price.toFixed(2)}
                                 </div>
                             </div>
                             <div className="row">
@@ -81,7 +82,7 @@ class ShoppingCart extends Component
                             </div>
                             <div className="row">
                                 <div className="col">
-                                    {`Subtotal `}
+                                    {`Subtotal $${calcSubtotal(this.props.itemsInCart)}`}
                                 </div>
                             </div>
                             <div className="row">

@@ -12,6 +12,7 @@ import {Link} from 'react-router-dom';
 
 
 
+
 class ItemInfo extends Component
 {
    constructor(props)
@@ -21,8 +22,11 @@ class ItemInfo extends Component
            selectedSize:"",
            selectedQty:"",
            successModalOpen: false,
-           failModalOpen: false,
-           failModalMsg: ""
+           modalOpen: false,
+           modalHeader:"",
+           modalMsg: "", 
+           modalDismissBtnTxt:"", 
+           modalHideBtnID: ""
            
        }
        this.cartClick= this.cartClick.bind(this)
@@ -55,6 +59,7 @@ class ItemInfo extends Component
         <Form.Control onChange={this.selectChange} as="select"  custom>
           <option>Select...</option>
           <option>1</option>
+          <option>2</option>
           <option>3</option>
           <option>4</option>
           <option>5</option>
@@ -83,7 +88,8 @@ class ItemInfo extends Component
     
     if(this.state.selectedSize && this.state.selectedQty)
     {
-        this.setState({successModalOpen: true})
+        this.setState({modalHeader:"Success!", modalMsg:`${this.state.selectedQty} ${this.state.selectedSize} ${this.props.item.description}, was added to your cart`, modalDismissBtnTxt: "Keep Shopping", modalHideBtnID: "", modalOpen: true})
+
         const newArr=[...this.props.itemsInCart]
        
        const objToAdd= {
@@ -93,7 +99,7 @@ class ItemInfo extends Component
                         tags: this.props.item.tags, 
                         altTxt: this.props.item.altTxt, 
                         sizes: this.props.item.sizes,
-                        qty: this.props.item.qty,
+                        qty: this.state.selectedQty,
                         selectedSize: this.state.selectedSize
                     }
 
@@ -105,17 +111,17 @@ class ItemInfo extends Component
     else if(this.state.selectedQty)
     {
     
-        this.setState({failModalMsg:"Please Select a size before adding an item to the cart", failModalOpen: true})
+        this.setState({modalHeader:"Oops something went wrong!", modalMsg:"Please Select a size before adding an item to the cart", modalDismissBtnTxt: "OK", modalHideBtnID: "hideBtn", modalOpen: true})
     }
 
     else if(this.state.selectedSize) {
 
-        this.setState({failModalMsg:"Please Select a quantity before adding an item to the cart", failModalOpen: true})
+        this.setState({modalHeader:"Oops something went wrong!", modalMsg:"Please Select a quantity before adding an item to the cart", modalDismissBtnTxt: "OK", modalHideBtnID: "hideBtn", modalOpen: true})
     }
 
     else
     {
-        this.setState({failModalMsg:"Please Select a quantity & size before adding an item to the cart", failModalOpen: true})
+        this.setState({modalHeader:"Oops something went wrong!", modalMsg:"Please Select a quantity & size before adding an item to the cart", modalDismissBtnTxt: "OK", modalHideBtnID: "hideBtn",modalOpen: true})
     }
        
    }
@@ -138,47 +144,23 @@ class ItemInfo extends Component
                     
                     
                     <div>
-                    <Modal show={this.state.failModalOpen} centered>
+                    <Modal show={this.state.modalOpen} centered>
                         <Modal.Header>
-                        <Modal.Title>Oops Something Went Wrong!</Modal.Title>
-                        <button className="btn btn-secondary" onClick={()=>this.setState({failModalOpen: false})} >x</button>
+                        <Modal.Title>{this.state.modalHeader}</Modal.Title>
+                        <button className="btn btn-secondary" onClick={()=>this.setState({modalOpen: false})} >x</button>
                         </Modal.Header>
-                        <Modal.Body>{this.state.failModalMsg}</Modal.Body>
+                        <Modal.Body>{this.state.modalMsg}</Modal.Body>
                         <Modal.Footer>
-                        <Button variant="primary" onClick={()=>this.setState({failModalOpen: false})}>
-                        OK
-                        </Button>
-                        </Modal.Footer>
-                    </Modal>
-                    </div> 
-
-                    <div>
-                    <Modal show={this.state.successModalOpen} centered>
-                        <Modal.Header>
-                        <Modal.Title>Success!</Modal.Title>
-                        <button className="btn btn-secondary" onClick={()=>this.setState({successModalOpen: false})} >x</button>
-                        </Modal.Header>
-                        <Modal.Body>
-                            <div className="container">
-                                <div className="row text-center">
-                                    <div className="col-12">
-                                    <img className="img img-fluid" src={this.props.item.image} alt={this.props.item.altTxt} />
-                                    </div>
-                                </div>
-                            </div>
-                          {this.state.selectedQty} {this.state.selectedSize} {this.props.item.description}, was added to your cart</Modal.Body>
-                        <Modal.Footer>
-                        <Link to="/shoppingcart"><Button variant="secondary">
+                        <Link to="/shoppingcart"><Button id={this.state.modalHideBtnID} variant="secondary">
                             Cart
                         </Button></Link>
-                        <Button variant="primary" onClick={()=>this.setState({successModalOpen: false})}>
-                       Keep Shopping
+                        <Button variant="primary" onClick={()=>this.setState({modalOpen: false})}>
+                        {this.state.modalDismissBtnTxt}
                         </Button>
                         </Modal.Footer>
                     </Modal>
                     </div> 
-
-
+            
                     <p>{`Price: ${this.props.item.price.toFixed(2)}`}</p>
                     </div>
                     <div className="col-12 col-lg-5">

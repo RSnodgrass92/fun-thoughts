@@ -4,7 +4,7 @@ import {Navbar,Nav,Form,FormControl,Button} from "react-bootstrap";
 import {Link} from "react-router-dom"; 
 import {connect} from "react-redux";
 import {setSearchTerms} from "../actions/index.js"
-
+import {calcNumItemsInCart} from "../shared/functions.js"
 
 class Header extends Component
 {
@@ -12,9 +12,6 @@ class Header extends Component
     {
       super(props)
       this.searchBtnRef=React.createRef()
-      this.state={  
-        itemsInCart: this.props.numItems
-      } 
       this.handleInputChange=this.handleInputChange.bind(this); 
       this.handleKeyPress=this.handleKeyPress.bind(this);
     }
@@ -45,7 +42,7 @@ class Header extends Component
                 <Navbar.Collapse id="responsive-navbar-nav">
                   <Nav className="mr-auto">
                     <Nav.Link as={Link} to ="/myaccount"><FaUserAlt/> My Account</Nav.Link>
-                    <Nav.Link as={Link} to ="/shoppingcart"><FaShoppingCart/> ({this.props.numItemsInCart})</Nav.Link>
+                    <Nav.Link as={Link} to ="/shoppingcart"><FaShoppingCart/> ({calcNumItemsInCart(this.props.itemsInCart)})</Nav.Link>
                   </Nav>
                   <Nav>
                   <Nav.Link href="mailto:scott@r-p-services.com" ><FaEnvelope/>Email us at:<br></br>scott@r-p-services.com </Nav.Link>
@@ -67,7 +64,7 @@ class Header extends Component
 
   const mapStateToProps= (state) => {
     return {
-     numItemsInCart: state.itemsInCart.length,
+     itemsInCart: state.itemsInCart,
      searchTerms: state.searchTerms
     }
 }
