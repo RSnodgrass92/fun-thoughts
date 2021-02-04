@@ -1,4 +1,4 @@
-
+import {calcNumItemsInCart} from "../shared/functions.js"
 
 //Action Creators
 export const incrementCount = () => {
@@ -26,5 +26,13 @@ export const updateBasket = (array) =>
     return{
         type: "UPDATE_BASKET",
         array: array
+    }
+}
+
+export const findNumBasket = (array)=>
+{
+    return {
+        type: "FIND_NUM_BASKET",
+        num: calcNumItemsInCart(array)
     }
 }

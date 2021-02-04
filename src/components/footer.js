@@ -7,7 +7,7 @@ class Footer extends Component
   
   render(){
     return(
-      <div className="container-fluid outer align-items-center">
+      <footer className="container-fluid outer hide-overflow">
         <div className="row">
           <div className="col my-1"><a className="color-nav" href="tel:303-570-6285"><FaPhone /> Phone: (303) 570-6285</a></div>
         </div>
@@ -23,7 +23,7 @@ class Footer extends Component
         <div className="row">
           <div className="col my-1"><Link to="/paymentmethods" className="color-nav"><FaCreditCard /> Payment Methods</Link></div>
         </div>
-      </div>
+      </footer>
     )
   }
 }

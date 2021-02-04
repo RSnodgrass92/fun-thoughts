@@ -1,9 +1,8 @@
 import { Component } from 'react'; 
 import {connect} from 'react-redux';
 import {FaTrashAlt} from "react-icons/fa";
-import {updateBasket} from '../actions';
+import {findNumBasket, updateBasket} from '../actions';
 import {calcNumItemsInCart,calcSubtotal} from "../shared/functions.js";
-import {Form} from "react-bootstrap";
 import RenderQtySelect from "../components/qtyselect.js"
 
 class ShoppingCart extends Component
@@ -20,15 +19,9 @@ class ShoppingCart extends Component
         }
         this.renderItems= this.renderItems.bind(this); 
         this.removeItems= this.removeItem.bind(this);
-        this.selectChange= this.selectChange.bind(this);
         
     }
 
-    selectChange(e)
-
-    {
-        console.log(e.target.value)
-    }
 
     removeItem(index)
     {
@@ -37,6 +30,7 @@ class ShoppingCart extends Component
      const newArrEnd=this.state.items.slice(removalIndex+1, this.state.items.length)
      const newArr=newArrStart.concat(newArrEnd)
      this.props.updateBasket(newArr)
+     this.props.findNumBasket(newArr)
      this.setState({items: newArr})
     }
 
@@ -64,6 +58,7 @@ class ShoppingCart extends Component
         const oldItemArr = this.state.items
         oldItemArr[this.state.items.indexOf(this.state.objectToChange)]=newObject;
         this.props.updateBasket(oldItemArr)
+        this.props.findNumBasket(oldItemArr)
         this.setState({items: oldItemArr, qtyToChange: "", objectToChange: ""})
         }
         
@@ -153,7 +148,8 @@ const mapStateToProps= (state) => {
 
 const mapDispatchToProps= ()=> {
     return {
-       updateBasket: updateBasket
+       updateBasket: updateBasket, 
+       findNumBasket: findNumBasket,
     }
    }
 

@@ -2,7 +2,7 @@ import { Component } from 'react';
 import {connect} from "react-redux";
 import {Form, Button} from "react-bootstrap";
 import {FaShoppingCart} from "react-icons/fa"; 
-import {updateBasket} from "../actions/index.js";
+import {updateBasket, findNumBasket} from "../actions/index.js";
 import PriceAndSizingTable from "../components/priceandsizingtable.js";
 import RenderQtySelect from "../components/qtyselect.js";
 import Modal from 'react-bootstrap/Modal';
@@ -87,6 +87,7 @@ class ItemInfo extends Component
 
         newArr.push(objToAdd)
         this.props.updateBasket(newArr)
+        this.props.findNumBasket(newArr)
       
     }
 
@@ -168,7 +169,8 @@ const mapStateToProps= (state) => {
 
 const mapDispatchToProps= ()=> {
     return {
-       updateBasket: updateBasket
+       updateBasket: updateBasket,
+       findNumBasket: findNumBasket
     }
    }
 
