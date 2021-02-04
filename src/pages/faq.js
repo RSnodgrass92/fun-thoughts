@@ -1,8 +1,9 @@
-import { Component } from 'react'; 
-import {connect} from "react-redux"
-import {incrementCount, decrementCount, setSearchTerms} from "../actions/index.js"
+import React, { Component } from 'react'; 
+import Question from "../components/question"
+import faqArr from "../shared/faq"
 
-class FAQ extends Component
+
+class Faq extends Component
 {
     constructor(props)
     {
@@ -11,32 +12,20 @@ class FAQ extends Component
    
     render()
     {
-        console.log(this.props)
         return(
-            <div>
-            <p>FAQ Page {this.props.count} {console.log(this.props.isLogged)}</p>
-            <button onClick={()=> this.props.incrementCount("heyaalskdjf")}>Click Me</button>
-            <button onClick={()=> this.props.decrementCount()}>Click Me to minus</button>
-            <button onClick={()=> this.props.setSearchTerms("what")}>Click Me to set terms</button>
+            <div className="container">
+                <div className="row">
+                    <div className="col text-center">
+                        <h1><strong>F.A.Q. </strong></h1>
+                    </div>
+                </div>
+                {faqArr.map(val=><Question question={val[0]} answer={val[1]}/>)}
+                
+               
             </div>
         )
     }
 }
 
-const mapStateToProps= (state) => {
-    return {
-     count: state.counter,
-     isLogged: state.isLogged,
-     searchTerms: state.searchTerms
-    }
-}
 
-const mapDispatchToProps= ()=> {
- return {
-    incrementCount: incrementCount,
-    decrementCount: decrementCount, 
-    setSearchTerms: setSearchTerms
- }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps())(FAQ);
+export default Faq;
