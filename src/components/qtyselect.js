@@ -1,5 +1,5 @@
 import {Form} from "react-bootstrap";
-function renderQtySelect(props)
+function RenderQtySelect(props)
      {
          return(
         <Form.Group className="col">
@@ -20,4 +20,4 @@ function renderQtySelect(props)
         </Form.Group>)
      }
 
-export default renderQtySelect;
+export default RenderQtySelect;

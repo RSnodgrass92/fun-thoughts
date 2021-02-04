@@ -4,8 +4,7 @@ import {Form, Button} from "react-bootstrap";
 import {FaShoppingCart} from "react-icons/fa"; 
 import {updateBasket} from "../actions/index.js";
 import PriceAndSizingTable from "../components/priceandsizingtable.js";
-import RenderQtySelect from "../components/qtyselect.js"
-
+import RenderQtySelect from "../components/qtyselect.js";
 import Modal from 'react-bootstrap/Modal';
 import {Link} from 'react-router-dom';
 
@@ -81,7 +80,7 @@ class ItemInfo extends Component
                         price: getPrice(this.props.item.sizesAndPrice,this.state.selectedSize),
                         tags: this.props.item.tags, 
                         altTxt: this.props.item.altTxt, 
-                        sizes: this.props.item.sizes,
+                        sizesAndPrice: this.props.item.sizesAndPrice,
                         qty: this.state.selectedQty,
                         selectedSize: this.state.selectedSize
                     }

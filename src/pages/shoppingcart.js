@@ -12,6 +12,8 @@ class ShoppingCart extends Component
         super(props)
         this.state={
             items: this.props.itemsInCart,
+            qtyToChange: "", 
+            objectToChange: ""
             
             
         }
@@ -21,10 +23,10 @@ class ShoppingCart extends Component
         
     }
 
-    selectChange(event)
+    selectChange(e)
 
     {
-        console.log(event.target.value)
+        console.log(e.target.value)
     }
 
     removeItem(index)
@@ -35,6 +37,36 @@ class ShoppingCart extends Component
      const newArr=newArrStart.concat(newArrEnd)
      this.props.updateBasket(newArr)
      this.setState({items: newArr})
+    }
+
+    componentDidUpdate()
+    {
+        //Change Qty on Store page
+        if (this.state.qtyToChange === "Select...")
+        {
+            this.setState({qtyToChange: "", objectToChange: ""})
+        }
+        else if (this.state.qtyToChange && this.state.objectToChange){
+
+        const newObject= 
+         {
+                           image: this.state.objectToChange.image,        
+                           description: this.state.objectToChange.description,
+                           price: this.state.objectToChange.price,
+                           tags: this.state.objectToChange.tags, 
+                           altTxt: this.state.objectToChange.altTxt, 
+                           sizesAndPrice: this.state.objectToChange.sizesAndPrice,
+                           qty: this.state.qtyToChange,
+                           selectedSize: this.state.objectToChange.selectedSize,
+        }
+        
+        const oldItemArr = this.state.items
+        oldItemArr[this.state.items.indexOf(this.state.objectToChange)]=newObject;
+        this.props.updateBasket(oldItemArr)
+        this.setState({items: oldItemArr, qtyToChange: "", objectToChange: ""})
+        }
+        
+        
     }
 
     renderItems(items)
@@ -67,7 +99,7 @@ class ShoppingCart extends Component
                             <div className="row">
                                 <Form.Group className="col">
                                 <Form.Label>Select Quantity</Form.Label>
-                                <Form.Control as="select" onChange={this.selectChange} custom>
+                                <Form.Control as="select" onChange={e=> this.setState({qtyToChange: e.target.value, objectToChange: index})} custom>
                                 <option>Select...</option>
                                 <option>1</option>
                                 <option>2</option>
@@ -95,7 +127,6 @@ class ShoppingCart extends Component
         // let subtotal=this.props.itemsInCart.map((item)=>item.price)
         // subtotal= subtotal.reduce((total, val)=>total+val)
         
-        console.log(this.state)
         return(
             <div className="container shopCartDiv">
                 <div className="row">
@@ -106,7 +137,7 @@ class ShoppingCart extends Component
                         <div className="container text-center">
                             <div className="row">
                                 <div className="col">
-                                    Chekout
+                                    Checkout
                                 </div>
                             </div>
                             <div className="row">
@@ -116,7 +147,7 @@ class ShoppingCart extends Component
                             </div>
                             <div className="row">
                                 <div className="col">
-                                    <button className="btn btn-secondary">Procede To Checkout</button>
+                                    <button className="btn btn-secondary"> Go To Checkout</button>
                                 </div>
                             </div>
                         </div>    
