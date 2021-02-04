@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import './App.scss';
-import {Route, BrowserRouter as Router, Switch} from 'react-router-dom'
-
+import {Route, BrowserRouter as Router, Switch, Redirect} from 'react-router-dom'
+import {connect} from "react-redux"
 
 //Pages 
 import Home from "./pages/home.js"
@@ -34,18 +34,19 @@ class App extends Component {
                 <Header />
                 <Switch>
                 <Route path="/" exact component={Home}/>
-                <Route path="/contact" component={Contact}/>
-                <Route path="/faq" componenet={FAQ}/>
-                <Route path="/about" component={About}/>
-                <Route path="/myaccount" component={MyAccount}/>
-                <Route path="/paymentmethods" component={PaymentMethods}/>
-                <Route path="/shoppingcart" component={ShoppingCart}/>
-                <Route path="/bestsellers" component={BestSellers}/>
-                <Route path="/mens" component={Mens}/>
-                <Route path="/womens" component={Womens}/>
-                <Route path="/foreveryone" component={ForEveryone}/>
-                <Route path="/search" component={Search}/>
-                <Route path="/iteminfo/:id" component={ItemInfo}/>
+                <Route path="/contact" exact component={Contact}/>
+                <Route path="/faq" exact componenet={FAQ}/>
+                <Route path="/about"  exact component={About}/>
+                <Route path="/myaccount" exact component={MyAccount}/>
+                <Route path="/paymentmethods" exact component={PaymentMethods}/>
+                <Route path="/shoppingcart" exact component={ShoppingCart}/>
+                <Route path="/bestsellers" exact component={BestSellers}/>
+                <Route path="/mens" exact component={Mens}/>
+                <Route path="/womens"  exact component={Womens}/>
+                <Route path="/foreveryone" exact component={ForEveryone}/>
+                <Route path="/search" exact component={Search}/>
+                <Route path="/iteminfo/:id" exact render={props=><ItemInfo {...props}/>}/>
+                <Redirect to="/"/>
                 </Switch>
                 <Footer />
             </Router>
@@ -53,6 +54,11 @@ class App extends Component {
     }
 }
 
-
-
-export default App;
+{/* <Directory campsites={this.state.campsites}/> */}
+// const mapStateToProps= (state) => {
+//     return {
+//      currentItem
+//     }
+// }
+// connect(mapStateToProps)
+ export default (App);

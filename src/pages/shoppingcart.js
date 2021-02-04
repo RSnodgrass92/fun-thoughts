@@ -4,6 +4,7 @@ import {FaTrashAlt} from "react-icons/fa";
 import {updateBasket} from '../actions';
 import {calcNumItemsInCart,calcSubtotal} from "../shared/functions.js";
 import {Form} from "react-bootstrap";
+import RenderQtySelect from "../components/qtyselect.js"
 
 class ShoppingCart extends Component
 {
@@ -84,7 +85,7 @@ class ShoppingCart extends Component
                             </div>
                             <div className="row">
                                 <div className="col">
-                                 Size: {index.selectedSize} Qty:{index.qty} Price: ${index.price.toFixed(2)}
+                                 Size: {index.selectedSize} Qty: {index.qty} Price: ${index.price.toFixed(2)}
                                 </div>
                             </div>
                             <div className="row">
@@ -97,22 +98,7 @@ class ShoppingCart extends Component
                                 </div>
                             </div>
                             <div className="row">
-                                <Form.Group className="col">
-                                <Form.Label>Select Quantity</Form.Label>
-                                <Form.Control as="select" onChange={e=> this.setState({qtyToChange: e.target.value, objectToChange: index})} custom>
-                                <option>Select...</option>
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                                <option>6</option>
-                                <option>7</option>
-                                <option>8</option>
-                                <option>9</option>
-                                <option>10</option>
-                                </Form.Control>
-                                </Form.Group>
+                            <RenderQtySelect changeFunctionName={e=> this.setState({qtyToChange: e.target.value, objectToChange: index})}/>
                             </div>
                         </div>
                     </div>

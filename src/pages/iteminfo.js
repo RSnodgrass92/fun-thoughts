@@ -7,7 +7,7 @@ import PriceAndSizingTable from "../components/priceandsizingtable.js";
 import RenderQtySelect from "../components/qtyselect.js";
 import Modal from 'react-bootstrap/Modal';
 import {Link} from 'react-router-dom';
-
+import everyShirt from "../shared/itemArray.js";
 
 
 
@@ -17,6 +17,7 @@ class ItemInfo extends Component
    {
        super(props)
        this.state= {
+           item: everyShirt.filter((val)=> val.description===(this.props.match.params.id))[0],
            selectedSize:"",
            selectedQty:"",
            successModalOpen: false,
@@ -31,7 +32,6 @@ class ItemInfo extends Component
        this.selectChange= this.selectChange.bind(this)
    }
 
-   
    renderSizes(sizes)
      {
         if(sizes){
@@ -64,7 +64,7 @@ class ItemInfo extends Component
     
     if(this.state.selectedSize && this.state.selectedQty)
     {
-        this.setState({modalHeader:"Success!", modalMsg:`${this.state.selectedQty} ${this.state.selectedSize} ${this.props.item.description}, was added to your cart`, modalDismissBtnTxt: "Keep Shopping", modalHideBtnID: "", modalOpen: true})
+        this.setState({modalHeader:"Success!", modalMsg:`${this.state.selectedQty} ${this.state.selectedSize} ${this.state.item.description}, was added to your cart`, modalDismissBtnTxt: "Keep Shopping", modalHideBtnID: "", modalOpen: true})
 
        const newArr=[...this.props.itemsInCart]
 
@@ -75,12 +75,12 @@ class ItemInfo extends Component
         }
         
        const objToAdd= {
-                        image: this.props.item.image,        
-                        description: this.props.item.description,
-                        price: getPrice(this.props.item.sizesAndPrice,this.state.selectedSize),
-                        tags: this.props.item.tags, 
-                        altTxt: this.props.item.altTxt, 
-                        sizesAndPrice: this.props.item.sizesAndPrice,
+                        image: this.state.item.image,        
+                        description: this.state.item.description,
+                        price: getPrice(this.state.item.sizesAndPrice,this.state.selectedSize),
+                        tags: this.state.item.tags, 
+                        altTxt: this.state.item.altTxt, 
+                        sizesAndPrice: this.state.item.sizesAndPrice,
                         qty: this.state.selectedQty,
                         selectedSize: this.state.selectedSize
                     }
@@ -113,14 +113,13 @@ class ItemInfo extends Component
    render()
     {
         console.log(this.state)
-
         return(
             <div className="container itemInfoDiv">
                 <div className="row text-center mt-5">
                     <div className="col-12 col-lg-5">
-                    <img src={this.props.item.image} alt={this.props.item.altTxt} className="img-fluid"/>
-                    <p>{this.props.item.description}</p>
-                    {this.renderSizes(this.props.item.sizesAndPrice)}
+                    <img src={this.state.item.image} alt={this.state.item.altTxt} className="img-fluid"/>
+                    <p>{this.state.item.description}</p>
+                    {this.renderSizes(this.state.item.sizesAndPrice)}
                     <div className="col-6">
                     <RenderQtySelect changeFunctionName={this.selectChange}/>
                     </div>
@@ -149,7 +148,7 @@ class ItemInfo extends Component
                     </div>
                     <div className="col-12 col-lg-7">
                         
-                                <PriceAndSizingTable sizesAndPrice={this.props.item.sizesAndPrice}/>                  
+                                <PriceAndSizingTable sizesAndPrice={this.state.item.sizesAndPrice}/>                  
                         </div>
                 </div>
              </div>
@@ -163,7 +162,6 @@ class ItemInfo extends Component
 
 const mapStateToProps= (state) => {
     return {
-     item: state.currentItem,
      itemsInCart: state.itemsInCart, 
     }
 }

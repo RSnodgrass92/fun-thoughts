@@ -21,14 +21,6 @@ export const setSearchTerms = (searchterms="") =>
     };
 }
 
-export const lookUpItem = (item) =>
-{
-    return {
-        type: "SET_ITEM_INFO",
-        item: item
-    }
-}
-
 export const updateBasket = (array) =>
 {
     return{

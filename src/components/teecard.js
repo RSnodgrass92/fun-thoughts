@@ -12,15 +12,8 @@ class Teecard extends Component
         
     }
   
-    
-    handleClick()
-    {
-        this.props.lookUpItem(this.props.item)
-    }
-    
     render()
     {
-        this.handleClick= this.handleClick.bind(this)
         return(
             <div className={this.props.css}>
                 <img src={this.props.item.image} alt={this.props.item.altTxt} className="img img-fluid"/>
@@ -45,10 +38,4 @@ Teecard.defaultProps ={
 }
 
 
-const mapDispatchToProps= ()=> {
-    return {
-       lookUpItem: lookUpItem
-    }
-   }
-
-export default connect(undefined,mapDispatchToProps())(Teecard); 
+export default Teecard; 
