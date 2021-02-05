@@ -10,7 +10,7 @@ class Footer extends Component
       <footer className="container-fluid outer hide-overflow">
         <div className="container">
           <div className="row">
-            <div className="offset-1 col-4">
+            <div className="offset-md-1 col-md-4">
                   <div className="row">
                     <div className="col my-1"><Link to="/faq" className="color-nav"><FaQuestion />  FAQ</Link></div>
                   </div>
@@ -18,7 +18,7 @@ class Footer extends Component
                     <div className="col my-1"><Link to="/about" className="color-nav"><FaInfo />  About Us</Link></div>
                   </div>
             </div>
-            <div className="offset-2 col-4">
+            <div className="offset-md-2 col-md-4 col">
                 <div className="row">
                   <div className="col my-1"><a className="color-nav" href="tel:303-570-6285"><FaPhone /> Phone: (303) 570-6285</a></div>
                 </div>

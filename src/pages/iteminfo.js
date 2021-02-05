@@ -17,7 +17,7 @@ class ItemInfo extends Component
    {
        super(props)
        this.state= {
-           item: everyShirt.filter((val)=> val.description===(this.props.match.params.id))[0],
+           item: everyShirt.filter((val)=> val.modelNum=== +(this.props.match.params.id))[0],
            selectedSize:"",
            selectedQty:"",
            successModalOpen: false,
@@ -78,6 +78,7 @@ class ItemInfo extends Component
         }
         
        const objToAdd= {
+                        modelNum: this.state.item.modelNum,
                         image: this.state.item.image,        
                         description: this.state.item.description,
                         price: getPrice(this.state.item.sizesAndPrice,this.state.selectedSize),
@@ -119,8 +120,9 @@ class ItemInfo extends Component
 
    render()
     {
-        console.log(this.state)
+    
         return(
+        
             <div className="container setHeight d-flex align-items-center">
                 <div className="row text-center mt-5">
                     <div className=" offset-2 offset-lg-0 col-8 col-lg-6">
@@ -158,7 +160,18 @@ class ItemInfo extends Component
                         <Modal.Title>Price & Sizing Info</Modal.Title>
                         <button className="btn btn-secondary" onClick={()=>this.setState({sizeInfoModalOpen: false})} >x</button>
                         </Modal.Header>
-                        <Modal.Body><PriceAndSizingTable sizesAndPrice={this.state.item.sizesAndPrice}/></Modal.Body>
+                        <Modal.Body className="p-0"> 
+                        <div className="container">
+                         <div className="row">
+                         <div className="col-12 p-0 d-none d-md-block d-lg-block d-xl-block">
+                         <PriceAndSizingTable sizesAndPrice={this.state.item.sizesAndPrice} />
+                         </div>
+                         <div className="col-12 p-0 d-md-none">
+                         <PriceAndSizingTable sizesAndPrice={this.state.item.sizesAndPrice} size="sm"/>
+                         </div> 
+                         </div>   
+                        </div>
+                        </Modal.Body>
                     </Modal>
 
                 {/* fail/success modal */}

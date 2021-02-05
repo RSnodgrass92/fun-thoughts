@@ -29,9 +29,9 @@ class PriceAndSizingTable extends Component{
   }
   render()
   { 
-    
+
     return (
-    <Table striped hover variant="dark" id="sizingTable">
+    <Table striped hover variant="dark" id="sizingTable" size={this.props.size} responsive>
       <thead>
         <tr>
           <th>Size</th>

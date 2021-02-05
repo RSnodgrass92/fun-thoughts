@@ -45,6 +45,7 @@ class ShoppingCart extends Component
 
         const newObject= 
          {
+                           modelNum: this.state.objectToChange.modelNum,
                            image: this.state.objectToChange.image,        
                            description: this.state.objectToChange.description,
                            price: this.state.objectToChange.price,

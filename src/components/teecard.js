@@ -23,7 +23,7 @@ class Teecard extends Component
                     </div>
                     <div className="row">
                         <div className="col-12">
-                        <Link to={`/iteminfo/${this.props.item.description}`}><button onClick={this.handleClick} className="btn btn-primary">More Info <FaInfo size=".7em"/></button></Link>
+                        <Link to={`/iteminfo/${this.props.item.modelNum}`}><button onClick={this.handleClick} className="btn btn-primary">More Info <FaInfo size=".7em"/></button></Link>
                         </div>
                     </div>
                 </div>
