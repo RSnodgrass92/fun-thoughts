@@ -120,82 +120,96 @@ class ItemInfo extends Component
 
    render()
     {
-    
-        return(
+        const itemFound= everyShirt.filter((val)=> val.modelNum=== +(this.props.match.params.id))[0]
+        if (itemFound)
+        {
+            return(
         
-            <div className="container setHeight d-flex align-items-center">
-                <div className="row text-center mt-5">
-                    <div className=" offset-2 offset-lg-0 col-8 col-lg-6">
-                    <img src={this.state.item.image} alt={this.state.item.altTxt} className="img-fluid"/>
-                    </div>
-                    <div className="col-lg-6 d-flex align-items-center">
-                            <div className="container text-center">
-                                <div className="row">
-                                    <div className="col-12">
-                                    <p>{this.state.item.description}</p>
+                <div className="container setHeight d-flex align-items-center">
+                    <div className="row text-center mt-5">
+                        <div className=" offset-2 offset-lg-0 col-8 col-lg-6">
+                        <img src={this.state.item.image} alt={this.state.item.altTxt} className="img-fluid"/>
+                        </div>
+                        <div className="col-lg-6 d-flex align-items-center">
+                                <div className="container text-center">
+                                    <div className="row">
+                                        <div className="col-12">
+                                        <p>{this.state.item.description}</p>
+                                        </div>
                                     </div>
-                                </div>
-                                <div className="row">
-                                    <div className="col-6">
-                                    {this.renderSizes(this.state.item.sizesAndPrice)}
+                                    <div className="row">
+                                        <div className="col-6">
+                                        {this.renderSizes(this.state.item.sizesAndPrice)}
+                                        </div>
+                                        <div className="col-6">
+                                        <button onClick={this.infoClick} className="btn btn-secondary mt-2">Price & sizing info <FaEye/></button>
+                                        </div>
                                     </div>
-                                    <div className="col-6">
-                                    <button onClick={this.infoClick} className="btn btn-secondary mt-2">Price & sizing info <FaEye/></button>
-                                    </div>
-                                </div>
-                                <div className="row mt-3">
-                                    <div className="col-6">
-                                    <RenderQtySelect changeFunctionName={this.selectChange}/>
-                                    </div>
-                                    <div className="col-6">
-                                    <button onClick={this.cartClick} className="btn btn-primary mt-2">Add to Cart <FaShoppingCart/></button>
+                                    <div className="row mt-3">
+                                        <div className="col-6">
+                                        <RenderQtySelect changeFunctionName={this.selectChange}/>
+                                        </div>
+                                        <div className="col-6">
+                                        <button onClick={this.cartClick} className="btn btn-primary mt-2">Add to Cart <FaShoppingCart/></button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-
-                {/* size/price info modal */}
-                    <Modal show={this.state.sizeInfoModalOpen} centered>
-                        <Modal.Header>
-                        <Modal.Title>Price & Sizing Info</Modal.Title>
-                        <button className="btn btn-secondary" onClick={()=>this.setState({sizeInfoModalOpen: false})} >x</button>
-                        </Modal.Header>
-                        <Modal.Body className="p-0"> 
-                        <div className="container">
-                         <div className="row">
-                         <div className="col-12 p-0 d-none d-md-block d-lg-block d-xl-block">
-                         <PriceAndSizingTable sizesAndPrice={this.state.item.sizesAndPrice} />
-                         </div>
-                         <div className="col-12 p-0 d-md-none">
-                         <PriceAndSizingTable sizesAndPrice={this.state.item.sizesAndPrice} size="sm"/>
-                         </div> 
-                         </div>   
-                        </div>
-                        </Modal.Body>
-                    </Modal>
-
-                {/* fail/success modal */}
-
-                <Modal show={this.state.modalOpen} centered>
-                        <Modal.Header>
-                        <Modal.Title>{this.state.modalHeader}</Modal.Title>
-                        <button className="btn btn-secondary" onClick={()=>this.setState({modalOpen: false})} >x</button>
-                        </Modal.Header>
-                        <Modal.Body>{this.state.modalMsg}</Modal.Body>
-                        <Modal.Footer>
-                        <Link to="/shoppingcart"><Button id={this.state.modalHideBtnID} variant="secondary">
-                            Cart
-                        </Button></Link>
-                        <Button variant="primary" onClick={()=>this.setState({modalOpen: false})}>
-                        {this.state.modalDismissBtnTxt}
-                        </Button>
-                        </Modal.Footer>
-                    </Modal>
-                    
-             </div>
-            </div>
-            
-        )
+    
+                    {/* size/price info modal */}
+                        <Modal show={this.state.sizeInfoModalOpen} centered>
+                            <Modal.Header>
+                            <Modal.Title>Price & Sizing Info</Modal.Title>
+                            <button className="btn btn-secondary" onClick={()=>this.setState({sizeInfoModalOpen: false})} >x</button>
+                            </Modal.Header>
+                            <Modal.Body className="p-0"> 
+                            <div className="container">
+                             <div className="row">
+                             <div className="col-12 p-0 d-none d-md-block d-lg-block d-xl-block">
+                             <PriceAndSizingTable sizesAndPrice={this.state.item.sizesAndPrice} />
+                             </div>
+                             <div className="col-12 p-0 d-md-none">
+                             <PriceAndSizingTable sizesAndPrice={this.state.item.sizesAndPrice} size="sm"/>
+                             </div> 
+                             </div>   
+                            </div>
+                            </Modal.Body>
+                        </Modal>
+    
+                    {/* fail/success modal */}
+    
+                    <Modal show={this.state.modalOpen} centered>
+                            <Modal.Header>
+                            <Modal.Title>{this.state.modalHeader}</Modal.Title>
+                            <button className="btn btn-secondary" onClick={()=>this.setState({modalOpen: false})} >x</button>
+                            </Modal.Header>
+                            <Modal.Body>{this.state.modalMsg}</Modal.Body>
+                            <Modal.Footer>
+                            <Link to="/shoppingcart"><Button id={this.state.modalHideBtnID} variant="secondary">
+                                Cart
+                            </Button></Link>
+                            <Button variant="primary" onClick={()=>this.setState({modalOpen: false})}>
+                            {this.state.modalDismissBtnTxt}
+                            </Button>
+                            </Modal.Footer>
+                        </Modal>
+                        
+                 </div>
+                </div>
+                
+            )
+        }
+        else 
+        {
+            return(
+                <div className=" container setHeight">
+                <div className="row">
+                    <div className="col text-center mt-3">
+                     <h1 className="oopsDiv">No product with that model number exists</h1>
+                    </div>
+                </div>
+            </div>)
+        }
     }
 }
 
