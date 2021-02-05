@@ -4,7 +4,7 @@ import {Navbar,Nav,Form,FormControl,Button} from "react-bootstrap";
 import {Link} from "react-router-dom"; 
 import {connect} from "react-redux";
 import {setSearchTerms} from "../actions/index.js"
-import {calcNumItemsInCart} from "../shared/functions.js"
+
 
 class Header extends Component
 {
@@ -45,7 +45,7 @@ class Header extends Component
                     <Nav.Link as={Link} to ="/shoppingcart"><FaShoppingCart/> ({this.props.numItemsInCart})</Nav.Link>
                   </Nav>
                   <Nav>
-                  <Nav.Link href="mailto:scott@r-p-services.com" ><FaEnvelope/>Email us at:<br></br>scott@r-p-services.com </Nav.Link>
+                  <Navbar.Brand><a className="color-nav" href="mailto:scott@r-p-services.com" target="_blank"><FaEnvelope/>{" "}Email Us</a></Navbar.Brand>
                   <Form inline>
                    <FormControl onKeyPress={this.handleKeyPress} onChange={this.handleInputChange} type="text" placeholder="Search" className="mr-sm-2" />
                    <Link to="/search"><Button ref={this.searchBtnRef} variant="outline-light">Search <FaSearch/></Button></Link>

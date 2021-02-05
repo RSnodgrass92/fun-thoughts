@@ -1,7 +1,7 @@
 import { Component } from 'react'; 
 import {connect} from "react-redux";
 import {Form, Button} from "react-bootstrap";
-import {FaShoppingCart} from "react-icons/fa"; 
+import {FaShoppingCart, FaEye} from "react-icons/fa"; 
 import {updateBasket, findNumBasket} from "../actions/index.js";
 import PriceAndSizingTable from "../components/priceandsizingtable.js";
 import RenderQtySelect from "../components/qtyselect.js";
@@ -25,11 +25,14 @@ class ItemInfo extends Component
            modalHeader:"",
            modalMsg: "", 
            modalDismissBtnTxt:"", 
-           modalHideBtnID: ""
+           modalHideBtnID: "", 
+           sizeInfoModalOpen: false,
            
        }
        this.cartClick= this.cartClick.bind(this)
+       this.infoClick= this.infoClick.bind(this)
        this.selectChange= this.selectChange.bind(this)
+
    }
 
    renderSizes(sizes)
@@ -64,7 +67,7 @@ class ItemInfo extends Component
     
     if(this.state.selectedSize && this.state.selectedQty)
     {
-        this.setState({modalHeader:"Success!", modalMsg:`${this.state.selectedQty} ${this.state.selectedSize} ${this.state.item.description}, was added to your cart`, modalDismissBtnTxt: "Keep Shopping", modalHideBtnID: "", modalOpen: true})
+       this.setState({modalHeader:"Success!", modalMsg:`${this.state.selectedQty} ${this.state.selectedSize} ${this.state.item.description}, added to your cart`, modalDismissBtnTxt: "Keep Shopping", modalHideBtnID: "", modalOpen: true})
 
        const newArr=[...this.props.itemsInCart]
 
@@ -109,26 +112,58 @@ class ItemInfo extends Component
        
    }
 
-   
+   infoClick()
+   {
+        this.setState({sizeInfoModalOpen: true})
+   }
 
    render()
     {
         console.log(this.state)
         return(
-            <div className="container itemInfoDiv">
+            <div className="container">
                 <div className="row text-center mt-5">
-                    <div className="col-12 col-lg-5">
+                    <div className=" offset-2 offset-lg-0 col-8 col-lg-6">
                     <img src={this.state.item.image} alt={this.state.item.altTxt} className="img-fluid"/>
-                    <p>{this.state.item.description}</p>
-                    {this.renderSizes(this.state.item.sizesAndPrice)}
-                    <div className="col-6">
-                    <RenderQtySelect changeFunctionName={this.selectChange}/>
                     </div>
-                    <button onClick={this.cartClick} className="btn btn-primary">Add to Cart <FaShoppingCart/></button>
-                    
-                    
-                    <div>
-                    <Modal show={this.state.modalOpen} centered>
+                    <div className="col-lg-6 d-flex align-items-center">
+                            <div className="container text-center">
+                                <div className="row">
+                                    <div className="col-12">
+                                    <p>{this.state.item.description}</p>
+                                    </div>
+                                </div>
+                                <div className="row">
+                                    <div className="col-6">
+                                    {this.renderSizes(this.state.item.sizesAndPrice)}
+                                    </div>
+                                    <div className="col-6">
+                                    <button onClick={this.infoClick} className="btn btn-secondary mt-2">Price & sizing info <FaEye/></button>
+                                    </div>
+                                </div>
+                                <div className="row mt-3">
+                                    <div className="col-6">
+                                    <RenderQtySelect changeFunctionName={this.selectChange}/>
+                                    </div>
+                                    <div className="col-6">
+                                    <button onClick={this.cartClick} className="btn btn-primary mt-2">Add to Cart <FaShoppingCart/></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                {/* size/price info modal */}
+                    <Modal show={this.state.sizeInfoModalOpen} centered>
+                        <Modal.Header>
+                        <Modal.Title>Price & Sizing Info</Modal.Title>
+                        <button className="btn btn-secondary" onClick={()=>this.setState({sizeInfoModalOpen: false})} >x</button>
+                        </Modal.Header>
+                        <Modal.Body><PriceAndSizingTable sizesAndPrice={this.state.item.sizesAndPrice}/></Modal.Body>
+                    </Modal>
+
+                {/* fail/success modal */}
+
+                <Modal show={this.state.modalOpen} centered>
                         <Modal.Header>
                         <Modal.Title>{this.state.modalHeader}</Modal.Title>
                         <button className="btn btn-secondary" onClick={()=>this.setState({modalOpen: false})} >x</button>
@@ -143,17 +178,9 @@ class ItemInfo extends Component
                         </Button>
                         </Modal.Footer>
                     </Modal>
-                    </div> 
-            
                     
-                    </div>
-                    <div className="col-12 col-lg-7">
-                        
-                                <PriceAndSizingTable sizesAndPrice={this.state.item.sizesAndPrice}/>                  
-                        </div>
-                </div>
              </div>
-               
+            </div>
             
         )
     }

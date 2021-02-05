@@ -31,7 +31,7 @@ class PriceAndSizingTable extends Component{
   { 
     
     return (
-    <Table striped hover variant="dark" id="sizingTable" size="sm">
+    <Table striped hover variant="dark" id="sizingTable">
       <thead>
         <tr>
           <th>Size</th>
