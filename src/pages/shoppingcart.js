@@ -140,7 +140,7 @@ class ShoppingCart extends Component
         if (this.props.itemsInCart.length)
         {
             return(
-                <div className="container">
+                <div className="container setHeight d-flex align-items-center">
                     <div className="row mt-3">
                         <div className="col-12 col-lg-8">
                         {this.renderItems(this.state.items)}
@@ -170,7 +170,7 @@ class ShoppingCart extends Component
         }
        else {
             return(
-            <div className=" container shopCartDiv">
+            <div className=" container setHeight">
                 <div className="row">
                     <div className="col text-center mt-3">
                      <h1 className="oopsDiv">Your shopping cart is empty</h1>

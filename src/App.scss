@@ -132,6 +132,7 @@ span{
 .oopsDiv{
   font-size: 2em;
   color: $outer-color; 
+  
 }
 
 
@@ -161,4 +162,8 @@ span{
 
 .hide-overflow{
   overflow-x: hidden;
+}
+
+.setHeight{
+  min-height: 80vh;
 }

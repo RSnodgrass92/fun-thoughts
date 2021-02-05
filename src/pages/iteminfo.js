@@ -121,7 +121,7 @@ class ItemInfo extends Component
     {
         console.log(this.state)
         return(
-            <div className="container">
+            <div className="container setHeight d-flex align-items-center">
                 <div className="row text-center mt-5">
                     <div className=" offset-2 offset-lg-0 col-8 col-lg-6">
                     <img src={this.state.item.image} alt={this.state.item.altTxt} className="img-fluid"/>
