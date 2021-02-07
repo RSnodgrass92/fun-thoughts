@@ -18,7 +18,7 @@ $tcard-border-width: 2px;
 input{
   display: inline;
 }
-span{
+.funHighlight{
   color: $best-sellers-color;
 }
 .card{
@@ -149,7 +149,7 @@ span{
 }
 
 .teecard-text-height-control{
-  min-height: 100px;
+  min-height: 150px;
 }
 
 
@@ -166,4 +166,12 @@ span{
 
 .setHeight{
   min-height: 80vh;
+}
+
+.tableFontSize{
+  font-size: .73em;
+}
+
+.imageSizeFix{
+  width: 100%;
 }

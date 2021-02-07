@@ -1,7 +1,7 @@
 import { Component } from 'react'; 
 import {connect} from "react-redux";
 import {Form, Button} from "react-bootstrap";
-import {FaShoppingCart, FaEye} from "react-icons/fa"; 
+import {FaShoppingCart} from "react-icons/fa"; 
 import {updateBasket, findNumBasket} from "../actions/index.js";
 import PriceAndSizingTable from "../components/priceandsizingtable.js";
 import RenderQtySelect from "../components/qtyselect.js";
@@ -125,12 +125,12 @@ class ItemInfo extends Component
         {
             return(
         
-                <div className="container setHeight d-flex align-items-center">
-                    <div className="row text-center mt-5">
-                        <div className=" offset-2 offset-lg-0 col-8 col-lg-6">
-                        <img src={this.state.item.image} alt={this.state.item.altTxt} className="img-fluid"/>
+                <div className="container setHeight">
+                    <div className="row text-center mt-5 ">
+                        <div className=" offset-1 offset-lg-0 col-10 col-lg-6">
+                        <img src={this.state.item.image} alt={this.state.item.altTxt} className="imageSizeFix"/>
                         </div>
-                        <div className="col-lg-6 d-flex align-items-center">
+                        <div className="col-lg-6 d-flex align-self-center">
                                 <div className="container text-center">
                                     <div className="row">
                                         <div className="col-12">
@@ -138,20 +138,24 @@ class ItemInfo extends Component
                                         </div>
                                     </div>
                                     <div className="row">
-                                        <div className="col-6">
+                                        <div className="col-12 col-lg-8 d-flex align-self-center">
                                         {this.renderSizes(this.state.item.sizesAndPrice)}
                                         </div>
-                                        <div className="col-6">
-                                        <button onClick={this.infoClick} className="btn btn-secondary mt-2">Price & sizing info <FaEye/></button>
-                                        </div>
-                                    </div>
-                                    <div className="row mt-3">
-                                        <div className="col-6">
+                                        <div className="col-12 col-lg-4 align-self-center mt-3 mt-lg-0">
                                         <RenderQtySelect changeFunctionName={this.selectChange}/>
                                         </div>
-                                        <div className="col-6">
-                                        <button onClick={this.cartClick} className="btn btn-primary mt-2">Add to Cart <FaShoppingCart/></button>
+                                    </div>
+                                    <div className="row mt-2">
+                                        
+                                        
+                                        <div className="col-12 col-lg-6">
+                                        <button onClick={this.infoClick} className="btn btn-secondary mt-2">Price & Sizing Info</button>
                                         </div>
+
+                                        <div className="col-12 col-lg-6">
+                                        <button onClick={this.cartClick} className="btn btn-primary mt-2 px-">Add to Cart <FaShoppingCart/></button>
+                                        </div>
+
                                     </div>
                                 </div>
                             </div>
@@ -164,14 +168,14 @@ class ItemInfo extends Component
                             </Modal.Header>
                             <Modal.Body className="p-0"> 
                             <div className="container">
-                             <div className="row">
-                             <div className="col-12 p-0 d-none d-md-block d-lg-block d-xl-block">
-                             <PriceAndSizingTable sizesAndPrice={this.state.item.sizesAndPrice} />
-                             </div>
-                             <div className="col-12 p-0 d-md-none">
-                             <PriceAndSizingTable sizesAndPrice={this.state.item.sizesAndPrice} size="sm"/>
-                             </div> 
-                             </div>   
+                                <div className="row">
+                                    <div className="col-12 p-0 d-none d-md-block">
+                                    <PriceAndSizingTable sizesAndPrice={this.state.item.sizesAndPrice} />
+                                    </div>
+                                    <div className="col-12 p-0 d-md-none">
+                                    <PriceAndSizingTable sizesAndPrice={this.state.item.sizesAndPrice} size="sm" />
+                                    </div>
+                                </div>
                             </div>
                             </Modal.Body>
                         </Modal>

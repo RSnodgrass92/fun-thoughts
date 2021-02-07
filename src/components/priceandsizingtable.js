@@ -31,7 +31,7 @@ class PriceAndSizingTable extends Component{
   { 
 
     return (
-    <Table striped hover variant="dark" id="sizingTable" size={this.props.size} responsive>
+    <Table  className="tableFontSize" striped hover variant="dark" id="sizingTable" size={this.props.size} responsive>
       <thead>
         <tr>
           <th>Size</th>

@@ -35,7 +35,7 @@ class Header extends Component
     render(){
     
       return(
-        <div className="container-fluid p-0 test">
+        <div className="container-fluid p-0">
               <Navbar collapseOnSelect expand="lg" className="color-nav" variant="dark">
                 <Navbar.Brand as={Link} to ="/">Fun Thoughts</Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />

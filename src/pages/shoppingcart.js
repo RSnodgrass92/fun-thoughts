@@ -4,7 +4,7 @@ import {FaTrashAlt} from "react-icons/fa";
 import {findNumBasket, updateBasket} from '../actions';
 import {calcSubtotal} from "../shared/functions.js";
 import RenderQtySelect from "../components/qtyselect.js"
-
+import InfoPageBtn from "../components/infopagebtn.js"
 class ShoppingCart extends Component
 {
     constructor(props)
@@ -71,8 +71,8 @@ class ShoppingCart extends Component
         const output=items.map((index)=>{
             return(
                 <div className="row text-center align-items-center mt-2 ">
-                    <img className=" offset-1 offset-md-0 col-10 col-md-6" src={index.image} alt={index.altTxt}/>
-                    <div className="col-6 d-none d-md-block d-lg-block d-xl-block">
+                    <img className=" offset-1 offset-md-0 col-10 col-md-4" src={index.image} alt={index.altTxt}/>
+                    <div className="col-8 d-none d-md-block d-lg-block d-xl-block">
                     <div className="container">
                             <div className="row">
                                 <div className="col">
@@ -90,11 +90,22 @@ class ShoppingCart extends Component
                             </div>
                             
                                 <div className="col-6">
-                                    <button className="btn btn-danger" onClick={()=>
-                                        {
-                                            this.removeItem(index)
-                                        }
-                                        }>Delete <FaTrashAlt /></button>     
+                                    <div className="container">
+                                        <div className="row">
+                                            <div className="col-12">
+                                            <InfoPageBtn item={index}/>
+                                            </div>
+                                        </div>
+                                        <div className="row mt-1">
+                                            <div className="col-12">
+                                                    <button className="btn btn-danger" onClick={()=>
+                                                {
+                                                    this.removeItem(index)
+                                                }
+                                                }>Delete <FaTrashAlt /></button>
+                                            </div>
+                                        </div>
+                                    </div>    
                                 </div>
                             </div>
                             
@@ -119,11 +130,22 @@ class ShoppingCart extends Component
                             </div>
                             
                                 <div className="col-6">
-                                    <button className="btn btn-danger" onClick={()=>
-                                        {
-                                            this.removeItem(index)
-                                        }
-                                        }>Delete <FaTrashAlt /></button>     
+                                <div className="container">
+                                        <div className="row">
+                                            <div className="col-12">
+                                            <InfoPageBtn item={index}/>
+                                            </div>
+                                        </div>
+                                        <div className="row mt-1">
+                                            <div className="col-12">
+                                                    <button className="btn btn-danger" onClick={()=>
+                                                {
+                                                    this.removeItem(index)
+                                                }
+                                                }>Delete <FaTrashAlt /></button>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             
@@ -143,10 +165,10 @@ class ShoppingCart extends Component
             return(
                 <div className="container setHeight d-flex align-items-center">
                     <div className="row mt-3">
-                        <div className="col-12 col-lg-8">
+                        <div className="col-12">
                         {this.renderItems(this.state.items)}
                         </div>
-                        <div className="col-12 col-lg-4">
+                        <div className="col-12">
                             <div className="container text-center">
                                 <div className="row">
                                     <div className="col">

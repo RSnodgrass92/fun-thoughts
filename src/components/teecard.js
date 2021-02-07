@@ -1,8 +1,8 @@
 import { Component } from 'react';
 import {Link} from "react-router-dom";
 import {connect} from "react-redux";
-import {lookUpItem} from "../actions/index.js"
 import {FaInfo} from "react-icons/fa"; 
+import InfoPageBtn from "./infopagebtn"
 
 class Teecard extends Component
 {
@@ -23,8 +23,9 @@ class Teecard extends Component
                     </div>
                     <div className="row">
                         <div className="col-12">
-                        <Link to={`/iteminfo/${this.props.item.modelNum}`}><button onClick={this.handleClick} className="btn btn-primary">More Info <FaInfo size=".7em"/></button></Link>
+                        <InfoPageBtn item={this.props.item}/>
                         </div>
+                        
                     </div>
                 </div>
             </div>
