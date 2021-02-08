@@ -95,13 +95,13 @@ render(){
     <div className={`underline col-12 my-0  ${this.props.shelfTagCSS}`}></div>
     </div>
     <div className="row">
-        <div className={`col-xs-12 col-sm-6 col-md mx-0 mx-md-1 p-0 mt-1 ${this.props.tDivCSS}`}><Teecard item={this.state.spot1}/></div>
+        <div className={`col-xs-12 col-sm-6 col-lg mx-0 mx-lg-1 p-0 mt-1 ${this.props.tDivCSS}`}><Teecard item={this.state.spot1}/></div>
         
-        <div className={`col-xs-12 col-sm-6 col-md mx-0 mx-md-1 p-0 mt-1 ${this.props.tDivCSS}`}><Teecard item={this.state.spot2}/></div>
+        <div className={`col-xs-12 col-sm-6 col-lg mx-0 mx-lg-1 p-0 mt-1 ${this.props.tDivCSS}`}><Teecard item={this.state.spot2}/></div>
 
-        <div className={`col-xs-12 col-sm-6 col-md mx-0 mx-md-1 p-0 mt-1 ${this.props.tDivCSS}`}><Teecard item={this.state.spot3}/></div>
+        <div className={`col-xs-12 col-sm-6 col-lg mx-0 mx-lg-1 p-0 mt-1 ${this.props.tDivCSS}`}><Teecard item={this.state.spot3}/></div>
 
-        <div className={`col-xs-12 col-sm-6 col-md mx-0 mx-md-1 p-0 mt-1 ${this.props.tDivCSS}`}><Teecard item={this.state.spot4}/></div>
+        <div className={`col-xs-12 col-sm-6 col-lg mx-0 mx-lg-1 p-0 mt-1 ${this.props.tDivCSS}`}><Teecard item={this.state.spot4}/></div>
       </div>
     </div>
   )
