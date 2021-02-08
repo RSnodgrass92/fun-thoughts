@@ -3,7 +3,7 @@ import {FaEnvelope,FaShoppingCart, FaUserAlt, FaSearch} from "react-icons/fa";
 import {Navbar,Nav,Form,FormControl,Button,Modal} from "react-bootstrap";
 import {Link} from "react-router-dom"; 
 import {connect} from "react-redux";
-import {setSearchTerms, signIn} from "../actions/index.js"
+import {setSearchTerms, signIn, setUser} from "../actions/index.js"
 import {testCredentials} from "../shared/functions.js"
 
 
@@ -17,7 +17,8 @@ class Header extends Component
       this.state={
 
          signInModalOpen:false,
-         signInModalHeaderMsg: "Sign In"
+         signInModalHeaderMsg: "Sign In", 
+         modalHeadColor: ""
       }
       this.searchBtnRef=React.createRef()
       this.emailRef=React.createRef()
@@ -37,15 +38,16 @@ class Header extends Component
     testInputs()
     {
       
-      console.log(testCredentials(this.emailRef.current.value, this.passwordRef.current.value))
+      
       if (testCredentials(this.emailRef.current.value, this.passwordRef.current.value))
       {
         this.props.signIn()
-        this.setState({signInModalOpen: false})
+        this.setState({signInModalOpen: false, signInModalHeaderMsg: "Sign In", modalHeadColor: ""})
+        this.props.setUser(testCredentials(this.emailRef.current.value, this.passwordRef.current.value))
         this.myAccountRef.current.click();
       }
       else{
-        this.setState({signInModalHeaderMsg: "Login Attempt Failed!"})
+        this.setState({signInModalHeaderMsg: "Login Attempt Failed!", modalHeadColor: "loginFail"})
       }
     }
 
@@ -92,8 +94,8 @@ class Header extends Component
 
               <Modal show={this.state.signInModalOpen} centered>
                             <Modal.Header>
-                            <Modal.Title>{this.state.signInModalHeaderMsg}</Modal.Title>
-                            <button className="btn btn-secondary" onClick={()=>this.setState({signInModalOpen: false})}>x</button>
+                            <Modal.Title className={this.state.modalHeadColor}>{this.state.signInModalHeaderMsg}</Modal.Title>
+                            <button className="btn btn-secondary" onClick={()=>this.setState({signInModalOpen: false, signInModalHeaderMsg: "Sign In", modalHeadColor: ""})}>x</button>
                             </Modal.Header>
                             <Modal.Body className="p-0">
                             <div className="container">
@@ -120,7 +122,7 @@ class Header extends Component
                                    </div> 
                                    <div className="col-12 col-sm-6">
                                     <div>Need an Account?</div>
-                                    <Link to="/signup"><Button  onClick={()=>this.setState({signInModalOpen: false})}variant="success">Sign Up</Button></Link>
+                                    <Link to="/signup"><Button  onClick={()=>this.setState({signInModalOpen: false, signInModalHeaderMsg: "Sign In", modalHeadColor: ""})}variant="success">Sign Up</Button></Link>
                                    </div>
                               </div>
                             </div>
@@ -147,7 +149,8 @@ class Header extends Component
 const mapDispatchToProps= ()=> {
   return {
      setSearchTerms: setSearchTerms,
-     signIn: signIn
+     signIn: signIn,
+     setUser: setUser
   }
  }
 
