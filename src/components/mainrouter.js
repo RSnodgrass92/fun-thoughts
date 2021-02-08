@@ -12,7 +12,7 @@ import Womens from "../pages/womens.js";
 import ForEveryone from "../pages/foreveryone.js";
 import Search from "../pages/search.js";
 import ItemInfo from "../pages/iteminfo.js";
-
+import SignUp from "../pages/signup.js"
 
 import {Route, Switch, Redirect} from 'react-router-dom'; 
 import React from 'react'; 
@@ -35,6 +35,7 @@ function  MainRouter(props)
                 <Route path="/foreveryone" exact component={ForEveryone}/>
                 <Route path="/search" exact component={Search}/>
                 <Route path="/iteminfo/:id" exact render={props=><ItemInfo {...props}/>}/>
+                <Route path="/signup" exact component={SignUp}/>
                 <Redirect to="/"/>
                 </Switch>
                 </React.Fragment>

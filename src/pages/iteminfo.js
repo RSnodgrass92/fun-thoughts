@@ -128,7 +128,18 @@ class ItemInfo extends Component
                 <div className="container setHeight">
                     <div className="row text-center mt-5 ">
                         <div className=" offset-1 offset-lg-0 col-10 col-lg-6">
-                        <img src={this.state.item.image} alt={this.state.item.altTxt} className="imageSizeFix"/>
+                            <div className="container">
+                                <div className="row">
+                                    <div className="col">
+                                    <img src={this.state.item.image} alt={this.state.item.altTxt} className="imageSizeFix"/>
+                                    </div>
+                                </div>
+                                <div className="row">
+                                    <div className="col">
+                                        <div>Model Number: {this.state.item.modelNum}</div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div className="col-lg-6 d-flex align-self-center">
                                 <div className="container text-center">

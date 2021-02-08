@@ -70,9 +70,13 @@ class ShoppingCart extends Component
     {
         const output=items.map((index)=>{
             return(
-                <div className="row text-center align-items-center mt-2 ">
-                    <img className=" offset-1 offset-md-0 col-10 col-md-4" src={index.image} alt={index.altTxt}/>
-                    <div className="col-8 d-none d-md-block d-lg-block d-xl-block">
+                <div className="row text-center align-items-center text-center mt-2 ">
+                    <div className="offset-1 offset-lg-0 col-10 col-lg-5">
+                    
+                    <img className=" col-12" src={index.image} alt={index.altTxt}/>
+                    <p className="col-12">Model Number: {index.modelNum}</p>
+                    </div>
+                    <div className="col-7 d-none d-lg-block d-xl-block">
                     <div className="container">
                             <div className="row">
                                 <div className="col">
@@ -112,7 +116,7 @@ class ShoppingCart extends Component
                         </div>
 
                     </div>
-                    <div className="col-12 d-md-none">
+                    <div className="col-12 d-lg-none">
                         <div className="container">
                             <div className="row">
                                 <div className="col">
@@ -196,7 +200,7 @@ class ShoppingCart extends Component
             <div className=" container setHeight">
                 <div className="row">
                     <div className="col text-center mt-3">
-                     <h1 className="oopsDiv">Your shopping cart is empty</h1>
+                     <h1 className="headLine">Your shopping cart is empty</h1>
                     </div>
                 </div>
             </div>

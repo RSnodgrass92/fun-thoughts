@@ -21,7 +21,10 @@ class Home extends Component
        return (
         <div>
         <div className="container">
-        <h1 className="col mt-2 text-center "><span className="funHighlight">Fun</span>Thoughts</h1>
+        <h1 className="col mt-2 text-center d-none d-md-block "><span className="funHighlight">Fun</span>Thoughts</h1>
+
+        <h1 className="col mt-2 text-center smallTitle d-md-none d-lg-none d-xl-none"><span className="funHighlight">Fun</span>Thoughts</h1>
+
         <Shelf shelftag="Best Sellers" shirtArr={bestsellersArr} path="/bestsellers" shelfTagCSS="bestSellersTag" arrowCSS="bestSellersArrow" tDivCSS="bestSellersTDiv"/>
         <Shelf shelftag="Mens" shirtArr={mensArr} path="/mens"  shelfTagCSS="mensTag" arrowCSS="mensArrow" tDivCSS="mensTDiv"/>
         <Shelf shelftag="Womens" shirtArr={womensArr} path="/womens" shelfTagCSS="womensTag" arrowCSS="womensArrow" tDivCSS="womensTDiv"/>

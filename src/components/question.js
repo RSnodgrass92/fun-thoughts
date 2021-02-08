@@ -8,7 +8,7 @@ function Question ({question, answer})
     <div className="row">
         <div className="col">
             <div className="col">
-                <h2><strong>{`${question}?`}</strong></h2>
+                <h2 className="headLine"><strong>{`${question}?`}</strong></h2>
             </div>
         </div>
     </div>

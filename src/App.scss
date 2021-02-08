@@ -129,7 +129,7 @@ input{
   overflow: auto;
 }
 
-.oopsDiv{
+.headLine{
   font-size: 2em;
   color: $outer-color; 
   
@@ -174,4 +174,12 @@ input{
 
 .imageSizeFix{
   width: 100%;
+}
+
+.hideSearch{
+  visibility: none;
+}
+
+.smallTitle{
+  font-size: 1.8em
 }

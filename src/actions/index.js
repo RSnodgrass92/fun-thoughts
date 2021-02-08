@@ -1,16 +1,11 @@
 import {calcNumItemsInCart} from "../shared/functions.js"
 
 //Action Creators
-export const incrementCount = () => {
-    return{
-        type: "INCREMENT", 
-    }; 
-};
-
-export const decrementCount = () => {
-    return{
-        type: "DECREMENT"
-    }; 
+export const signIn = () =>
+{
+    return {
+        type: "SIGN_IN"
+    }
 }
 
 export const setSearchTerms = (searchterms="") => 

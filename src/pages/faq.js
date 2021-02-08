@@ -15,8 +15,8 @@ class Faq extends Component
         return(
             <div className="container">
                 <div className="row">
-                    <div className="col text-center">
-                        <h1><strong>F.A.Q. </strong></h1>
+                    <div className="col text-center my-3">
+                        <h1 className="headLine"><strong>F.A.Q. </strong></h1>
                     </div>
                 </div>
                 {faqArr.map(val=><Question question={val[0]} answer={val[1]}/>)}

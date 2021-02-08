@@ -1,4 +1,5 @@
 import TeeCard  from "../components/teecard.js"
+import usersArr from "./users.js"
 
 function filterByTags(array,tagsArr=[])
 {
@@ -45,7 +46,7 @@ const regexArray= searchterm.split(" ").map(word=> new RegExp(word,"i"));
 const vals=[];  
 for (let x=0; x<regexArray.length; x++)
 {
- vals.push(array.filter(index=> regexArray[x].test(index.description)))
+ vals.push(array.filter(index=> regexArray[x].test(`${index.description} ${index.modelNum}`)))
 }
 
 // take val[0] and filter out items not found in other arrays
@@ -93,10 +94,18 @@ function display(filteredArr=[],tDivCSSclass="",cardDivCSSclass, cardBodyCSSclas
 
 for(let x=0; x<addon.length;x++)
 {
-  showEnd.push(<div className={`col-xs-12 col-sm-6 col-md-3 mx-0 mx-md-1 p-0 mt-1 ${tDivCSSclass}`}>
+  showEnd.push(<div className={`col-xs-12 col-sm-6 col-md mx-0 mx-md-1 p-0 mt-1 ${tDivCSSclass}`}>
   <TeeCard item={addon[x]}></TeeCard>
   </div>)
 }
+
+for(let x=4-addon.length; x<4; x++)
+{
+    showEnd.push(<div className={`col-xs-12 col-sm-6 col-md mx-0 mx-md-1 p-0 mt-1 hideSearch${tDivCSSclass}`}>
+    
+    </div>)
+}
+
 const output= [show,showEnd]; 
 return output;
 }
@@ -124,6 +133,14 @@ function calcSubtotal(array)
     else return 0;
 }
 
+function testCredentials (email, password)
+{
+    const findMatches = usersArr.filter((user)=> user.email===email && user.password === password)
+    if (findMatches.length)
+    {
+        return findMatches[0]
+    }
+    else return false
+}
 
-
-export {filterByTags,filterBySearch,display,calcNumItemsInCart,calcSubtotal};
+export {filterByTags,filterBySearch,display,calcNumItemsInCart,calcSubtotal,testCredentials};
