@@ -3,7 +3,7 @@ import {FaEnvelope,FaShoppingCart, FaUserAlt, FaSearch} from "react-icons/fa";
 import {Navbar,Nav,Form,FormControl,Button,Modal} from "react-bootstrap";
 import {Link} from "react-router-dom"; 
 import {connect} from "react-redux";
-import {setSearchTerms, signIn, setUser} from "../actions/index.js"
+import {setSearchTerms, signIn, setUser, updateBasket, findNumBasket} from "../actions/index.js"
 import {testCredentials} from "../shared/functions.js"
 
 
@@ -43,7 +43,12 @@ class Header extends Component
       {
         this.props.signIn()
         this.setState({signInModalOpen: false, signInModalHeaderMsg: "Sign In", modalHeadColor: ""})
-        this.props.setUser(testCredentials(this.emailRef.current.value, this.passwordRef.current.value))
+        const user=testCredentials(this.emailRef.current.value, this.passwordRef.current.value)
+        //for security
+        delete user.password
+        this.props.setUser(user)
+        this.props.updateBasket([...this.props.itemsInCart,...user.itemsInCart])
+        this.props.findNumBasket([...this.props.itemsInCart,...user.itemsInCart])
         this.myAccountRef.current.click();
       }
       else{
@@ -150,7 +155,9 @@ const mapDispatchToProps= ()=> {
   return {
      setSearchTerms: setSearchTerms,
      signIn: signIn,
-     setUser: setUser
+     setUser: setUser, 
+     updateBasket: updateBasket,
+     findNumBasket: findNumBasket,
   }
  }
 
