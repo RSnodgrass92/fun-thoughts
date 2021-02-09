@@ -24,6 +24,7 @@ class Header extends Component
       this.emailRef=React.createRef()
       this.passwordRef=React.createRef()
       this.myAccountRef=React.createRef()
+      this.signInRef= React.createRef()
       this.handleInputChange=this.handleInputChange.bind(this); 
       this.handleKeyPress=this.handleKeyPress.bind(this);
       this.signInPrompt= this.signInPrompt.bind(this);
@@ -37,8 +38,6 @@ class Header extends Component
 
     testInputs()
     {
-      
-      
       if (testCredentials(this.emailRef.current.value, this.passwordRef.current.value))
       {
         this.props.signIn()
@@ -67,7 +66,14 @@ class Header extends Component
     {
       if(event.key==="Enter"){
         event.preventDefault();
-        this.searchBtnRef.current.click();
+
+        if(this.state.signInModalOpen)
+        {
+          this.signInRef.current.click();
+        }
+        else{
+          this.searchBtnRef.current.click();
+        }
       }
     }
     
@@ -81,7 +87,7 @@ class Header extends Component
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                   <Nav className="mr-auto">
-                    {this.props.isLogged ?<Nav.Link as={Link} to="/myaccount"><FaUserAlt/> My Account</Nav.Link>:<Nav.Link onClick={this.signInPrompt}><FaUserAlt/> My Account</Nav.Link> }
+                    {this.props.isLogged ?<Nav.Link as={Link} to="/myaccount"><FaUserAlt/>{" "}{this.props.user.name}'s Account</Nav.Link>:<Nav.Link onClick={this.signInPrompt}><FaUserAlt/> My Account</Nav.Link> }
                     <Nav.Link as={Link} to ="/shoppingcart"><FaShoppingCart/> ({this.props.numItemsInCart})</Nav.Link>
                   </Nav>
                   <Nav>
@@ -109,19 +115,19 @@ class Header extends Component
                                   <Form>
                                         <Form.Group controlId="formBasicEmail">
                                           <Form.Label>Email address</Form.Label>
-                                          <Form.Control ref={this.emailRef} type="email" placeholder="Enter email" />
+                                          <Form.Control ref={this.emailRef} onKeyPress={this.handleKeyPress} type="email" placeholder="Enter email" />
                                         </Form.Group>
 
                                         <Form.Group controlId="formBasicPassword">
                                           <Form.Label>Password</Form.Label>
-                                          <Form.Control ref={this.passwordRef} type="password" placeholder="Password" />
+                                          <Form.Control ref={this.passwordRef} onKeyPress={this.handleKeyPress}type="password" placeholder="Password" />
                                         </Form.Group>
                                       </Form>
                                   </div>
                               </div>
                               <div className="row align-items-end text-center">
                                    <div className="col-12 col-sm-6">
-                                   <Button variant="primary" onClick={this.testInputs}>
+                                   <Button variant="primary"  ref={this.signInRef} onClick={this.testInputs}>
                                     Sign In
                                   </Button>
                                    </div> 
@@ -148,6 +154,7 @@ class Header extends Component
      searchTerms: state.searchTerms,
      numItemsInCart: state.numItemsInCart, 
      isLogged: state.isLogged,
+     user: state.user,
     }
 }
 

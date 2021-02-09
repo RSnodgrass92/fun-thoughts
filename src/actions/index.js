@@ -8,6 +8,14 @@ export const signIn = () =>
     }
 }
 
+export const signOut = () =>
+{
+    return{
+        type: "SIGN_OUT"
+    }
+}
+
+
 export const setUser = (user) =>
 {
     return{

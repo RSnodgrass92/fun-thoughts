@@ -3,7 +3,7 @@ const usersArr= []
 class User
 {
     //sizesAndPrice array goes sizeName, width(in), length(in), price
-    constructor(email, password, name="",itemsInCart=[],itemsOnWishList=[])
+    constructor(email, password, name,itemsInCart=[],itemsOnWishList=[])
     {
       
        this.email= email
@@ -21,7 +21,7 @@ class User
 
 }
 
-new User("email","password","joe",[{
+new User("email","password","Joe",[{
     modelNum:15,
     image:"/static/media/shirt15.f1f7c13c.jpg",
     description:"Angry cat on a gray tee",
@@ -29,6 +29,6 @@ new User("email","password","joe",[{
     qty:"3",
     selectedSize:"Large",
     }]).add()
-new User("test","testing").add()
+new User("test","testing","Test").add()
 
 export default usersArr
