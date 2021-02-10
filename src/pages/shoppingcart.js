@@ -3,8 +3,10 @@ import {connect} from 'react-redux';
 import {FaTrashAlt} from "react-icons/fa";
 import {findNumBasket, updateBasket} from '../redux/actions/index.js';
 import {calcSubtotal} from "../shared/functions.js";
-import RenderQtySelect from "../components/qtyselect.js"
 import InfoPageBtn from "../components/infopagebtn.js"
+import {FormQtySelect} from "../components/formComponents"
+
+
 class ShoppingCart extends Component
 {
     constructor(props)
@@ -90,7 +92,7 @@ class ShoppingCart extends Component
                             </div>
                             <div className="row align-items-center mt-3">
                             <div className="col-6">
-                            <RenderQtySelect changeFunctionName={e=> this.setState({qtyToChange: e.target.value, objectToChange: index})}/>
+                            <FormQtySelect onChange={(e=> this.setState({qtyToChange: e.target.value, objectToChange: index}))}/>
                             </div>
                             
                                 <div className="col-6">
@@ -130,7 +132,7 @@ class ShoppingCart extends Component
                             </div>
                             <div className="row align-items-center mt-3">
                             <div className="col-6">
-                            <RenderQtySelect changeFunctionName={e=> this.setState({qtyToChange: e.target.value, objectToChange: index})}/>
+                            <FormQtySelect onChange={(e=> this.setState({qtyToChange: e.target.value, objectToChange: index}))}/>
                             </div>
                             
                                 <div className="col-6">
@@ -163,7 +165,6 @@ class ShoppingCart extends Component
 
     render()
     {
-        
         if (this.props.itemsInCart.length)
         {
             return(

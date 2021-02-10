@@ -1,6 +1,6 @@
 import React ,{ Component } from 'react'; 
 import {Form, Button} from "react-bootstrap"
-import UsStatesList from "../components/usstateslist"
+import {FormFirstName, FormLastName, FormPhoneNum, FormAddress1, FormAddress2, FormCity, FormStateSelect, FormZip, FormEmail, FormPassword } from "../components/formComponents"
 
 class SignUp extends Component
 {
@@ -125,98 +125,76 @@ class SignUp extends Component
                  
                  <Form>
                  <div className="row mt-3">
-                            <div className="col">
-                                <Form.Group controlId="firstName">
-                                <Form.Label>First Name</Form.Label>
-                                <Form.Control onChange={this.handleFirstNameChange} onKeyPress={this.handleKeyPress} type="email" placeholder="First Name" />
-                                </Form.Group>
-                             </div>
 
-                            <div className="col">
-                                <Form.Group controlId="lastName">
-                                <Form.Label>Last Name</Form.Label>
-                                <Form.Control onChange={this.handleLastNameChange} onKeyPress={this.handleKeyPress} type="text" placeholder="Last Name" />
-                                </Form.Group>
-                            </div>                
+                        <div className="col">
+                            <FormFirstName onChange={this.handleFirstNameChange} onKeyPress={this.handleKeyPress}/>
+                        </div>
+
+                        <div className="col">
+                            <FormLastName onChange={this.handleLastNameChange} onKeyPress={this.handleKeyPress}/>
+                        </div>                
                     </div>
 
                     <div className="row">
+
                         <div className="col">
-                            <Form.Group controlId="phoneNum">
-                                <Form.Label>Phone Number</Form.Label>
-                                <Form.Control onChange={this.handlePhoneNumChange} onKeyPress={this.handleKeyPress} placeholder="(555) 555-5555" />
-                            </Form.Group>
+                            <FormPhoneNum onChange={this.handlePhoneNumChange} onKeyPress={this.handleKeyPress} />
                         </div>
+
                     </div> 
 
 
                     <div className="row">
-                                <div className="col">
-                                <Form.Group controlId="address1">
-                                    <Form.Label>Address</Form.Label>
-                                    <Form.Control onChange={this.handleAddress1Change} onKeyPress={this.handleKeyPress} placeholder="Street address, P.O. Box, Company name, etc." />
-                                </Form.Group>
-                                </div>
+
+                        <div className="col">
+                            <FormAddress1 onChange={this.handleAddress1Change} onKeyPress={this.handleKeyPress}/>
+                        </div>
+
                     </div>
                     
                     <div className="row">
+
                         <div className="col">
-                            <Form.Group controlId="address2">
-                                <Form.Label>Address Line 2</Form.Label>
-                                <Form.Control onChange={this.handleAddress2Change} onKeyPress={this.handleKeyPress} placeholder="Apartment, suite, unit, building, floor, etc..." />
-                            </Form.Group>
+                            <FormAddress2 onChange={this.handleAddress2Change} onKeyPress={this.handleKeyPress}/>
                         </div>
+
                     </div>    
 
                     <div className="row">
+
                         <div className="col">
-                            <Form.Group controlId="city">
-                                <Form.Label>City</Form.Label>
-                                <Form.Control onChange={this.handleCityChange} onKeyPress={this.handleKeyPress} placeholder="City" />
-                            </Form.Group>
+                            <FormCity onChange={this.handleCityChange} onKeyPress={this.handleKeyPress}/>
                         </div>
+
                         <div className="col">
-                        <Form.Group className="col">
-                                <Form.Label>State</Form.Label>
-                                <Form.Control as="select" onChange={this.handleStateSelectChange} custom>
-                                <UsStatesList />
-                                </Form.Control>
-                                </Form.Group>
+                            <FormStateSelect onChange={this.handleStateSelectChange}/>
                         </div>
+
                         <div className="col">
-                            <Form.Group controlId="zipPostal">
-                                <Form.Label>Zip / Postal Code</Form.Label>
-                                <Form.Control onChange={this.handleZipChange} onKeyPress={this.handleKeyPress} placeholder="Zip / Postal" />
-                            </Form.Group>
+                            <FormZip onChange={this.handleZipChange} onKeyPress={this.handleKeyPress}/>
                         </div>
+
                     </div>
 
                     <div className="row">
-                            <div className="col">
-                                <Form.Group controlId="email">
-                                <Form.Label>Email address</Form.Label>
-                                <Form.Control onChange={this.handleEmailChange} onKeyPress={this.handleKeyPress} type="email" placeholder="Enter email" />
-                                </Form.Group>
-                             </div>
 
-                            <div className="col">
-                                <Form.Group controlId="password">
-                                <Form.Label>Password</Form.Label>
-                                <Form.Control onChange={this.handlePassChange} onKeyPress={this.handleKeyPress} type="password" placeholder="Password" />
-                                </Form.Group>
-                            </div>                
+                        <div className="col">
+                            <FormEmail onChange={this.handleEmailChange} onKeyPress={this.handleKeyPress}/>
+                        </div>
+
+                        <div className="col">
+                            <FormPassword onChange={this.handlePassChange} onKeyPress={this.handleKeyPress}/>
+                        </div>    
+
                     </div>
 
-                   
-                        
-                        
-                            <div className="col">
-                                <Button onClick={this.registerUser} ref={this.signUpRef} variant="success">Sign Up</Button>
-                            </div>
-                    
-                    
-                        
-                    
+                    <div className="row">
+
+                        <div className="col">
+                            <Button onClick={this.registerUser} ref={this.signUpRef} variant="success">Sign Up</Button>
+                        </div>
+
+                    </div>
                 </Form>
             </div>
         )

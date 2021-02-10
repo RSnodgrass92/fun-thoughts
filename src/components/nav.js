@@ -5,7 +5,7 @@ import {Link} from "react-router-dom";
 import {connect} from "react-redux";
 import {setSearchTerms, signIn, setUser, updateBasket, findNumBasket} from "../redux/actions/index.js"
 import {testCredentials} from "../shared/functions.js"
-
+import {FormEmail, FormPassword} from "./formComponents"
 
 
 
@@ -18,14 +18,17 @@ class Header extends Component
 
          signInModalOpen:false,
          signInModalHeaderMsg: "Sign In", 
-         modalHeadColor: ""
+         modalHeadColor: "", 
+         email:"", 
+         password:"",
       }
       this.searchBtnRef=React.createRef()
-      this.emailRef=React.createRef()
-      this.passwordRef=React.createRef()
       this.myAccountRef=React.createRef()
-      this.signInRef= React.createRef()
-      this.handleInputChange=this.handleInputChange.bind(this); 
+
+      this.handleEmailChange=this.handleEmailChange.bind(this); 
+      this.handlePasswordChange= this.handlePasswordChange.bind(this);
+
+      this.handleSearchChange=this.handleSearchChange.bind(this); 
       this.handleKeyPress=this.handleKeyPress.bind(this);
       this.signInPrompt= this.signInPrompt.bind(this);
       this.testInputs= this.testInputs.bind(this);
@@ -36,13 +39,23 @@ class Header extends Component
       this.setState({signInModalOpen: true})
     }
 
+    handleEmailChange(event)
+    {
+      this.setState({email: event.target.value})
+    }
+
+    handlePasswordChange(event)
+    {
+      this.setState({password: event.target.value})
+    }
+
     testInputs()
     {
-      if (testCredentials(this.emailRef.current.value, this.passwordRef.current.value))
+      if (testCredentials(this.state.email, this.state.password))
       {
         this.props.signIn()
         this.setState({signInModalOpen: false, signInModalHeaderMsg: "Sign In", modalHeadColor: ""})
-        const user=testCredentials(this.emailRef.current.value, this.passwordRef.current.value)
+        const user=testCredentials(this.state.email, this.state.password)
         //for security
         delete user.password
         this.props.setUser(user)
@@ -55,7 +68,7 @@ class Header extends Component
       }
     }
 
-    handleInputChange(event)
+    handleSearchChange(event)
     {
         this.props.setSearchTerms(event.target.value);
         this.setState({value: event.target.value});
@@ -69,7 +82,7 @@ class Header extends Component
 
         if(this.state.signInModalOpen)
         {
-          this.signInRef.current.click();
+          this.testInputs();
         }
         else{
           this.searchBtnRef.current.click();
@@ -79,7 +92,6 @@ class Header extends Component
     
     render(){
 
-      
       return(
         <div className="container-fluid p-0">
               <Navbar collapseOnSelect expand="lg" className="color-nav" variant="dark">
@@ -93,7 +105,7 @@ class Header extends Component
                   <Nav>
                   <Navbar.Brand><a className="color-nav" href="mailto:scott@r-p-services.com" target="_blank"><FaEnvelope/>{" "}Email Us</a></Navbar.Brand>
                   <Form inline>
-                   <FormControl onKeyPress={this.handleKeyPress} onChange={this.handleInputChange} type="text" placeholder="Search" className="mr-sm-2" />
+                   <FormControl onKeyPress={this.handleKeyPress} onChange={this.handleSearchChange} type="text" placeholder="Search" className="mr-sm-2" />
                    <Link to="/search"><Button ref={this.searchBtnRef} variant="outline-light">Search <FaSearch/></Button></Link>
                    <Link to="/myaccount" ref={this.myAccountRef}></Link>
                   </Form>
@@ -113,21 +125,14 @@ class Header extends Component
                               <div className="row">
                                   <div className="col-12">
                                   <Form>
-                                        <Form.Group controlId="formBasicEmail">
-                                          <Form.Label>Email address</Form.Label>
-                                          <Form.Control ref={this.emailRef} onKeyPress={this.handleKeyPress} type="email" placeholder="Enter email" />
-                                        </Form.Group>
-
-                                        <Form.Group controlId="formBasicPassword">
-                                          <Form.Label>Password</Form.Label>
-                                          <Form.Control ref={this.passwordRef} onKeyPress={this.handleKeyPress}type="password" placeholder="Password" />
-                                        </Form.Group>
+                                        <FormEmail onChange={this.handleEmailChange} onKeyPress={this.handleKeyPress}/>
+                                        <FormPassword onChange={this.handlePasswordChange} onKeyPress={this.handleKeyPress}/>
                                       </Form>
                                   </div>
                               </div>
                               <div className="row align-items-end text-center">
                                    <div className="col-12 col-sm-6">
-                                   <Button variant="primary"  ref={this.signInRef} onClick={this.testInputs}>
+                                   <Button variant="primary" onClick={this.testInputs}>
                                     Sign In
                                   </Button>
                                    </div> 

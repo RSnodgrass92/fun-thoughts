@@ -4,11 +4,10 @@ import {Form, Button} from "react-bootstrap";
 import {FaShoppingCart} from "react-icons/fa"; 
 import {updateBasket, findNumBasket} from "../redux/actions/index.js";
 import PriceAndSizingTable from "../components/priceandsizingtable.js";
-import RenderQtySelect from "../components/qtyselect.js";
 import Modal from 'react-bootstrap/Modal';
 import {Link} from 'react-router-dom';
 import everyShirt from "../shared/itemArray.js";
-
+import {FormQtySelect} from "../components/formComponents"
 
 
 class ItemInfo extends Component
@@ -120,7 +119,8 @@ class ItemInfo extends Component
 
    render()
     {
-        const itemFound= everyShirt.filter((val)=> val.modelNum=== +(this.props.match.params.id))[0]
+        const itemFound= everyShirt.filter((val)=> val.modelNum=== +(this.props.match.params.id))[0]; 
+        
         if (itemFound)
         {
             return(
@@ -153,7 +153,7 @@ class ItemInfo extends Component
                                         {this.renderSizes(this.state.item.sizesAndPrice)}
                                         </div>
                                         <div className="col-12 col-lg-4 align-self-center mt-3 mt-lg-0">
-                                        <RenderQtySelect changeFunctionName={this.selectChange}/>
+                                        <FormQtySelect onChange={this.selectChange}/>
                                         </div>
                                     </div>
                                     <div className="row mt-2">

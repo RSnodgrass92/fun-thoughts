@@ -4,6 +4,8 @@ import {Link} from "react-router-dom";
 import {testCredentials} from "../shared/functions"
 import {connect} from "react-redux"
 import {signIn, setUser, updateBasket, findNumBasket}  from "../redux/actions/index.js"
+import {FormEmail, FormPassword} from "./formComponents";
+
 
 class RequestUserLogin extends Component  
 {
@@ -12,11 +14,16 @@ class RequestUserLogin extends Component
         super(props)
         this.state=
             {
-              loginFailVisibility: "d-none"
+              loginFailVisibility: "d-none", 
+              email:"", 
+              password:"",
             }
         
-        this.emailRef= React.createRef()
-        this.passwordRef=React.createRef()
+      
+
+        this.handleEmailChange= this.handleEmailChange.bind(this)
+        this.handlePasswordChange= this.handlePasswordChange.bind(this)
+
         this.handleKeyPress= this.handleKeyPress.bind(this)
         this.testInputs= this.testInputs.bind(this)
     }
@@ -24,10 +31,10 @@ class RequestUserLogin extends Component
     testInputs()
     {
         
-      if (testCredentials(this.emailRef.current.value, this.passwordRef.current.value))
+      if (testCredentials(this.state.email, this.state.password))
       {
         this.props.signIn()
-        const user=testCredentials(this.emailRef.current.value, this.passwordRef.current.value)
+        const user=testCredentials(this.state.email, this.state.password)
         //for security
         delete user.password
         this.props.setUser(user)
@@ -41,6 +48,15 @@ class RequestUserLogin extends Component
       }
     }
     
+    handleEmailChange(event)
+    {
+      this.setState({email: event.target.value})
+    }
+
+    handlePasswordChange(event)
+    {
+      this.setState({password: event.target.value})
+    }
 
     handleKeyPress(event)
     {
@@ -65,15 +81,8 @@ class RequestUserLogin extends Component
             <div className="row text-center">
                 <div className="col col-lg-8 offset-lg-2 mt-4">
                 <Form>
-                    <Form.Group controlId="formBasicEmail">
-                        <Form.Label>Email address</Form.Label>
-                        <Form.Control ref={this.emailRef} onKeyPress={this.handleKeyPress} type="email" placeholder="Enter email" />
-                    </Form.Group>
-
-                    <Form.Group controlId="formBasicPassword">
-                        <Form.Label>Password</Form.Label>
-                        <Form.Control ref={this.passwordRef} onKeyPress={this.handleKeyPress} type="password" placeholder="Password" />
-                    </Form.Group>
+                    <FormEmail onChange={this.handleEmailChange} onKeyPress={this.handleKeyPress}/>
+                    <FormPassword onChange={this.handlePasswordChange} onKeyPress={this.handleKeyPress}/>
                 </Form>
                 </div>
             </div>
