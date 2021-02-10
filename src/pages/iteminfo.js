@@ -2,7 +2,7 @@ import { Component } from 'react';
 import {connect} from "react-redux";
 import {Form, Button} from "react-bootstrap";
 import {FaShoppingCart} from "react-icons/fa"; 
-import {updateBasket, findNumBasket} from "../actions/index.js";
+import {updateBasket, findNumBasket} from "../redux/actions/index.js";
 import PriceAndSizingTable from "../components/priceandsizingtable.js";
 import RenderQtySelect from "../components/qtyselect.js";
 import Modal from 'react-bootstrap/Modal';
@@ -220,7 +220,7 @@ class ItemInfo extends Component
                 <div className=" container setHeight">
                 <div className="row">
                     <div className="col text-center mt-3">
-                     <h1 className="oopsDiv">No product with that model number exists</h1>
+                     <h1 className="oopsDiv headLine">No product with that model number exists</h1>
                     </div>
                 </div>
             </div>)

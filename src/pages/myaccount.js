@@ -1,7 +1,7 @@
 import {Button} from "react-bootstrap";
 import {Component } from 'react'; 
 import {connect} from "react-redux";
-import {setUser, updateBasket, findNumBasket, signOut} from "../actions/index.js"
+import {setUser, updateBasket, findNumBasket, signOut} from "../redux/actions/index.js"
 import RequestUserLogin from "../components/requestuserlogin.js"
 
 class MyAccount extends Component

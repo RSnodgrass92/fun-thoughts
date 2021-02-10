@@ -1,4 +1,4 @@
-import {calcNumItemsInCart} from "../shared/functions.js"
+import {calcNumItemsInCart} from "../../shared/functions.js"
 
 //Action Creators
 export const signIn = () =>

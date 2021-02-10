@@ -1,7 +1,7 @@
 import { Component } from 'react'; 
 import {connect} from 'react-redux';
 import {FaTrashAlt} from "react-icons/fa";
-import {findNumBasket, updateBasket} from '../actions';
+import {findNumBasket, updateBasket} from '../redux/actions/index.js';
 import {calcSubtotal} from "../shared/functions.js";
 import RenderQtySelect from "../components/qtyselect.js"
 import InfoPageBtn from "../components/infopagebtn.js"

@@ -3,7 +3,7 @@ import {FaEnvelope,FaShoppingCart, FaUserAlt, FaSearch} from "react-icons/fa";
 import {Navbar,Nav,Form,FormControl,Button,Modal} from "react-bootstrap";
 import {Link} from "react-router-dom"; 
 import {connect} from "react-redux";
-import {setSearchTerms, signIn, setUser, updateBasket, findNumBasket} from "../actions/index.js"
+import {setSearchTerms, signIn, setUser, updateBasket, findNumBasket} from "../redux/actions/index.js"
 import {testCredentials} from "../shared/functions.js"
 
 

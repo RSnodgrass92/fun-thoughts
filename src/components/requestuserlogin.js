@@ -3,7 +3,7 @@ import {Form, Button} from "react-bootstrap";
 import {Link} from "react-router-dom";
 import {testCredentials} from "../shared/functions"
 import {connect} from "react-redux"
-import {signIn, setUser, updateBasket, findNumBasket}  from "../actions/index.js"
+import {signIn, setUser, updateBasket, findNumBasket}  from "../redux/actions/index.js"
 
 class RequestUserLogin extends Component  
 {
