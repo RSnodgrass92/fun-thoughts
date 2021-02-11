@@ -47,3 +47,4 @@ export const findNumBasket = (array)=>
         num: calcNumItemsInCart(array)
     }
 }
+

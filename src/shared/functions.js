@@ -135,6 +135,7 @@ function calcSubtotal(array)
 
 function testCredentials (email, password)
 {
+    console.log(email,password)
     const findMatches = usersArr.filter((user)=> user.email===email && user.password === password)
     if (findMatches.length)
     {

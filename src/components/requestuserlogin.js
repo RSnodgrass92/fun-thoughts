@@ -30,11 +30,14 @@ class RequestUserLogin extends Component
 
     testInputs()
     {
-        
-      if (testCredentials(this.state.email, this.state.password))
+      const emailToTest= this.state.email
+      const passwordToTest= this.state.password
+      const testResult= testCredentials(emailToTest, passwordToTest)
+
+      if (testResult)
       {
         this.props.signIn()
-        const user=testCredentials(this.state.email, this.state.password)
+        const user=testResult;
         //for security
         delete user.password
         this.props.setUser(user)
