@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import {FaTrashAlt} from "react-icons/fa";
 import {findNumBasket, updateBasket} from '../redux/actions/index.js';
 import {calcSubtotal} from "../shared/functions.js";
-import InfoPageBtn from "../components/infopagebtn.js"
+import InfoPageButtonFull from "../components/infopagebuttonfull.js"
 import {FormQtySelect} from "../components/formComponents"
 
 
@@ -99,7 +99,7 @@ class ShoppingCart extends Component
                                     <div className="container">
                                         <div className="row">
                                             <div className="col-12">
-                                            <InfoPageBtn item={index}/>
+                                            <InfoPageButtonFull item={index}/>
                                             </div>
                                         </div>
                                         <div className="row mt-1">
@@ -139,7 +139,7 @@ class ShoppingCart extends Component
                                 <div className="container">
                                         <div className="row">
                                             <div className="col-12">
-                                            <InfoPageBtn item={index}/>
+                                            <InfoPageButtonFull item={index}/>
                                             </div>
                                         </div>
                                         <div className="row mt-1">

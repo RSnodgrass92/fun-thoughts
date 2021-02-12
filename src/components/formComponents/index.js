@@ -96,7 +96,7 @@ export function FormEmail(props)
     return(
         <Form.Group controlId="email">
         <Form.Label>Email address</Form.Label>
-        <Form.Control  ref={props.ref} onChange={props.onChange} onKeyPress={props.onKeyPress} type="email" placeholder="Enter email" />
+        <Form.Control onChange={props.onChange} onKeyPress={props.onKeyPress} type="email" placeholder="Enter email" />
         </Form.Group>
     )
 }
@@ -106,7 +106,7 @@ export function FormPassword(props)
     return(
         <Form.Group controlId="password">
         <Form.Label>Password</Form.Label>
-        <Form.Control ref={props.ref} onChange={props.onChange} onKeyPress={props.onKeyPress} type="password" placeholder="Password" />
+        <Form.Control onChange={props.onChange} onKeyPress={props.onKeyPress} type="password" placeholder="Password" />
         </Form.Group>
     )
 }
