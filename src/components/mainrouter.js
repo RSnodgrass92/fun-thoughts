@@ -13,7 +13,6 @@ import ForEveryone from "../pages/foreveryone.js";
 import Search from "../pages/search.js";
 import ItemInfo from "../pages/iteminfo.js";
 import SignUp from "../pages/signup.js"
-
 import {Route, Switch, Redirect} from 'react-router-dom'; 
 import React from 'react'; 
 

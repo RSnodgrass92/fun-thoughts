@@ -28,4 +28,6 @@ class Faq extends Component
 }
 
 
+  
 export default Faq;
+

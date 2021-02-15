@@ -5,6 +5,7 @@ import searchReducer from "./search.js";
 import shoppingBasketReducer from "./shoppingbasket.js"
 import basketNumReducer from "./basketnum.js"
 import userReducer from "./user.js"
+import credentialsReducer from "./credentials.js"
 
 const allReducers= combineReducers({
     isLogged: loggedReducer, 
@@ -12,7 +13,7 @@ const allReducers= combineReducers({
     itemsInCart: shoppingBasketReducer, 
     numItemsInCart: basketNumReducer,
     user: userReducer,
-    
+    credentials: credentialsReducer, 
 })
 
 export default allReducers;

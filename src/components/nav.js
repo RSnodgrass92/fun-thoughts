@@ -3,7 +3,7 @@ import {FaEnvelope,FaShoppingCart, FaUserAlt, FaSearch} from "react-icons/fa";
 import {Navbar,Nav,Form,FormControl,Button,Modal} from "react-bootstrap";
 import {Link} from "react-router-dom"; 
 import {connect} from "react-redux";
-import {setSearchTerms, signIn, setUser, updateBasket, findNumBasket} from "../redux/actions/index.js"
+import {setSearchTerms, signIn, setUser, updateBasket, findNumBasket, updateCredentials} from "../redux/actions/index.js"
 import {testCredentials} from "../shared/functions.js"
 import {FormEmail, FormPassword} from "./formComponents"
 
@@ -42,6 +42,7 @@ class Header extends Component
     handleEmailChange(event)
     {
       this.setState({email: event.target.value})
+      
     }
 
     handlePasswordChange(event)
@@ -51,6 +52,8 @@ class Header extends Component
 
     testInputs()
     {
+      
+      console.log(this.props.credentials)
       if (testCredentials(this.state.email, this.state.password))
       {
         this.props.signIn()
@@ -127,7 +130,7 @@ class Header extends Component
                                   <Form>
                                         <FormEmail onChange={this.handleEmailChange} onKeyPress={this.handleKeyPress}/>
                                         <FormPassword onChange={this.handlePasswordChange} onKeyPress={this.handleKeyPress}/>
-                                      </Form>
+                                    </Form>
                                   </div>
                               </div>
                               <div className="row align-items-end text-center">
@@ -160,6 +163,7 @@ class Header extends Component
      numItemsInCart: state.numItemsInCart, 
      isLogged: state.isLogged,
      user: state.user,
+     credentials: state.credentials,
     }
 }
 
@@ -170,8 +174,12 @@ const mapDispatchToProps= ()=> {
      setUser: setUser, 
      updateBasket: updateBasket,
      findNumBasket: findNumBasket,
+     updateCredentials: updateCredentials, 
   }
  }
 
 
   export default connect(mapStateToProps, mapDispatchToProps())(Header); 
+
+
+ 

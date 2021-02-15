@@ -48,3 +48,10 @@ export const findNumBasket = (array)=>
     }
 }
 
+export const updateCredentials = (arr) =>
+{
+    return{
+        type: "UPDATE_CREDENTIALS",
+        arr: arr
+    }
+}
