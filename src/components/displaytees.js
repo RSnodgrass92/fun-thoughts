@@ -1,4 +1,6 @@
 import { Component } from 'react'; 
+import {connect} from "react-redux"
+import {setUser} from "../redux/actions"
 
 class DisplayTees extends Component
 
@@ -6,7 +8,14 @@ class DisplayTees extends Component
     constructor(props)
     {
         super(props)
+        this.handleWishListClick= this.handleWishListClick.bind(this)
     }
+    
+    handleWishListClick()
+    {
+        console.log("test")
+    }
+   
 
     render() {
         
@@ -21,4 +30,19 @@ class DisplayTees extends Component
       }
 };
 
-export default DisplayTees; 
+
+
+const mapStateToProps= (state) => {
+    return {
+     user: state.user,
+  
+    }
+  }
+  
+  const mapDispatchToProps= ()=> {
+    return {
+       setUser: setUser, 
+    }
+   }
+  
+  export default connect(mapStateToProps, mapDispatchToProps())(DisplayTees); 

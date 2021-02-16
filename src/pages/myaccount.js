@@ -3,7 +3,7 @@ import {Component } from 'react';
 import {connect} from "react-redux";
 import {setUser, updateBasket, findNumBasket, signOut} from "../redux/actions/index.js"
 import RequestUserLogin from "../components/requestuserlogin.js"
-import {MyInfoTab} from "../components/profiletabs"
+import {MyInfoTab, MyWishListTab} from "../components/profiletabs"
 
 
 class MyAccount extends Component
@@ -47,7 +47,7 @@ class MyAccount extends Component
                         <Tabs defaultActiveKey="wishlist" id="tab">
 
                             <Tab eventKey="wishlist" title="My Wish List">
-                                <div></div>
+                                <MyWishListTab />
                             </Tab>
                             <Tab eventKey="myinfo" title="My Info">
                                 <MyInfoTab />
@@ -55,7 +55,6 @@ class MyAccount extends Component
                             <Tab eventKey="orderHistory" title="Order History">
                                  <div>f</div>
                             </Tab>
-
                         </Tabs>
                         </div>
                     </div>

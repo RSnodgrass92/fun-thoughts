@@ -60,7 +60,7 @@ return filteredArr;
 }
 
 
-function display(filteredArr=[],tDivCSSclass="",cardDivCSSclass, cardBodyCSSclass){
+function display(filteredArr=[],tDivCSSclass="",cardDivCSSclass, cardBodyCSSclass, wishClick){
 
     //if an empty arr is received return the str "empty" --> in the search component if display()===empty display nothing found
     if (filteredArr.length===0)
@@ -78,16 +78,16 @@ function display(filteredArr=[],tDivCSSclass="",cardDivCSSclass, cardBodyCSSclas
 {
     show.push(<div className="row">
         <div className={`col-xs-12 col-sm-6 col-lg mx-0 mx-lg-1 p-0 mt-1 ${tDivCSSclass}`}>
-        <TeeCard item={firstPart[x]} css={cardDivCSSclass} cardBody={cardBodyCSSclass}></TeeCard>
+        <TeeCard wishClick={()=>this.handleWishListClick(firstPart[x])} item={firstPart[x]} css={cardDivCSSclass} cardBody={cardBodyCSSclass}></TeeCard>
         </div>
         <div className={`col-xs-12 col-sm-6 col-lg mx-0 mx-lg-1 p-0 mt-1 ${tDivCSSclass}`}>
-        <TeeCard item={firstPart[x+1]} css={cardDivCSSclass} cardBody={cardBodyCSSclass} ></TeeCard>
+        <TeeCard wishClick={()=>this.handleWishListClick(firstPart[x+1])} item={firstPart[x+1]} css={cardDivCSSclass} cardBody={cardBodyCSSclass} ></TeeCard>
         </div>
         <div className={`col-xs-12 col-sm-6 col-lg mx-0 mx-lg-1 p-0 mt-1 ${tDivCSSclass}`}>
-        <TeeCard item={firstPart[x+2]} css={cardDivCSSclass} cardBody={cardBodyCSSclass}></TeeCard>
+        <TeeCard wishClick={()=>this.handleWishListClick(firstPart[x+2])} item={firstPart[x+2]} css={cardDivCSSclass} cardBody={cardBodyCSSclass}></TeeCard>
         </div>
         <div className={`col-xs-12 col-sm-6 col-lg mx-0 mx-lg-1 p-0 mt-1 ${tDivCSSclass}`}>
-        <TeeCard item={firstPart[x+3]} css={cardDivCSSclass} cardBody={cardBodyCSSclass}></TeeCard>
+        <TeeCard  wishClick={()=>this.handleWishListClick(firstPart[x+3])} item={firstPart[x+3]} css={cardDivCSSclass} cardBody={cardBodyCSSclass}></TeeCard>
         </div>
         </div> ); 
 }
@@ -95,7 +95,7 @@ function display(filteredArr=[],tDivCSSclass="",cardDivCSSclass, cardBodyCSSclas
 for(let x=0; x<addon.length;x++)
 {
   showEnd.push(<div className={`col-xs-12 col-sm-6 col-lg mx-0 mx-lg-1 p-0 mt-1 ${tDivCSSclass}`}>
-  <TeeCard item={addon[x]}></TeeCard>
+  <TeeCard  wishClick={()=>this.handleWishListClick(addon[x])} item={addon[x]}></TeeCard>
   </div>)
 }
 
