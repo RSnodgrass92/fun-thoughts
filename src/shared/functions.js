@@ -59,58 +59,6 @@ const filteredArr= vals[0];
 return filteredArr; 
 }
 
-
-function display(filteredArr=[],tDivCSSclass="",cardDivCSSclass, cardBodyCSSclass, wishClick){
-
-    //if an empty arr is received return the str "empty" --> in the search component if display()===empty display nothing found
-    if (filteredArr.length===0)
-    {
-        return "empty";
-    }
-    
-    const remainder=filteredArr.length%4;
-    const addon=filteredArr.slice(filteredArr.length-remainder, filteredArr.length); 
-    const firstPart= filteredArr.slice(0,filteredArr.length-addon.length)
-    const show=[];
-    const showEnd=[];
-
-    for(let x=0; x<firstPart.length-1; x+=4)
-{
-    show.push(<div className="row">
-        <div className={`col-xs-12 col-sm-6 col-lg mx-0 mx-lg-1 p-0 mt-1 ${tDivCSSclass}`}>
-        <TeeCard wishClick={()=>this.handleWishListClick(firstPart[x])} item={firstPart[x]} css={cardDivCSSclass} cardBody={cardBodyCSSclass}></TeeCard>
-        </div>
-        <div className={`col-xs-12 col-sm-6 col-lg mx-0 mx-lg-1 p-0 mt-1 ${tDivCSSclass}`}>
-        <TeeCard wishClick={()=>this.handleWishListClick(firstPart[x+1])} item={firstPart[x+1]} css={cardDivCSSclass} cardBody={cardBodyCSSclass} ></TeeCard>
-        </div>
-        <div className={`col-xs-12 col-sm-6 col-lg mx-0 mx-lg-1 p-0 mt-1 ${tDivCSSclass}`}>
-        <TeeCard wishClick={()=>this.handleWishListClick(firstPart[x+2])} item={firstPart[x+2]} css={cardDivCSSclass} cardBody={cardBodyCSSclass}></TeeCard>
-        </div>
-        <div className={`col-xs-12 col-sm-6 col-lg mx-0 mx-lg-1 p-0 mt-1 ${tDivCSSclass}`}>
-        <TeeCard  wishClick={()=>this.handleWishListClick(firstPart[x+3])} item={firstPart[x+3]} css={cardDivCSSclass} cardBody={cardBodyCSSclass}></TeeCard>
-        </div>
-        </div> ); 
-}
-
-for(let x=0; x<addon.length;x++)
-{
-  showEnd.push(<div className={`col-xs-12 col-sm-6 col-lg mx-0 mx-lg-1 p-0 mt-1 ${tDivCSSclass}`}>
-  <TeeCard  wishClick={()=>this.handleWishListClick(addon[x])} item={addon[x]}></TeeCard>
-  </div>)
-}
-
-for(let x=0; x<(4-addon.length); x++)
-{
-    showEnd.push(<div className={`col-xs-12 col-sm-6 col-lg mx-0 mx-lg-1 p-0 mt-1 hideSearch${tDivCSSclass}`}>
-    
-    </div>)
-}
-
-const output= [show,showEnd]; 
-return output;
-}
-
-
 function calcNumItemsInCart(array)
 {
     if (array.length>0)
@@ -144,4 +92,4 @@ function testCredentials (email, password)
     else return false
 }
 
-export {filterByTags,filterBySearch,display,calcNumItemsInCart,calcSubtotal,testCredentials};
+export {filterByTags,filterBySearch,calcNumItemsInCart,calcSubtotal,testCredentials};

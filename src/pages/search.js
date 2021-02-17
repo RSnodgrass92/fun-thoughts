@@ -2,7 +2,7 @@ import { Component } from 'react';
 import DisplayTees from '../components/displaytees.js';
 import {connect} from "react-redux";
 import allItems from "../shared/itemArray.js"
-import {filterBySearch,display} from "../shared/functions.js";
+import {filterBySearch} from "../shared/functions.js";
 
 class Search extends Component
 
@@ -15,9 +15,8 @@ class Search extends Component
     render() {
         const lookFor = this.props.searchTerms
         const filteredArray= filterBySearch(allItems,lookFor)
-        const vals= display(filteredArray,"searchTDiv", undefined, undefined)
 
-        if (vals==="empty")
+        if (filteredArray.length===0)
         {
             return(
                 <div className="container">
@@ -40,7 +39,7 @@ class Search extends Component
                                 <p className="col searchTag text-center mb-0">Search</p>
                                 </div>
                             <div className="searchDiv">
-                            <DisplayTees start={vals[0]} end={vals[1]}/>
+                            <DisplayTees  filteredArr={filteredArray} tDivCSSclass="searchTDiv" />
                             </div>
                             </div>
                     )
