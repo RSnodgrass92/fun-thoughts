@@ -33,6 +33,7 @@ class MyWishListTab extends Component
             phoneNum: this.props.user.phoneNum, 
             state: this.props.user.state,
             zip: this.props.user.zip,
+            orderHist: this.props.user.orderHist,
         }
 
         this.props.setUser(replacementUser)
@@ -47,7 +48,7 @@ class MyWishListTab extends Component
                 {
                    return(
                         
-                        <div className="row text-center align-items-center" key={item.modelNum}>
+                        <div className="row text-center align-items-center mt-3" key={item.modelNum}>
                            
                             <div className="col-md-3 col-10 offset-1 offset-md-0">
                             <img className="imageSizeFix" src={item.image} alt={item.altTxt}/>

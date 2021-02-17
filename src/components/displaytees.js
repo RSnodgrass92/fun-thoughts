@@ -8,15 +8,9 @@ class DisplayTees extends Component
     constructor(props)
     {
         super(props)
-        this.handleWishListClick= this.handleWishListClick.bind(this)
+        
     }
     
-    handleWishListClick()
-    {
-        console.log("test")
-    }
-   
-
     render() {
         
         return (
@@ -46,3 +40,8 @@ const mapStateToProps= (state) => {
    }
   
   export default connect(mapStateToProps, mapDispatchToProps())(DisplayTees); 
+
+
+
+
+  

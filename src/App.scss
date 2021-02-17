@@ -181,6 +181,8 @@ input{
   color: $error-msg-color;
 }
 
+
+
 #hideBtn{
   display: none;
 }
@@ -214,3 +216,18 @@ input{
   font-size: .7em;
 }
 
+ #orderHistTable{
+  font-size: .85em;
+}
+
+.moreInfoBtn{
+
+  &.orderHistoryTabInfoBtnSize{
+    font-size: .8em;
+  }
+  
+}
+
+.table-light{
+  border: solid #454d55 1px;
+}

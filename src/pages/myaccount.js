@@ -3,7 +3,7 @@ import {Component } from 'react';
 import {connect} from "react-redux";
 import {setUser, updateBasket, findNumBasket, signOut} from "../redux/actions/index.js"
 import RequestUserLogin from "../components/requestuserlogin.js"
-import {MyInfoTab, MyWishListTab} from "../components/profiletabs"
+import {MyInfoTab, MyWishListTab, OrderHistoryTab} from "../components/profiletabs"
 
 
 class MyAccount extends Component
@@ -53,7 +53,7 @@ class MyAccount extends Component
                                 <MyInfoTab />
                             </Tab>
                             <Tab eventKey="orderHistory" title="Order History">
-                                 <div>f</div>
+                                 <OrderHistoryTab />
                             </Tab>
                         </Tabs>
                         </div>

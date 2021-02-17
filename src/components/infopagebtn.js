@@ -22,11 +22,9 @@ function MoreInfoBtn(props)
                   delay={{ show: 150, hide: 400 }}
                   overlay={renderTooltip}
                 >
-                  <Button className="btn btn-primary moreInfoBtn"><FaInfo/></Button>
+                  <Button className={`btn btn-primary moreInfoBtn ${props.fontSize}`}><FaInfo/></Button>
                 </OverlayTrigger>
         </Link>
-
-            
     )
 }
 
@@ -34,20 +32,3 @@ export default MoreInfoBtn
 
 
 
-// import {FaHeart} from "react-icons/fa"
-// import {Button, OverlayTrigger, Tooltip} from "react-bootstrap"
-
-
-
-
-// function WishListBtn(props)
-// { 
-//           return (
-           
-          
-                
-//           );
-    
-// }
-
-// export default WishListBtn

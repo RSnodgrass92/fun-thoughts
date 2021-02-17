@@ -102,7 +102,7 @@ class Header extends Component
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                   <Nav className="mr-auto">
-                    {this.props.isLogged ?<Nav.Link as={Link} to="/myaccount"><FaUserAlt/>{" "}{this.props.user.name}'s Account</Nav.Link>:<Nav.Link onClick={this.signInPrompt}><FaUserAlt/> My Account</Nav.Link> }
+                    {this.props.isLogged ?<Nav.Link as={Link} to="/myaccount"><FaUserAlt/>{" "}{this.props.user.firstName}'s Account</Nav.Link>:<Nav.Link onClick={this.signInPrompt}><FaUserAlt/> My Account</Nav.Link> }
                     <Nav.Link as={Link} to ="/shoppingcart"><FaShoppingCart/> ({this.props.numItemsInCart})</Nav.Link>
                   </Nav>
                   <Nav>
