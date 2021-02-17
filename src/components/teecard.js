@@ -3,7 +3,7 @@ import InfoPageBtn from "./infopagebtn";
 import InfoPageButtonFull from "./infopagebuttonfull" 
 import WishListBtn from "./wishlistbtn";
 import  {connect} from "react-redux"
-import {setUser} from "../redux/actions"
+
 
 class Teecard extends Component
 {
