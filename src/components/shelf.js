@@ -1,9 +1,14 @@
 import { Component } from 'react';
 import {FaArrowRight, FaArrowLeft} from "react-icons/fa"; 
-import Teecard  from "./teecard.js"
-import {Link} from "react-router-dom"
-import {setUser} from "../redux/actions"
-import {connect} from "react-redux"
+import Teecard  from "./teecard.js";
+import {Link} from "react-router-dom";
+import {setUser} from "../redux/actions";
+import {connect} from "react-redux";
+import {toast} from "react-toastify";
+import WishToast from "../components/wishtoast";
+
+toast.configure()
+
 
 class Shelf extends Component
 {
@@ -29,6 +34,10 @@ handleWishListClick(item)
         const userToEdit = this.props.user
         userToEdit.itemsOnWishList= [...userToEdit.itemsOnWishList,item]
         this.props.setUser(userToEdit)
+        toast.success(<WishToast  item={item.description} />,{ 
+          position: toast.POSITION.TOP_RIGHT,
+          autoClose: 5000
+       } )
     }
 
 

@@ -1,4 +1,4 @@
-import TeeCard  from "../components/teecard.js"
+
 import usersArr from "./users.js"
 
 function filterByTags(array,tagsArr=[])

@@ -2,7 +2,10 @@ import { Component } from 'react';
 import {connect} from "react-redux"
 import {setUser} from "../redux/actions"
 import TeeCard from "./teecard"
+import {toast} from "react-toastify"
+import WishToast from "../components/wishtoast"
 
+toast.configure()
 
 class DisplayTees extends Component
 
@@ -19,6 +22,10 @@ class DisplayTees extends Component
         const userToEdit = this.props.user
         userToEdit.itemsOnWishList= [...userToEdit.itemsOnWishList,item]
         this.props.setUser(userToEdit)
+        toast.success(<WishToast  item={item.description} />,{ 
+            position: toast.POSITION.TOP_RIGHT,
+            autoClose: 5000
+         } )
     }
 
     display(filteredArr=[], tDivCSSclass="",cardDivCSSclass, cardBodyCSSclass){

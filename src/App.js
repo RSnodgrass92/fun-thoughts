@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import './App.scss';
+import "react-toastify/dist/ReactToastify.css";
 import {BrowserRouter as Router} from 'react-router-dom'
 
 //Components

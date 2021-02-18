@@ -3,13 +3,6 @@ import Shelf from "../components/shelf.js";
 import {filterByTags} from "../shared/functions.js";
 import allItems from "../shared/itemArray.js"
 
-
-//how to sort low high ect
-// const everyLowHigh= everyShirt.sort((a,b)=>a.price-b.price)
-// console.log(everyLowHigh);
-
-
-
 class Home extends Component
 {
    render()
