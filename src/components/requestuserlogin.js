@@ -38,8 +38,6 @@ class RequestUserLogin extends Component
       {
         this.props.signIn()
         const user=testResult;
-        //for security
-        delete user.password
         this.props.setUser(user)
         this.props.updateBasket([...this.props.itemsInCart,...user.itemsInCart])
         this.props.findNumBasket([...this.props.itemsInCart,...user.itemsInCart])

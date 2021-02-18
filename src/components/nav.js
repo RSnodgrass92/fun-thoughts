@@ -59,8 +59,6 @@ class Header extends Component
         this.props.signIn()
         this.setState({signInModalOpen: false, signInModalHeaderMsg: "Sign In", modalHeadColor: ""})
         const user=testCredentials(this.state.email, this.state.password)
-        //for security
-        delete user.password
         this.props.setUser(user)
         this.props.updateBasket([...this.props.itemsInCart,...user.itemsInCart])
         this.props.findNumBasket([...this.props.itemsInCart,...user.itemsInCart])

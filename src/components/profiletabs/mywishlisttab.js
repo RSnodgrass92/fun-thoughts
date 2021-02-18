@@ -34,6 +34,7 @@ class MyWishListTab extends Component
             state: this.props.user.state,
             zip: this.props.user.zip,
             orderHist: this.props.user.orderHist,
+            password:this.props.user.password,
         }
 
         this.props.setUser(replacementUser)

@@ -29,7 +29,7 @@ class User
 
 }
 
-new User("email","password","Joe","Smith", "(555)555-5555", "123 Main Street", "Apartment F", "New York City", "New York", "80678",[{
+new User("example@email.com","password","Joe","Smith", "(555)555-5555", "123 Main Street", "Apartment F", "New York", "NY", "80678",[{
     modelNum:15,
     image:"/static/media/shirt15.f1f7c13c.jpg",
     description:"Angry cat on a gray tee",
