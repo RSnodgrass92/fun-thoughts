@@ -5,11 +5,6 @@ import faqArr from "../shared/faq"
 
 class Faq extends Component
 {
-    constructor(props)
-    {
-        super(props)
-    }
-   
     render()
     {
         return(

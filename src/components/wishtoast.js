@@ -1,4 +1,4 @@
-import {FaCheckCircle,FaShoppingCart, FaUserAlt, FaSearch} from "react-icons/fa"; 
+import {FaCheckCircle} from "react-icons/fa"; 
 
 function WishToast (props)
 {

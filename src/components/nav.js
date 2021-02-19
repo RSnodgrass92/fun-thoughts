@@ -104,7 +104,7 @@ class Header extends Component
                     <Nav.Link as={Link} to ="/shoppingcart"><FaShoppingCart/> ({this.props.numItemsInCart})</Nav.Link>
                   </Nav>
                   <Nav>
-                  <Navbar.Brand><a className="color-nav" href="mailto:scott@r-p-services.com" target="_blank"><FaEnvelope/>{" "}Email Us</a></Navbar.Brand>
+                  <Navbar.Brand><a className="color-nav" href="mailto:scott@r-p-services.com" target="_blank" rel="noreferrer"><FaEnvelope/>{" "}Email Us</a></Navbar.Brand>
                   <Form inline>
                    <FormControl onKeyPress={this.handleKeyPress} onChange={this.handleSearchChange} type="text" placeholder="Search" className="mr-sm-2" />
                    <Link to="/search"><Button ref={this.searchBtnRef} variant="outline-light">Search <FaSearch/></Button></Link>

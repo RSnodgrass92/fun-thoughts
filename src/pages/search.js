@@ -7,11 +7,6 @@ import {filterBySearch} from "../shared/functions.js";
 class Search extends Component
 
 {
-  constructor(props)
-{
-    super(props)
-}
-
     render() {
         const lookFor = this.props.searchTerms
         const filteredArray= filterBySearch(allItems,lookFor)

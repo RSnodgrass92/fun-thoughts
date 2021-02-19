@@ -7,12 +7,7 @@ import  {connect} from "react-redux"
 
 class Teecard extends Component
 {
-    constructor(props)
-    {
-        super(props);
-    
-    }
-  
+
     render()
     {
         return(
@@ -27,7 +22,7 @@ class Teecard extends Component
                     {this.props.isLogged? <div className="col"><InfoPageBtn item={this.props.item}/>
                     </div>:<></>}
                     
-                    {this.props.isLogged? <div className="col"><a onClick={this.props.wishClick}><WishListBtn item={this.props.item}/></a></div>:<></>}
+                    {this.props.isLogged? <div className="col"><span onClick={this.props.wishClick}><WishListBtn item={this.props.item}/></span></div>:<></>}
 
                     
                     {this.props.isLogged? <></>:<div className="col"><InfoPageButtonFull item={this.props.item}/></div>}

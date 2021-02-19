@@ -4,11 +4,6 @@ import OrderHistoryTable from "../orderhisttable"
 
 class OrderHistoryTab extends Component
 {
-    constructor(props)
-    {
-        super(props)
-    }
-
     displayItems(items)
     {
         const output= items.map(item=>

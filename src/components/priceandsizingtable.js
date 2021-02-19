@@ -3,11 +3,6 @@ import Table from "react-bootstrap/table"
 
 class PriceAndSizingTable extends Component{
 
-  constructor(props)
-  {
-    super(props)
-
-  }
   mapPriceSizeArr(sizePriceArr)
   {
     if(sizePriceArr){

@@ -8,10 +8,6 @@ import allItems from "../shared/itemArray.js"
 class BestSellers extends Component
 
 {
-    constructor(props)
-    {
-        super(props)
-    }
 
     render() {
         

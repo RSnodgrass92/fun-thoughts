@@ -11,7 +11,6 @@ function filterByTags(array,tagsArr=[])
  return filteredArr;
 }
 
-
 function filterBySearch(array,searchterm="")
 {
 
@@ -83,7 +82,6 @@ function calcSubtotal(array)
 
 function testCredentials (email, password)
 {
-    console.log(email,password)
     const findMatches = usersArr.filter((user)=> user.email===email && user.password === password)
     if (findMatches.length)
     {
@@ -91,5 +89,7 @@ function testCredentials (email, password)
     }
     else return false
 }
+
+
 
 export {filterByTags,filterBySearch,calcNumItemsInCart,calcSubtotal,testCredentials};
