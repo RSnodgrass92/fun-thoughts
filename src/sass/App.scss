@@ -1,0 +1,53 @@
+@import "colors";
+@import "sizes";
+
+// categories
+@import "./categories/bestsellers";
+@import "./categories/mens"; 
+@import "./categories/womens";
+@import "./categories/foreveryone";
+@import "./categories/search";
+
+//my account tabs
+@import "./myaccounttabs/wishlisttab";
+@import "./myaccounttabs/myinfotab";
+@import "./myaccounttabs/orderhistorytab";
+
+@import "shelf";
+@import "headerfooter";
+@import "teecard"; 
+@import "wishlisttoast";
+@import "tooltip";
+@import "homepagetitle"; 
+@import "loginfail"; 
+@import "headline"; 
+@import "iteminfomodals";
+@import "displaytees";
+@import "heightregulators";
+
+*{
+  margin:0; 
+  padding:0;
+}
+
+.container{
+  margin-top:10px;
+  margin-bottom:10px;
+}
+
+.imageSizeFix{
+  width: 100%;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

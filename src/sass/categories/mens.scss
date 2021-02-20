@@ -1,0 +1,17 @@
+@import "colors";
+@import "sizes"; 
+
+.mensTag{
+    background:$mens-color;
+    color: $main-text-color;
+    border:none;
+    font-size: $shelf-tag-font-size;
+  }
+  
+  .mensArrow{
+    color:$mens-color;
+    font-size: $shelf-arrow-font-size;
+  }
+  .mensTDiv{
+    border: solid $mens-color $tcard-border-width;
+  }

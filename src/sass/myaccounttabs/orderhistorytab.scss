@@ -1,0 +1,27 @@
+@import "colors";
+
+#orderHistTable{
+    font-size: .85em;
+  }
+  
+  .moreInfoBtn{
+  
+    &.orderHistoryTabInfoBtnSize{
+      font-size: .8em;
+    }
+    
+  }
+  
+  .table-light{
+    border: solid $order-hist-table-border-color 2px;
+  }
+
+
+  #tab-tab-orderHistory{
+    color: $outer-color;
+    &.active{
+      color: $main-text-color;
+      background-color: $outer-color;
+    }
+  }
+  

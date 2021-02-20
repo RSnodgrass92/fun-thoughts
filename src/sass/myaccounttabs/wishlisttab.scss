@@ -1,0 +1,9 @@
+@import "colors";
+
+#tab-tab-wishlist{
+    color: $outer-color;
+    &.active{
+      color: $main-text-color;
+      background-color: $outer-color;
+    }
+  }

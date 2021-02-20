@@ -1,0 +1,14 @@
+@import "colors";
+
+.teecard-text-height-control{
+    min-height: 150px;
+  }
+
+.card{
+height: 100%;
+}
+
+.card-body{
+background: $card-base-color;
+color: $main-text-color;
+}

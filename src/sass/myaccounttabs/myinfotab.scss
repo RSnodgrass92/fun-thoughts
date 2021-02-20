@@ -1,0 +1,48 @@
+@import "colors";
+
+#tab-tab-myinfo{
+    color: $outer-color;
+    &.active{
+      color: $main-text-color;
+      background-color: $outer-color;
+    }
+  }
+
+  .myInfoBorder
+{
+  border: solid 2px $outer-color;
+  border-radius: 10px;
+}
+
+.myInfoBoxTypeText
+{
+color: $outer-color; 
+font-size: 1.35em;
+}
+
+.btn-primary{
+&.infoEditButtons
+{
+    color: $main-text-color;
+    background: $outer-color;
+    border: solid 2px $outer-color;
+    &:hover{
+    color: $outer-color;
+    background: $main-text-color;
+    border: solid 2px $outer-color;
+    }
+    
+    &:focus{
+    box-shadow: 0 0 0 .2rem my-info-btn-box-shadow-color;
+    color: $main-text-color;
+    background: $outer-color;
+    border: solid 2px $outer-color;
+    }
+    &:active{
+    color: $outer-color !important;
+    background: $main-text-color !important;
+    border: solid 2px $outer-color !important;
+    box-shadow: 0 0 0 .2rem my-info-btn-box-shadow-color !important;
+    }
+}
+}

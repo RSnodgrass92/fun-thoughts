@@ -1,0 +1,16 @@
+@import "colors";
+@import "sizes";
+
+.forEveryoneTag{
+    background: $everyone-color;
+    color: $main-text-color;
+    border:none;
+    font-size: $shelf-tag-font-size;
+  }
+  .forEveryoneArrow{
+    color:$everyone-color;
+    font-size: $shelf-arrow-font-size;
+  }
+  .forEveryoneTDiv{
+    border: solid $everyone-color $tcard-border-width;
+  }

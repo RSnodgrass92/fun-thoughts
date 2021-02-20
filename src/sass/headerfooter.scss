@@ -1,0 +1,21 @@
+@import "colors";
+
+.color-nav{
+    background-color: $outer-color;
+    color: $main-text-color;
+    &:hover{
+      color:$mens-color;
+      text-decoration: none;
+    }
+  }
+
+  .outer{
+    color: $main-text-color; 
+    background: $outer-color;
+    margin:0; 
+    padding:0; 
+  }
+
+  .hide-overflow{
+    overflow-x: hidden;
+  }

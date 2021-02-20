@@ -1,0 +1,14 @@
+@import "colors";
+@import "sizes";
+
+
+.searchTag{
+    background: $card-base-color;
+    color: $main-text-color;
+    border:none;
+    font-size: $shelf-tag-font-size;
+  }
+
+.searchTDiv{
+    border: solid $card-base-color $tcard-border-width;
+  }

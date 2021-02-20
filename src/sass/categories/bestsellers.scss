@@ -1,0 +1,20 @@
+@import "colors";
+@import "sizes"; 
+
+.bestSellersTag{
+    background:$best-sellers-color; 
+    color: $main-text-color;
+    border:none;
+    font-size: $shelf-tag-font-size;
+  
+  }
+  .bestSellersArrow{
+  
+    color: $best-sellers-color;
+    font-size: $shelf-arrow-font-size;
+  }
+  
+  .bestSellersTDiv{
+    border: solid $best-sellers-color $tcard-border-width;
+  }
+

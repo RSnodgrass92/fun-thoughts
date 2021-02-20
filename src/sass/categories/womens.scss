@@ -1,0 +1,17 @@
+@import "colors";
+@import "sizes";
+
+.womensTag{
+    background: $womens-color;
+    color: $main-text-color;
+    border:none;
+    font-size: $shelf-tag-font-size;
+  }
+  
+  .womensArrow{
+    color: $womens-color;
+    font-size: $shelf-arrow-font-size;
+  }
+  .womensTDiv{
+    border: solid $womens-color $tcard-border-width;
+  }
